@@ -1,0 +1,28 @@
+<template name="create">
+	<div class="page-header">
+		<h1>Create a new event</h1>
+	</div>
+	<div class="new-event-form">
+		<div class="row">
+			<form role="form">
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label for="inputName">Event Name</label>
+						<input name="inputName" id="inputName" class="form-control" placeholder="Event name" required>
+					</div>
+					<div class="form-group">
+						<label for="inputDesc">Description</label>
+						<textarea style="resize:none" name="inputDesc" id="inputDesc" class="form-control" rows="5" required></textarea>
+					</div>
+					<div class="form-group">
+						<label for="inputImg">Banner Image</label>
+						<input name="inputImg" id="inputImg" class="form-control" placeholder="http://www.example.com/example.jpg" required>
+					</div>
+					<div class="submit">
+						<button type="submit" class="btn btn-default pull-right">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</template>

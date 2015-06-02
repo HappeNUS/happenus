@@ -1,0 +1,13 @@
+<template name="subscriptions">
+	<ul>
+		{{#each events}}
+			<li>{{> eventcard}}</li>
+		{{/each}}
+	</ul>
+	<button>Add sub</button>
+	<ul>
+		{{#each subscribed}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+</template>
