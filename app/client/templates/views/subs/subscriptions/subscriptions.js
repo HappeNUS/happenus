@@ -1,24 +1,18 @@
+Template.subscriptions.onCreated(function(){
+	this.subscribe("subData");
+});
+
 Template.subscriptions.helpers({
-	events: function() {
-		// Request server for subscribed events
-		// Get event
-		var allSubs = [];
-		var result = [];
-		for (var user in allSubs) {
-			result.concat(Events.find({userId: user}));
-		}
-		return result;
-	},
-	subscribed: function() {
-		return [];
+	subbed: function() {
+		return Subscriptions.find();
 	}
 });
 
 Template.subscriptions.events({
-	'click button': function(event){
-		console.log(this.userId);
-		console.log(Meteor.user()._id);
-		console.log(Meteor.users.findOne({_id: Meteor.user()._id}));
-		Meteor.call('update.addSub', Fake.word());
+	'click .add-btn': function(event){
+		Meteor.call('sub', Fake.word());
+	},
+	'click .rem-btn': function(event){
+		Meteor.call('unsub', this.subbedId);
 	}
 });

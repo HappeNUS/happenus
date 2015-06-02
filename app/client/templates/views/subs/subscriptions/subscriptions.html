@@ -1,13 +1,10 @@
 <template name="subscriptions">
+	<button class="add-btn">Add sub</button>
 	<ul>
-		{{#each events}}
-			<li>{{> eventcard}}</li>
-		{{/each}}
-	</ul>
-	<button>Add sub</button>
-	<ul>
-		{{#each subscribed}}
-			<li>{{this}}</li>
+		{{#each subbed}}
+			<li>Subber {{subberId}}</li>
+			<li>Subbed {{subbedId}}</li>
+			<button class="rem-btn">Un-sub</button>
 		{{/each}}
 	</ul>
 </template>
