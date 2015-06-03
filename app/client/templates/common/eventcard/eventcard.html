@@ -11,6 +11,11 @@
        		<div class="card-content">
           	<p>{{desc}}</p>
          	</div>
+          <div class="card-action">
+            {{#with user}}
+              <a href="{{pathFor route='profile'}}">Event by {{username}}</a>
+            {{/with}}
+          </div>
         </div>
     	</div>
 		</div>
