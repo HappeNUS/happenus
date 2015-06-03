@@ -1,0 +1,10 @@
+<template name="profile">
+	<h1>{{userData.username}}</h1>
+	{{#unless isSelf}}
+		{{#if isSubscribed}}
+			<button class="btn unsub">Un-subscribe</button>
+		{{else}}
+			<button class="btn sub">Subscribe</button>
+		{{/if}}
+	{{/unless}}
+</template>

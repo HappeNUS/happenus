@@ -14,6 +14,10 @@ Router.route('/subs', {
 	name: 'subs'
 });
 
+Router.route('/profile/:_id', {
+	name: 'profile'
+});
+
 Router.plugin('ensureSignedIn', {
 	except: []
 });
