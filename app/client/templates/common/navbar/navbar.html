@@ -19,7 +19,9 @@
             <li><p class="navbar-text">Signing in...</p></li>
           {{else}}
             {{#if currentUser}}
-              <li><a href="#">{{currentUser.username}}</a></li>
+              {{#with currentUser}}
+                <li><a href="{{pathFor route='profile'}}">{{username}}</a></li>
+              {{/with}}
             {{/if}}
           {{/if}}
           <li class="nav-button">{{> atNavButton}}</li>
