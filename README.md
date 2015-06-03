@@ -23,28 +23,28 @@
     <li>We have created a functional prototype on Meteor: http://happenus.meteor.com/</li>
 </ul>
 <h2>Planned Features</h2>
-<p>We have divided users of HappeNUS into 3 user-types, participants, organisers, and moderators. Below are some of the features we have planned for each of the user-types. Features underlined are those that we aim to complete by the next milestone.</p>
+<p>We have divided users of HappeNUS into 3 user-types, participants, organisers, and moderators. Below are some of the features we have planned for each of the user-types. Features <u>underlined</u> are those that we aim to complete by the next milestone.</p>
 
 <p><b>ALL</b></p>
 <ul>
-    <li>All users have to be able to create an account and that account has to be linked to an official NUS email so that we can prevent spam and limit the user-base to NUS students.</li>
+    <li><u>All users have to be able to create an account</u> and that account has to be linked to an official NUS email so that we can prevent spam and limit the user-base to NUS students.</li>
     <li>All users should also be able to delete their accounts.</li>
-    <li>All users should be able to be both participants and organisers. So anyone can participate in and organise events.</li>
+    <li><u>All users should be able to be both participants and organisers. So anyone can participate in and organise events.</u></li>
 </ul>
 
 <p><b>PARTICIPANTS</b></p>
 <ul>
-    <li>Users should be able to view events and be able to sort them by their desired order.</li>
-    <li>Users should be able to Like/RSVP to events so they will get updates when any details of the events have changed .</li>
+    <li><u>Users should be able to view events and be able to sort them by their desired order.</u></li>
+    <li><u>Users should be able to Like/RSVP to events so they will get updates when any details of the events have changed.</u></li>
     <li>Users should also be able to search for events by keyword/hashtags.</li>
-    <li>Users should be able to subscribe to an organiser to be updated on new events posted by the organiser.</li>
-    <li>A feed of all events posted by organisers a user is subscribed to should be available.</li>
+    <li><u>Users should be able to subscribe to an organiser to be updated on new events posted by the organiser.</u></li>
+    <li><u>A feed of all events posted by organisers a user is subscribed to should be available.</u></li>
     <li>A share button should be available for users to share events on Facebook/Twitter/G+.</li>
 </ul>
 
 <p><b>ORGANISERS</b></p>
 <ul>
-    <li>Crucially, users must be able to create, edit and delete events (CRUD).</li>
+    <li><u>Crucially, users must be able to create, edit and delete events (CRUD).</u></li>
     <li>Ideally, data can be tracked for each event for organisers to gauge engagement. Statistics such as likes/views over a period of time charted in graphs and exportable as CSVs can be provided.</li>
 </ul>
 
@@ -70,4 +70,6 @@
 </ul>
 
 <p><b>For libraries to be used in meteor:</b></p>
+<ul>
     <li>Atmosphere https://atmospherejs.com/</li>
+</ul>
