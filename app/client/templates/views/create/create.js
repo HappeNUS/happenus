@@ -4,13 +4,6 @@ Template.create.events({
 		var descVal = event.target.inputDesc.value.trim();
 		var imgVal = event.target.inputImg.value.trim();
 
-		Events.insert({
-			_id: new Meteor.Collection.ObjectID(),
-			userId: Meteor.userId(),
-			name: nameVal,
-			desc: descVal,
-			img: imgVal,
-			date: new Date()
-		});
+		Meteor.call('createEvent', nameVal, descVal, imgVal);
 	}
 });
