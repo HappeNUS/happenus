@@ -1,6 +1,7 @@
 Template.profile.onCreated(function() {
 	this.subscribe("allUserData");
 	this.subscribe("subData");
+	this.subscribe("userEventData", Router.current().params._id);
 });
 
 Template.profile.helpers({
@@ -9,12 +10,16 @@ Template.profile.helpers({
 	},
 
 	isSubscribed: function(){
-		return Subscriptions.findOne({subbedId: Router.current().params._id});
+		return Subs.findOne({subbedId: Router.current().params._id});
 	},
 
 	userData: function(){
 		var userId = Router.current().params._id;
 		return Meteor.users.findOne({_id: userId});
+	},
+
+	userEvents: function(){
+		return Events.find();
 	}
 });
 
