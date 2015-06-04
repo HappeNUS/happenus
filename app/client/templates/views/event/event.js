@@ -3,6 +3,8 @@ function getCurrentEvent() {
 }
 
 Template.event.onCreated(function(){
+	SidebarController.clearSidebar();
+	
 	var userId = getCurrentEvent().userId;
 	this.subscribe("specificUserData", userId);
 });
