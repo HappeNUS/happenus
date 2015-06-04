@@ -12,6 +12,9 @@
 .card span.card-title {
   width: 100%;
   background: rgba(0, 0, 0, 0.4);
+}
+
+.card .card-title-link {
   color: #fff;
   font-size: 24px;
   font-weight: 300;
