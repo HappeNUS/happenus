@@ -19,7 +19,10 @@ Router.route('/profile/:_id', {
 });
 
 Router.route('/event/:_id', {
-	name: 'event'
+	name: 'event',
+	waitOn: function(){
+		return Meteor.subscribe("specificEventData", this.params._id);
+	}
 });
 
 Router.plugin('ensureSignedIn', {
