@@ -1,7 +1,35 @@
 <template name="event">
 	{{#with currentEvent}}
-		<div class="page-header">
-			<h1>{{name}}</h1>
-		</div>
-	{{/with}}
+		<div class="container">
+	        <!-- Portfolio Item Heading -->
+	        <div class="row">
+	            <div class="col-lg-12">
+	                <h1 class="page-header">{{name}}
+	                	{{#with userData}}
+	                    	<small>by <a href="{{pathFor route='profile'}}">{{username}}</a></small>
+	                    {{/with}}
+	                </h1>
+	            </div>
+	        </div>
+	        <!-- /.row -->
+	        <!-- Portfolio Item Row -->
+	        <div class="row">
+
+	            <div class="col-md-8">
+	                <img class="img-responsive" src="{{img}}" alt="">
+	            </div>
+
+	            <div class="col-md-4">
+	                <h3>Description</h3>
+	                <p>{{desc}}</p>
+	                <h3>Details</h3>
+	                <ul>
+	                    <li>Event created on {{moFormat dateCreated 'D MMMM[,] YYYY [at] h:mm a'}}</li>
+	                </ul>
+	            </div>
+
+	        </div>
+	        <!-- /.row -->
+	    </div>
+    {{/with}}
 </template>
