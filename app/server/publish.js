@@ -1,5 +1,9 @@
 Meteor.publish("allUserData", function () {
 	return Meteor.users.find();
+});	
+
+Meteor.publish("specificUserData", function(userId) {
+	return Meteor.users.find({_id: userId});
 });
 
 Meteor.publish("subData", function () {
