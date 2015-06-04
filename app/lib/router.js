@@ -18,6 +18,10 @@ Router.route('/profile/:_id', {
 	name: 'profile'
 });
 
+Router.route('/event/:_id', {
+	name: 'event'
+});
+
 Router.plugin('ensureSignedIn', {
 	except: []
 });
