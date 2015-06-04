@@ -1,0 +1,10 @@
+.header-item,
+.header-item h1,
+.header-item button {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.header-item button {
+	margin-left: 20px;
+}

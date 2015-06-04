@@ -1,13 +1,17 @@
 <template name="profile">
 	<div class="page-header">
-		<h1>{{userData.username}}</h1>
-		{{#unless isSelf}}
-			{{#if isSubscribed}}
-				<button class="btn unsub">Un-subscribe</button>
-			{{else}}
-				<button class="btn sub">Subscribe</button>
-			{{/if}}
-		{{/unless}}
+		<div class="header-item">
+			<h1>{{userData.username}}</h1>
+		</div>
+		<div class="header-item">
+			{{#unless isSelf}}
+				{{#if isSubscribed}}
+					<button class="btn unsub">Un-subscribe</button>
+				{{else}}
+					<button class="btn sub">Subscribe</button>
+				{{/if}}
+			{{/unless}}
+		</div>
 	</div>
 	<div class="events">
 		{{#each userEvents}}
