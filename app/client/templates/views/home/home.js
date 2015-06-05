@@ -1,4 +1,12 @@
 Template.home.onCreated(function(){
-	var featuredItem = $('#featured');
-	SidebarController.selectSidebar(featuredItem);
+	SidebarController.selectSidebar('#featured');
+});
+
+Template.home.helpers({
+	pageheaderinfo: function(){
+		return {
+			title: 'Featured events',
+			currentRoute: 'home'
+		};
+	}
 });

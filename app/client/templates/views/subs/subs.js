@@ -1,4 +1,12 @@
 Template.subs.onCreated(function(){
-	var subsItem = $('#subs');
-	SidebarController.selectSidebar(subsItem);
+	SidebarController.selectSidebar('#subs');
+});
+
+Template.subs.helpers({
+	pageheaderinfo: function(){
+		return {
+			title: 'Subscriptions',
+			currentRoute: 'subs'
+		};
+	}
 });
