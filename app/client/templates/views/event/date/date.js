@@ -1,12 +1,12 @@
 Template.date.onRendered(function(){
-	var alert = this.$('.alert');
+	var alert = this.$('.list-group-item');
 	var now = new Date ();
 
 	if (this.data.to < now) {
-		alert.addClass("alert-warning");
+		alert.addClass("list-group-item-warning");
 	} else if (this.data.from < now && now < this.data.to) {
-		alert.addClass("alert-success");
+		alert.addClass("list-group-item-success");
 	} else {
-		alert.addClass("alert-info");
+		alert.addClass("list-group-item-info");
 	}
 });
