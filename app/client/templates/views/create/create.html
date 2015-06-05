@@ -5,19 +5,66 @@
 	<div class="new-event-form">
 		<div class="row">
 			<form role="form">
-				<div class="col-lg-6">
-					<div class="form-group">
-						<label for="inputName">Event Name</label>
-						<input name="inputName" id="inputName" class="form-control" placeholder="Event name" required>
+				<div class="col-md-7">
+					<label for="inputName">Event Name</label>
+					<div class="container">
+						<div class="row">
+							<div class="form-group col-md-7">
+								<div class="form-group">
+									<input name="inputName" id="inputName" class="form-control" placeholder="Event name" required>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="inputDesc">Description</label>
-						<textarea style="resize:none" name="inputDesc" id="inputDesc" class="form-control" rows="5" required></textarea>
+					<label for="inputDesc">Description</label>
+					<div class="container">
+						<div class="row">
+							<div class="form-group col-md-7">
+								<div class="form-group">
+									<textarea style="resize:none" name="inputDesc" id="inputDesc" class="form-control" rows="5" required></textarea>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="inputImg">Banner Image</label>
-						<input name="inputImg" id="inputImg" class="form-control" placeholder="http://www.example.com/example.jpg" required>
+					<label for="inputImg">Banner Image</label>
+					<div class="container">
+						<div class="row">
+							<div class="form-group col-md-7">
+								<div class="form-group">
+									<input name="inputImg" id="inputImg" class="form-control" placeholder="http://www.example.com/example.jpg" required>
+								</div>
+							</div>
+						</div>
 					</div>
+					<label for="datepickers">Event dates</label>
+					{{#each dates}}
+						{{> eventdates}}
+					{{/each}}
+					<div class="container">
+						<div class="row">
+							<form id="datepickers">
+								<div class="form-group col-md-3">
+						            <div class='input-group date' id='fromDateTimePicker'>
+						                <input type='text' class="form-control" placeholder="From"/>
+						                <span class="input-group-addon">
+						                    <span class="glyphicon glyphicon-calendar"></span>
+						                </span>
+						            </div>
+					            </div>
+					            <div class="form-group col-md-3">
+						            <div class='input-group date' id='toDateTimePicker'>
+						                <input type='text' class="form-control" placeholder="To"/>
+						                <span class="input-group-addon">
+						                    <span class="glyphicon glyphicon-calendar"></span>
+						                </span>
+						            </div>
+					            </div>
+					            <div class="form-group col-md-1">
+					            	<button class="btn glyphicon glyphicon-plus add-date-btn" type="button"></button>
+					            </div>
+					        </form>
+			        	</div>
+		        	</div>
 					<div class="submit">
 						<button type="submit" class="btn btn-default pull-right">Submit</button>
 					</div>
