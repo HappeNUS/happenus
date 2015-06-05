@@ -24,8 +24,7 @@ Template.create.onRendered(function(){
 });
 
 Template.create.onCreated(function(){
-	var createItem = $('#create');
-	SidebarController.selectSidebar(createItem);
+	SidebarController.selectSidebar('#create');
 
 	Session.set("dates", []);
 });
