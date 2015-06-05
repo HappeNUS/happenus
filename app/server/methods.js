@@ -20,13 +20,14 @@ Meteor.methods({
 			subbedId: subbedUser
 		});
 	},
-	'createEvent': function(name, desc, img){
+	'createEvent': function(name, desc, img, eventDates){
 		Events.insert({
 			_id: new Meteor.Collection.ObjectID()._str,
 			userId: Meteor.userId(),
 			name: name,
 			desc: desc,
 			img: img,
+			eventDates: eventDates,
 			dateCreated: new Date()
 		});
 	}
