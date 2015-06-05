@@ -4,6 +4,7 @@ Template.featured.onCreated(function(){
 
 Template.featured.helpers({
 	events: function() {
-		return Events.find();
+		var sort = Router.current().getParams().query.sort_by;
+		return Events.find(EventSorter.filterPast, EventSorter[sort]);
 	}
 });

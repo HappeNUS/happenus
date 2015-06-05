@@ -1,10 +1,12 @@
 Template.subscriptions.onCreated(function(){
-	this.subscribe("subEventData");
-	this.subscribe("subData");
+	var instance = this;
+	instance.subscribe("subData");
+	instance.subscribe("subEventData");
 });
 
 Template.subscriptions.helpers({
 	subEvents: function() {
-		return Events.find();
+		var sort = Router.current().getParams().query.sort_by;
+		return Events.find(EventSorter.filterPast, EventSorter[sort]);
 	}
 });
