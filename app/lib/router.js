@@ -3,7 +3,8 @@ Router.configure({
 });
 
 Router.route('/', {
-	name: 'home'
+	name: 'home',
+	query: 'sort_by=popularity'
 });
 
 Router.route('/create', {
@@ -11,7 +12,8 @@ Router.route('/create', {
 });
 
 Router.route('/subs', {
-	name: 'subs'
+	name: 'subs',
+	query: 'sort_by=latest'
 });
 
 Router.route('/profile/:_id', {
