@@ -2,6 +2,10 @@
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
+.card:hover {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.16), 0 5px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
 .card {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -17,8 +21,8 @@
 .card .card-title-link {
   color: #fff;
   font-size: 24px;
-  font-weight: 300;
-  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Roboto Slab', serif;
 }
 
 .card .card-image {
@@ -47,6 +51,7 @@
 .card .card-content p {
   margin: 0;
   color: inherit;
+  font-family: 'Roboto', sans-serif;
 }
 .card .card-content span.card-title {
   line-height: 48px;
@@ -57,9 +62,9 @@
 }
 .card .card-action a {
   color: #ffab40;
+  font-family: 'Roboto Condensed', sans-serif;
   margin-right: 16px;
   transition: color 0.3s ease;
-  text-transform: uppercase;
 }
 .card .card-action a:hover {
   color: #ffd8a6;
