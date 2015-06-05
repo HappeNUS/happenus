@@ -14,5 +14,5 @@ accounts-password
 useraccounts:bootstrap
 msavin:mongol
 lbee:moment-helpers
-okgrow:iron-router-autoscroll
 tsega:bootstrap3-datetimepicker
+okgrow:iron-router-autoscroll
