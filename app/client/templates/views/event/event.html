@@ -22,7 +22,11 @@
 	            <div class="col-md-4">
 	                <h3>Description</h3>
 	                <p>{{desc}}</p>
-	                <h3>Details</h3>
+	                <h3>Dates</h3>
+		                {{#each eventDates}}
+		                	{{> date}}
+		                {{/each}}
+	                <h3>Additional details</h3>
 	                <ul>
 	                    <li>Event created on {{moFormat dateCreated 'D MMMM[,] YYYY [at] h:mm a'}}</li>
 	                </ul>
