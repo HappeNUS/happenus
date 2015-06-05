@@ -1,7 +1,7 @@
 SidebarController = {
-	selectSidebar: function (item) {
+	selectSidebar: function (selector) {
 		this.clearSidebar();
-		item.addClass('active');
+		$(selector).addClass('active');
 	},
 	clearSidebar: function  () {
 		$('.nav-sidebar').children().removeClass('active');
