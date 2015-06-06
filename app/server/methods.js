@@ -28,7 +28,21 @@ Meteor.methods({
 			desc: desc,
 			img: img,
 			eventDates: eventDates,
-			dateCreated: new Date()
+			dateCreated: new Date(),
+			likeCount: 0,
+			likes: []
 		});
+	},
+	'likeEvent': function (eventId) {
+		var userId = this.userId;
+		if (userId) {
+			Events.update({_id: eventId}, {$addToSet: {likes: userId}, $inc: {likeCount: 1}});
+		}
+	},
+	'unlikeEvent': function(eventId) {
+		var userId = this.userId;
+		if (userId) {
+			Events.update({_id: eventId}, {$pullAll: {likes: [userId]}, $inc: {likeCount: -1}});
+		}
 	}
 });
