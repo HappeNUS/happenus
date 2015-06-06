@@ -11,5 +11,5 @@ EventSorter = {
 	}},
 	'latest': {sort:{dateCreated:-1}},
 	'soonest': {sort:{'eventDates.from': 1}},
-	'popularity': {}
+	'popularity': {sort:{likeCount: -1}}
 };
