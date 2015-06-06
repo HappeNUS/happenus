@@ -4,7 +4,12 @@ Router.configure({
 
 Router.route('/', {
 	name: 'home',
-	query: 'sort_by=popularity'
+	action: function () {
+		if (!this.params.query.sort_by) {
+			this.params.query.sort_by = 'popularity';
+		}
+		this.render();
+	}
 });
 
 Router.route('/create', {
@@ -13,7 +18,12 @@ Router.route('/create', {
 
 Router.route('/subs', {
 	name: 'subs',
-	query: 'sort_by=latest'
+	action: function () {
+		if (!this.params.query.sort_by) {
+			this.params.query.sort_by = 'latest';
+		}
+		this.render();
+	}
 });
 
 Router.route('/profile/:_id', {
