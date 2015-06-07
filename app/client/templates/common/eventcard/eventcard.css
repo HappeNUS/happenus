@@ -36,7 +36,6 @@
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 .card span.card-title .user:hover {
   color: #ffd8a6;
 }
@@ -51,13 +50,31 @@
   position: relative;
   z-index: -1;
 }
-
 .card .card-image span.card-title {
   position: absolute;
   bottom: 0;
   left: 0;
   padding: 16px;
 }
+
+.card .card-image span.card-tag-box {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 8px;
+  background-color: #fff;
+  color: #ffab40;
+  font-weight: 700;
+  font-family: 'Roboto Slab', serif;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card .card-image span.card-tag-box:hover {
+  color: #ffd8a6;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
 .card .card-content {
   padding: 16px;
   border-radius: 0 0 2px 2px;

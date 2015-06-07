@@ -13,6 +13,11 @@
                   <a class="user" href="{{pathFor route='profile'}}">by {{username}}</a>
                 {{/with}}
               </span>
+              {{#if hasTags}}
+                <span class="card-tag-box">
+                  #placeholder
+                </span>
+              {{/if}}
           	</div>    
          		<div class="card-content">
             	<p>{{desc}}</p>
