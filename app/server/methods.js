@@ -20,7 +20,7 @@ Meteor.methods({
 			subbedId: subbedUser
 		});
 	},
-	'createEvent': function(name, desc, img, eventDates){
+	'createEvent': function(name, desc, img, eventDates, tags){
 		Events.insert({
 			_id: new Meteor.Collection.ObjectID()._str,
 			userId: Meteor.userId(),
@@ -30,7 +30,8 @@ Meteor.methods({
 			eventDates: eventDates,
 			dateCreated: new Date(),
 			likeCount: 0,
-			likes: []
+			likes: [],
+			tags: tags
 		});
 	},
 	'likeEvent': function (eventId) {
