@@ -1,0 +1,10 @@
+.tags-box {
+	padding: 0 0;
+	margin: 0 0;
+}
+
+.tags-box li {
+	display: inline-block;
+	list-style: none;
+	margin-left: 5px;
+}

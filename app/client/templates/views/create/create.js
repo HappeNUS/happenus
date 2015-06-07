@@ -7,11 +7,13 @@ Template.create.onRendered(function(){
 		format: 'DD/MM/YYYY h:mm A',
 		sideBySide: true
 	});
+	$('#fromDateTimePicker').data("DateTimePicker").minDate(new Date());
+	$('#toDateTimePicker').data("DateTimePicker").minDate(new Date());
 	$('#fromDateTimePicker').on("dp.change", function (e) {
 		if (e.date) {
 		    $('#toDateTimePicker').data("DateTimePicker").minDate(e.date);
 		} else {
-			$('#toDateTimePicker').data("DateTimePicker").minDate(false);
+			$('#toDateTimePicker').data("DateTimePicker").minDate(new Date());
 		}
 	});
 	$('#toDateTimePicker').on("dp.change", function (e) {
@@ -27,6 +29,7 @@ Template.create.onCreated(function(){
 	SidebarController.selectSidebar('#create');
 
 	Session.set("dates", []);
+	Session.set("tags", []);
 });
 
 var EventDateRange = function (from, to) {
@@ -47,9 +50,20 @@ function setDates (dates) {
 	return Session.set("dates", dates);
 }
 
+function getTags () {
+	return Session.get("tags");
+}
+
+function setTags (tags) {
+	return Session.set("tags", tags);
+}
+
 Template.create.helpers({
 	dates: function() {
 		return getDates();
+	},
+	tags: function() {
+		return getTags();
 	}
 });
 
@@ -59,7 +73,7 @@ Template.create.events({
 		var descVal = event.target.inputDesc.value.trim();
 		var imgVal = event.target.inputImg.value.trim();
 
-		Meteor.call('createEvent', nameVal, descVal, imgVal, getDates());
+		Meteor.call('createEvent', nameVal, descVal, imgVal, getDates(), getTags());
 	},
 	"click .add-date-btn": function(event, instance) {
 		dates = getDates();
@@ -73,5 +87,17 @@ Template.create.events({
 			$('#fromDateTimePicker').data("DateTimePicker").clear();
 			$('#toDateTimePicker').data("DateTimePicker").clear();
 		}
+	},
+	'click .add-tag-btn': function(event, instance) {
+		var inputVal = $('#inputTag').val();
+		var tags = getTags();
+		if (inputVal && inputVal !== '' && tags.indexOf(inputVal) === -1 ) {
+			tags.push(inputVal);
+			setTags(tags);
+			$('#inputTag').val(null);
+		}
+	},
+	'keydown #inputTag': function(event, instance) {
+		return event.which !== 32;
 	}
 });
