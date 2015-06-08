@@ -1,7 +1,9 @@
-Tags = new ReactiveArray();
+var dates = new ReactiveArray();
+var tags = new ReactiveArray();
 
 Template.create.onRendered(function(){
-	Tags.clear();
+	dates.clear();
+	tags.clear();
 
 	$('#fromDateTimePicker').datetimepicker({
 		format: 'DD/MM/YYYY h:mm A',
@@ -31,8 +33,6 @@ Template.create.onRendered(function(){
 
 Template.create.onCreated(function(){
 	SidebarController.selectSidebar('#create');
-
-	Session.set("dates", []);
 });
 
 var EventDateRange = function (from, to) {
@@ -45,20 +45,11 @@ function compareEventDates (a, b) {
 }
 
 function getDates () {
-	return Session.get("dates");
-}
-
-function setDates (dates) {
-	dates.sort(compareEventDates);
-	return Session.set("dates", dates);
+	return dates.array();
 }
 
 function getTags () {
-	return Tags.array();
-}
-
-function setTags (tags) {
-	return Session.set("tags", tags);
+	return tags.array();
 }
 
 Template.create.helpers({
@@ -79,22 +70,30 @@ Template.create.events({
 		Meteor.call('createEvent', nameVal, descVal, imgVal, getDates(), getTags());
 	},
 	"click .add-date-btn": function(event, instance) {
-		dates = getDates();
 		from = $('#fromDateTimePicker').data("DateTimePicker").date()._d;
 		to = $('#toDateTimePicker').data("DateTimePicker").date()._d;
 		if (from && to) {
 			var dateRange = new EventDateRange (from, to);
 			dates.push(dateRange);
-			setDates(dates);
-
 			$('#fromDateTimePicker').data("DateTimePicker").clear();
 			$('#toDateTimePicker').data("DateTimePicker").clear();
 		}
 	},
+	'click .rem-date-btn': function (event, instance) {
+		var i = 0;
+		for (i = 0; i < dates.length; i++) {
+			if (+dates[i].from === +this.from && +dates[i].to === +this.to) {
+				break;
+			}
+		}
+		if (i < dates.length) {
+			dates.splice(i, 1);
+		}
+	},
 	'click .add-tag-btn': function(event, instance) {
 		var inputVal = $('#inputTag').val();
-		if (inputVal && inputVal !== '' && Tags.indexOf(inputVal) === -1 ) {
-			Tags.push(inputVal);
+		if (inputVal && inputVal !== '' && tags.indexOf(inputVal) === -1 ) {
+			tags.push(inputVal);
 			$('#inputTag').val(null);
 		}
 	},
@@ -102,9 +101,9 @@ Template.create.events({
 		return event.which !== 32;
 	},
 	'click #remove-tag': function(event, template) {
-		var idx = Tags.indexOf(this.valueOf());
+		var idx = tags.indexOf(this.valueOf());
 		if (idx > -1) {
-			Tags.splice(idx, 1);
+			tags.splice(idx, 1);
 		}
 	}
 });
