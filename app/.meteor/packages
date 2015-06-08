@@ -15,4 +15,5 @@ useraccounts:bootstrap
 msavin:mongol
 lbee:moment-helpers
 tsega:bootstrap3-datetimepicker
+manuel:reactivearray
 okgrow:iron-router-autoscroll

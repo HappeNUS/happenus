@@ -8,3 +8,19 @@
 	list-style: none;
 	margin-left: 5px;
 }
+
+.tag {
+	vertical-align: top;
+}
+
+.tag a {
+	color: #ddd;
+	cursor: pointer;
+	opacity: 0.6;
+	vertical-align: middle;
+	transition: opacity 0.3s ease;
+}
+
+.tag a:hover {
+	opacity: 1.0;
+}

@@ -1,4 +1,8 @@
+Tags = new ReactiveArray();
+
 Template.create.onRendered(function(){
+	Tags.clear();
+
 	$('#fromDateTimePicker').datetimepicker({
 		format: 'DD/MM/YYYY h:mm A',
 		sideBySide: true
@@ -29,7 +33,6 @@ Template.create.onCreated(function(){
 	SidebarController.selectSidebar('#create');
 
 	Session.set("dates", []);
-	Session.set("tags", []);
 });
 
 var EventDateRange = function (from, to) {
@@ -51,7 +54,7 @@ function setDates (dates) {
 }
 
 function getTags () {
-	return Session.get("tags");
+	return Tags.array();
 }
 
 function setTags (tags) {
@@ -90,14 +93,18 @@ Template.create.events({
 	},
 	'click .add-tag-btn': function(event, instance) {
 		var inputVal = $('#inputTag').val();
-		var tags = getTags();
-		if (inputVal && inputVal !== '' && tags.indexOf(inputVal) === -1 ) {
-			tags.push(inputVal);
-			setTags(tags);
+		if (inputVal && inputVal !== '' && Tags.indexOf(inputVal) === -1 ) {
+			Tags.push(inputVal);
 			$('#inputTag').val(null);
 		}
 	},
 	'keydown #inputTag': function(event, instance) {
 		return event.which !== 32;
+	},
+	'click #remove-tag': function(event, template) {
+		var idx = Tags.indexOf(this.valueOf());
+		if (idx > -1) {
+			Tags.splice(idx, 1);
+		}
 	}
 });
