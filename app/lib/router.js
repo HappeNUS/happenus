@@ -5,6 +5,9 @@ Router.configure({
 Router.route('/', {
 	name: 'home',
 	action: function () {
+		if (!this.params.query.view) {
+			this.params.query.view = 'featured';
+		}
 		if (!this.params.query.sort_by) {
 			this.params.query.sort_by = 'popularity';
 		}
@@ -14,16 +17,6 @@ Router.route('/', {
 
 Router.route('/create', {
 	name: 'create'
-});
-
-Router.route('/subs', {
-	name: 'subs',
-	action: function () {
-		if (!this.params.query.sort_by) {
-			this.params.query.sort_by = 'latest';
-		}
-		this.render();
-	}
 });
 
 Router.route('/profile/:_id', {

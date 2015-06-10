@@ -10,8 +10,26 @@ Meteor.publish("subData", function () {
 	return Subs.find({subberId: this.userId});
 });
 
-Meteor.publish("eventData", function() {
-	return Events.find();
+Meteor.publish("eventData", function(view, sort) {
+	var selector = {$where: function(){
+		var dates = this.eventDates;
+		var now = new Date();
+		for (var i = 0; i < dates.length; i++) {
+			if (dates[i].from > now) {
+				return true;
+			}
+		}
+		return false;
+	}};
+	var options = {};
+	if (view === "subscriptions") {
+		var subscriptions = Subs.find({subberId: this.userId}).fetch();
+		var subbedIds = subscriptions.map(function(curr, idx, arr) {
+			return curr.subbedId;
+		});
+		selector.userId = {$in: subbedIds};
+	}
+	return Events.find(selector, EventSorter[sort]);
 });
 
 Meteor.publish("userEventData", function(userId) {
