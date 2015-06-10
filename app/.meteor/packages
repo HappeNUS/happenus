@@ -6,14 +6,13 @@
 
 meteor-platform
 insecure
-twbs:bootstrap
 iron:router
+materialize:materialize
 jquery
 anti:fake
 accounts-password
-useraccounts:bootstrap
+useraccounts:materialize
 msavin:mongol
 lbee:moment-helpers
-tsega:bootstrap3-datetimepicker
 manuel:reactivearray
 okgrow:iron-router-autoscroll
