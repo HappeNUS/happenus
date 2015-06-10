@@ -1,14 +1,14 @@
-/*
 Template.home.onCreated(function () {
 	var eventSub, instance = this;
-	this.autorun(function () {	
+	this.autorun(function () {
 		if (eventSub) {
 			eventSub.stop();
+		} else {
+			Session.set("view", "featured");
+			Session.set("sort", "popularity");
 		}
-		var params = Router.current().getParams();
-		var view = params.query.view;
-		var sort = params.query.sort_by;
-		console.log("refreshed " + view + " " + sort);
+		var view = Session.get("view");
+		var sort = Session.get("sort");
 		eventSub = instance.subscribe("eventData", view, sort);
 	});
-});*/
+});

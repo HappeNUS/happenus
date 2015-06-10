@@ -3,16 +3,7 @@ Router.configure({
 });
 
 Router.route('/', {
-	name: 'home',
-	action: function () {
-		if (!this.params.query.view) {
-			this.params.query.view = 'featured';
-		}
-		if (!this.params.query.sort_by) {
-			this.params.query.sort_by = 'popularity';
-		}
-		this.render();
-	}
+	name: 'home'
 });
 
 Router.route('/create', {

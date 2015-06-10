@@ -1,17 +1,3 @@
-Template.eventsListHeader.onCreated(function () {
-	var eventSub, instance = this;
-	var params = Router.current().getParams();
-	this.autorun(function () {	
-		if (eventSub) {
-			eventSub.stop();
-		}
-		var view = params.query.view;
-		var sort = params.query.sort_by;
-		console.log("refreshed " + view + " " + sort);
-		eventSub = instance.subscribe("eventData", view, sort);
-	});
-});
-
 Template.eventsListHeader.onRendered(function(){
 	$('.dropdown-button').dropdown({
 		inDuration: 300,
@@ -25,23 +11,19 @@ Template.eventsListHeader.onRendered(function(){
 
 Template.eventsListHeader.helpers({
 	view: function () {
-		return Router.current().getParams().query.view;
+		return Session.get("view");
 	},
 	sortedBy: function () {
-		return Router.current().getParams().query.sort_by;
+		return Session.get("sort");
 	}
 });
 
 function viewClicked(view) {
-	console.log("before " + Router.current().params.query.view);
-	Router.current().params.query.view = view;
-	console.log("after " + Router.current().params.query.view);
+	Session.set("view", view);
 }
 
 function sortClicked(sort) {
-	console.log("before " + Router.current().params.query.sort_by);
-	Router.current().params.query.sort_by = sort;
-	console.log("after " + Router.current().params.query.sort_by);
+	Session.set("sort", sort);
 }
 
 Template.eventsListHeader.events({
