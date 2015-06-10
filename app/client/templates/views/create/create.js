@@ -31,10 +31,6 @@ Template.create.onRendered(function(){
 	});
 });
 
-Template.create.onCreated(function(){
-	SidebarController.selectSidebar('#create');
-});
-
 var EventDateRange = function (from, to) {
 	this.from = from;
 	this.to = to;

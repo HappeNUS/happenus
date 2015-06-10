@@ -1,6 +1,4 @@
 Template.profile.onCreated(function() {
-	SidebarController.clearSidebar();
-	
 	this.subscribe("allUserData");
 	this.subscribe("subData");
 	this.subscribe("userEventData", Router.current().params._id);
