@@ -15,4 +15,5 @@ useraccounts:materialize
 msavin:mongol
 lbee:moment-helpers
 manuel:reactivearray
+gadicohen:reactive-window
 okgrow:iron-router-autoscroll
