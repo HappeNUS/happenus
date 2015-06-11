@@ -5,30 +5,16 @@ Template.create.onRendered(function(){
 	dates.clear();
 	tags.clear();
 
-	$('#fromDateTimePicker').datetimepicker({
-		format: 'DD/MM/YYYY h:mm A',
-		sideBySide: true
-	});
-	$('#toDateTimePicker').datetimepicker({
-		format: 'DD/MM/YYYY h:mm A',
-		sideBySide: true
-	});
-	$('#fromDateTimePicker').data("DateTimePicker").minDate(new Date());
-	$('#toDateTimePicker').data("DateTimePicker").minDate(new Date());
-	$('#fromDateTimePicker').on("dp.change", function (e) {
-		if (e.date) {
-		    $('#toDateTimePicker').data("DateTimePicker").minDate(e.date);
-		} else {
-			$('#toDateTimePicker').data("DateTimePicker").minDate(new Date());
-		}
-	});
-	$('#toDateTimePicker').on("dp.change", function (e) {
-		if (e.date) {
-	    	$('#fromDateTimePicker').data("DateTimePicker").maxDate(e.date);
-    	} else {
-    		$('#fromDateTimePicker').data("DateTimePicker").maxDate(false);
-    	}
-	});
+	var fromInput = $('#from_date_input').pickadate();
+	var fromPicker = fromInput.pickadate('picker');
+
+	var toInput = $('#to_date_input').pickadate();
+	var toPicker = toInput.pickadate('picker');
+
+	fromPicker.set('min', new Date());
+	toPicker.set('min', new Date());
+
+	$('.timepicker').lolliclock({autoclose: true});
 });
 
 var EventDateRange = function (from, to) {
@@ -65,14 +51,35 @@ Template.create.events({
 
 		Meteor.call('createEvent', nameVal, descVal, imgVal, getDates(), getTags());
 	},
-	"click .add-date-btn": function(event, instance) {
-		from = $('#fromDateTimePicker').data("DateTimePicker").date()._d;
-		to = $('#toDateTimePicker').data("DateTimePicker").date()._d;
-		if (from && to) {
-			var dateRange = new EventDateRange (from, to);
+	"click .add-date": function(event, instance) {
+		var fromDP = $('#from_date_input').pickadate().pickadate('picker');
+		var toDP = $('#to_date_input').pickadate().pickadate('picker');
+		var fromDateSelect = fromDP.get('select'), toDateSelect = toDP.get('select');
+		var fromTimeValue = document.getElementById('from_time_input-export').value
+		var toTimeValue = document.getElementById('to_time_input-export').value
+
+		if (fromDateSelect && toDateSelect && fromTimeValue && toTimeValue) {
+			// all inputs are valid
+			var fromDate = fromDateSelect.obj, toDate = toDateSelect.obj;
+			var fromTime = new Date(fromTimeValue), toTime = new Date(toTimeValue);
+			// Set time in date object
+			fromDate.setHours(fromTime.getHours());
+			fromDate.setMinutes(fromTime.getMinutes());
+			toDate.setHours(toTime.getHours());
+			toDate.setMinutes(toTime.getMinutes());
+			// rotate dates if in wrong order
+			if (fromDate > toDate) {
+				var tempDate = fromDate;
+				fromDate = toDate;
+				toDate = tempDate;
+			}
+			dateRange = new EventDateRange(fromDate, toDate);
 			dates.push(dateRange);
-			$('#fromDateTimePicker').data("DateTimePicker").clear();
-			$('#toDateTimePicker').data("DateTimePicker").clear();
+
+			fromDP.clear();
+			toDP.clear();
+		} else {
+			// there are invalid inputs
 		}
 	},
 	'click .rem-date-btn': function (event, instance) {

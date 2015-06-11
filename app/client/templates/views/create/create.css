@@ -24,3 +24,14 @@
 .tag a:hover {
 	opacity: 1.0;
 }
+
+.card.create-dates {
+	overflow: visible;
+}
+
+.add-date {
+	z-index: 2;
+	position: absolute;
+	bottom: 7rem;
+	right: -1.3rem;
+}
