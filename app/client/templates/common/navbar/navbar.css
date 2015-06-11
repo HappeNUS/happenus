@@ -1,0 +1,13 @@
+.nav-wrapper .button-collapse i {
+	font-size: 2.2rem;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.nav-wrapper .brand-logo {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+	font-size: 1.6rem;
+	padding-left: 20px;
+	padding-right: 20px;
+}
