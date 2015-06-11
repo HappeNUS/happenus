@@ -12,3 +12,10 @@ Template.home.onCreated(function () {
 		eventSub = instance.subscribe("eventData", view, sort);
 	});
 });
+
+Template.home.helpers({
+	events: function() {
+		var sort = Session.get("sort");
+		return Events.find(EventSorter.filterPast, EventSorter[sort]);
+	}
+});

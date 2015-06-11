@@ -1,15 +1,25 @@
 <template name="home">
+  {{> homeTabs}}
 	<div class="container">
 		<div class="row">
-			<div class="col s12 m10 offset-m1 l8 offset-l2">
-				{{> eventsListHeader}}
-				{{> featured}}
+			{{#if rwindow.innerWidth 'lte' 600}}
+				<div class="col s12">
+					{{> eventsListHeader}}
+				</div>
+			{{/if}}
+			<div class="col s12 m7 l7 offset-l1">
+				{{#each events}}
+					{{> eventcard}}
+				{{/each}}
 			</div>
+			{{#if rwindow.innerWidth 'gt' 600}}
+				<div class="col m5 l3">
+					<div class="pinned">
+						{{> eventsListHeader}}
+					</div>
+				</div>
+			{{/if}}
 		</div>
 	</div>
-	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-	  <a class="btn-floating btn-large waves-effect waves-light red" href="{{pathFor route='create'}}">
-	  	<i class="mdi-content-add"></i>
-	  </a>
-	</div>
+	{{> createFAB}}
 </template>
