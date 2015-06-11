@@ -1,37 +1,60 @@
 <template name="event">
 	{{#with currentEvent}}
-		<div class="page-header">
-			<h1>{{name}}
-	        	{{#with userData}}
-	            	<small>by <a href="{{pathFor route='profile'}}">{{username}}</a></small>
-	            {{/with}}
-	        </h1>
-	    </div>
 		<div class="container">
-	        <!-- /.row -->
-	        <!-- Portfolio Item Row -->
-	        <div class="row">
-	            <div class="col-md-8">
-	                <img class="img-responsive" src="{{img}}" alt="">
-	            </div>
-
-	            <div class="col-md-4">
-	                <h3>Description</h3>
-	                <p>{{desc}}</p>
-	                <h3>Dates</h3>
-	                	<ul class="list-group">
-			                {{#each eventDates}}
-			                	{{> date}}
-			                {{/each}}
-			            </ul>
-	                <h3>Additional details</h3>
-	                <ul>
-	                    <li>Event created on {{moFormat dateCreated 'D MMMM[,] YYYY [at] h:mm a'}}</li>
-	                </ul>
-	            </div>
-
-	        </div>
-	        <!-- /.row -->
+			<div class="row">
+					<div class="col s12 m6">
+						<div class="card">
+							<div class="card-image">
+								<img src="{{img}}">
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-content black-text">
+								<span class="card-title black-text">{{name}}</span>
+								<p>{{desc}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m6">
+						<div class="card">
+							<div class="card-content black-text">
+								<span class="card-title black-text">
+									Created by
+									{{#with userData}}
+										<a href="{{pathFor route='profile'}}">{{username}}</a>
+									{{/with}}
+								</span>
+							</div>
+							<div class="card-action">
+					      <a class="like-btn">
+					        {{#if isEventLiked}}
+					          <i class="mdi-action-favorite"></i>
+					          Liked ({{likeCount}})
+					        {{else}}
+					          <i class="mdi-action-favorite-outline"></i>
+					          Like ({{likeCount}})
+					        {{/if}}
+					      </a>
+					    </div>
+						</div>
+						<div class="card">
+							<div class="card-content black-text">
+								<span class="card-title black-text">Event Dates</span>
+							    <ul class="collection">
+							    	{{#each eventDates}}
+								      {{> date}}
+							      {{/each}}
+							    </ul>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-content black-text">
+								<span class="card-title black-text">Additional Details</span>
+								<p>This event was created on {{moFormat dateCreated 'D MMMM[,] YYYY [at] h:mm a'}}.</p>
+							</div>
+						</div>
+					</div>
+		    </div>
 	    </div>
     {{/with}}
 </template>

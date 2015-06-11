@@ -1,5 +1,6 @@
 <template name="date">
-	<li class="list-group-item">
-		{{moFormat from 'D MMM[,] YY h:mm a'}} - {{moFormat to 'D MMM[,] YY h:mm a'}}
+	<li class="collection-item lighten-5">
+		<p>From: {{moFormat from 'D MMM[,] YYYY h:mm A'}}</p>
+		<p>To: {{moFormat to 'D MMM[,] YYYY h:mm A'}}</p>
 	</li>
 </template>

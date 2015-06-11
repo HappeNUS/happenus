@@ -1,12 +1,12 @@
 Template.date.onRendered(function(){
-	var alert = this.$('.list-group-item');
+	var target = this.$('.collection-item');
 	var now = new Date ();
 
 	if (this.data.to < now) {
-		alert.addClass("list-group-item-warning");
+		target.addClass("yellow");
 	} else if (this.data.from < now && now < this.data.to) {
-		alert.addClass("list-group-item-success");
+		target.addClass("lime-green");
 	} else {
-		alert.addClass("list-group-item-info");
+		target.addClass("cyan");
 	}
 });
