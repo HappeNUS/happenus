@@ -3,23 +3,8 @@ Template.eventcard.onCreated(function(){
 });
 
 Template.eventcard.onRendered(function(){
-	if (this.data.tags.length > 0) {
-		var counter = 0;
-		var template = this;
-		var data = this.data;
-		var box = template.$(".card-tag-box");
-		box.text(data.tags.slice(-1)[0]);
-		if (data.tags.length > 1) {
-			window.setInterval(change, 5000);
-		}
-	}
-	function change() {
-			box.fadeOut(500, function() {
-				box.text(data.tags[counter++]);
-				box.fadeIn(500);
-			});
-			counter = counter % data.tags.length;
-		}
+	var url = 'url('.concat(this.data.img).concat(')');
+	this.$('.card-image').css('background-image', url);
 });
 
 function isEventLiked (likes) {
