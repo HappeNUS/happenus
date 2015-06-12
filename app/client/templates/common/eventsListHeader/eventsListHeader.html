@@ -1,10 +1,12 @@
 <template name="eventsListHeader">
 	<div class="eventsListHeader">
-		<div class="card-panel">
-			<a class="dropdown-button waves-effect waves-teal btn-flat" href="#" data-activates="sort-dropdown" style="z-index: 0;">
-				Sorted by: {{sortedBy}}
-				<i class="mdi-navigation-arrow-drop-down right"></i>
-			</a>
+		<div class="card">
+			<div class="card-content">
+				<a class="dropdown-button waves-effect waves-teal btn-flat" href="#" data-activates="sort-dropdown" style="z-index: 0;">
+					Sorted by: {{sortedBy}}
+					<i class="mdi-navigation-arrow-drop-down right"></i>
+				</a>
+			</div>
 		</div>
 		<ul id="sort-dropdown" class="dropdown-content" style="z-index: 1;">
 			<li><a id="sort-popu" class="waves-effect waves-light">Popularity</a></li>
