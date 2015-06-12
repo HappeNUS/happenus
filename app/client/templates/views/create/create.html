@@ -1,91 +1,104 @@
 <template name="create">
-	<div class="container">
-		<form role="form">
-			<div class="row">
-				<div class="col s12 m6">
-					<div class="card">
-						<div class="card-content">
-							<div class="input-field">
-			          <input id="img_input" type="text" class="validate">
-			          <label for="img_input">Banner Image</label>
-			        </div>
+	<div class="create">
+		<div class="container">
+			<form role="form">
+				<div class="row">
+					<div class="col s12 m6">
+						<div class="card">
+							{{#if img}}
+								<div class="card-image">
+						    	<img src="{{img}}">
+						  	</div>
+					  	{{/if}}
+							<div class="card-content">
+								<div class="input-field">
+				          <input id="img_input" type="url" class="validate">
+				          <label for="img_input">Banner Image</label>
+				        </div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-content black-text">
+								<span class="card-title black-text">Main Details</span>
+								<div class="input-field">
+				          <input id="name_input" type="text" class="validate">
+				          <label for="name_input">Event Name</label>
+				        </div>
+				        <div class="input-field">
+				          <textarea id="desc_input" class="materialize-textarea"></textarea>
+				          <label for="desc_input">Description</label>
+				        </div>
+							</div>
 						</div>
 					</div>
-					<div class="card">
-						<div class="card-content black-text">
-							<span class="card-title black-text">Main Details</span>
-							<div class="input-field">
-			          <input id="name_input" type="text" class="validate">
-			          <label for="name_input">Event Name</label>
-			        </div>
-			        <div class="input-field">
-			          <textarea id="desc_input" class="materialize-textarea"></textarea>
-			          <label for="desc_input">Description</label>
-			        </div>
+					<div class="col s12 m6">
+						<div class="card">
+							<div class="card-content black-text">
+								<span class="card-title black-text">Tags</span>
+								<div class="input-field">
+				          <input id="tag_input" type="text">
+				          <label for="tag_input">Add tag</label>
+					        </div>
+					        {{#each tags}}
+					        	<div class="tag">
+					        		<a class="red accent-2 waves-effect waves-light btn">{{this}}</a>
+					        	</div>
+					        {{/each}}
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="col s12 m6">
-					<div class="card">
-						<div class="card-content black-text">
-							<div class="input-field">
-			          <input id="tag_input" type="text" class="validate">
-			          <label for="tag_input">Tags</label>
-			        </div>
-						</div>
-					</div>
-					<div class="card create-dates">
-						<div class="card-content black-text">
-							<span class="card-title black-text">Event Dates</span>
-					    <ul class="collection">
-					    	{{#each dates}}
+						<div class="card create-dates">
+							<div class="card-content black-text">
+								<span class="card-title black-text">Event Dates</span>
+						    <ul class="collection">
+						    	{{#each dates}}
 									<li class="collection-item cyan lighten-5">
 										<a class="rem-date-btn secondary-content"><i class="mdi-action-highlight-remove"></i></a>
 										<p>From: {{moFormat from 'D MMM[,] YYYY h:mm A'}}</p>
 										<p>To: {{moFormat to 'D MMM[,] YYYY h:mm A'}}</p>
 									</li>
 								{{/each}}
-					    </ul>
-					    <div class="row">
-					    	<div class="col s8">
-							    <div class="input-field">
-					          <input id="from_date_input" type="date" class="datepicker">
-					          <label for="from_date_input" class="active">From Date</label>
+						    </ul>
+						    <div class="row">
+						    	<div class="col s8">
+								    <div class="input-field">
+						          <input id="from_date_input" type="date" class="datepicker">
+						          <label for="from_date_input" class="active">From Date</label>
+						        </div>
 					        </div>
-				        </div>
-				        <div class="col s4">
-							    <div class="input-field">
-					          <input id="from_time_input" type="date" class="timepicker">
-					          <label for="from_time_input" class="active">Time</label>
+					        <div class="col s4">
+								    <div class="input-field">
+						          <input id="from_time_input" type="date" class="timepicker">
+						          <label for="from_time_input" class="active">Time</label>
+						        </div>
 					        </div>
-				        </div>
-					    </div>
-					    <div class="row">
-					    	<div class="col s8">
-							    <div class="input-field">
-					          <input id="to_date_input" type="date" class="datepicker">
-					          <label for="to_date_input" class="active">To Date</label>
+						    </div>
+						    <div class="row">
+						    	<div class="col s8">
+								    <div class="input-field">
+						          <input id="to_date_input" type="date" class="datepicker">
+						          <label for="to_date_input" class="active">To Date</label>
+						        </div>
 					        </div>
-				        </div>
-				        <div class="col s4">
-							    <div class="input-field">
-					          <input id="to_time_input" type="date" class="timepicker">
-					          <label for="to_time_input" class="active">Time</label>
+					        <div class="col s4">
+								    <div class="input-field">
+						          <input id="to_time_input" type="date" class="timepicker">
+						          <label for="to_time_input" class="active">Time</label>
+						        </div>
 					        </div>
-				        </div>
-					    </div>
-					    <a class="add-date btn-floating btn waves-effect waves-light red"><i class="mdi-content-add"></i></a>
+						    </div>
+						    <a class="add-date btn-floating btn waves-effect waves-light red"><i class="mdi-content-add"></i></a>
+							</div>
 						</div>
+						<div class="row">
+							<div class="right">
+							  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+							    <i class="mdi-content-send right"></i>
+							  </button>
+						  </div>
+					  </div>
 					</div>
-					<div class="card">
-						<div class="card-content black-text">
-						  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-						    <i class="mdi-content-send right"></i>
-						  </button>
-						</div>
-					</div>
-				</div>
-	    </div>
-    </form>
+		    </div>
+	    </form>
+	  </div>
   </div>
 </template>

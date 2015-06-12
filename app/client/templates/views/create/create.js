@@ -1,3 +1,4 @@
+var banner = new ReactiveVar();
 var dates = new ReactiveArray();
 var tags = new ReactiveArray();
 
@@ -15,6 +16,13 @@ Template.create.onRendered(function(){
 	toPicker.set('min', new Date());
 
 	$('.timepicker').lolliclock({autoclose: true});
+
+	$(window).keydown(function(event){
+	    if(event.keyCode == 13) {
+		    event.preventDefault();
+		    return false;
+	    }
+	});
 });
 
 var EventDateRange = function (from, to) {
@@ -34,22 +42,50 @@ function getTags () {
 	return tags.array();
 }
 
+function showToast (message) {
+	Materialize.toast(message, 5000);
+}
+
+function showToasts (nameVal, descVal, imgVal, dateLength) {
+	if (!nameVal) {
+		showToast('Please give your event a name');
+	}
+	if (!descVal) {
+		showToast('Please provide a short description for your event');
+	}
+	if (!imgVal) {
+		showToast('Please give your event a banner image');
+	}
+	if (!dateLength) {
+		showToast('Please add at least one date to your event');
+	}
+}
+
 Template.create.helpers({
 	dates: function() {
 		return getDates();
 	},
 	tags: function() {
 		return getTags();
+	},
+	img: function() {
+		return banner.get();
 	}
 });
 
 Template.create.events({
 	"submit form": function(event, instance) {
-		var nameVal = event.target.inputName.value.trim();
-		var descVal = event.target.inputDesc.value.trim();
-		var imgVal = event.target.inputImg.value.trim();
-
-		Meteor.call('createEvent', nameVal, descVal, imgVal, getDates(), getTags());
+		event.preventDefault();
+		var nameVal = event.target.name_input.value.trim();
+		var descVal = event.target.desc_input.value.trim();
+		var imgVal = event.target.img_input.value.trim();
+		console.log(nameVal + descVal + imgVal);
+		if (nameVal && descVal && imgVal && getDates().length) {
+			Meteor.call('createEvent', nameVal, descVal, imgVal, getDates(), getTags());
+			Router.go('home');
+		} else {
+			showToasts(nameVal, descVal, imgVal, getDates().length);
+		}
 	},
 	"click .add-date": function(event, instance) {
 		var fromDP = $('#from_date_input').pickadate().pickadate('picker');
@@ -67,19 +103,46 @@ Template.create.events({
 			fromDate.setMinutes(fromTime.getMinutes());
 			toDate.setHours(toTime.getHours());
 			toDate.setMinutes(toTime.getMinutes());
-			// rotate dates if in wrong order
-			if (fromDate > toDate) {
-				var tempDate = fromDate;
-				fromDate = toDate;
-				toDate = tempDate;
-			}
-			dateRange = new EventDateRange(fromDate, toDate);
-			dates.push(dateRange);
 
-			fromDP.clear();
-			toDP.clear();
+			var currentDate = new Date();
+			if (fromDate < currentDate || toDate < currentDate) {
+				showToast('Please enter a valid date & time');
+			} else {
+				if (fromDate > toDate) {
+					// rotate dates if in wrong order
+					var tempDate = fromDate;
+					fromDate = toDate;
+					toDate = tempDate;
+				}
+				dateRange = new EventDateRange(fromDate, toDate);
+				dates.push(dateRange);
+
+				fromDP.clear();
+				toDP.clear();
+			}
+			
 		} else {
-			// there are invalid inputs
+			var message = 'Please fill the following fields: ';
+			var emptyFields = [];
+			if (!fromDateSelect) {
+				emptyFields.push('From Date');
+			}
+			if (!fromTimeValue) {
+				emptyFields.push('From Time');
+			}
+			if (!toDateSelect) {
+				emptyFields.push('To Date');
+			}
+			if (!toTimeValue) {
+				emptyFields.push('To Time');
+			}
+			for (var i = 0; i < emptyFields.length; i++) {
+				message = message.concat(emptyFields[i]);
+				if (i !== emptyFields.length - 1) {
+					message = message.concat(', ');
+				}
+			}
+			showToast(message);
 		}
 	},
 	'click .rem-date-btn': function (event, instance) {
@@ -100,13 +163,25 @@ Template.create.events({
 			$('#inputTag').val(null);
 		}
 	},
-	'keydown #inputTag': function(event, instance) {
+	'keydown #tag_input': function(event, instance) {
+		if (event.which === 13) {
+			var inputVal = $('#tag_input').val();	// Grab tag from input
+			inputVal = inputVal.replace(/\s/g, '');	// Remove spaces if found
+			inputVal = inputVal.toLowerCase();		// To lower case
+			if (inputVal && tags.indexOf(inputVal) === -1) {	//if the tag filled and not in array
+				tags.push(inputVal);		// Push to end of tag array
+				$('#tag_input').val(null);	// Clear input field
+			}
+		}
 		return event.which !== 32;
 	},
-	'click #remove-tag': function(event, template) {
+	'click .tag a.btn': function(event, template) {
 		var idx = tags.indexOf(this.valueOf());
 		if (idx > -1) {
 			tags.splice(idx, 1);
 		}
+	},
+	'keyup #img_input': function(event, template) {
+		banner.set($(img_input).val());
 	}
 });

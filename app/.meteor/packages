@@ -16,4 +16,5 @@ msavin:mongol
 lbee:moment-helpers
 manuel:reactivearray
 gadicohen:reactive-window
+reactive-var
 okgrow:iron-router-autoscroll

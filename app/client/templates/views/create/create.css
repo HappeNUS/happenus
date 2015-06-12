@@ -1,37 +1,28 @@
-.tags-box {
-	padding: 0 0;
-	margin: 0 0;
-}
-
-.tags-box li {
+.create .tag {
 	display: inline-block;
-	list-style: none;
-	margin-left: 5px;
+	margin: 3px;
 }
 
-.tag {
-	vertical-align: top;
+.create .tag a {
+	font-size: small;
+	padding: 0 0.7em;
 }
 
-.tag a {
-	color: #ddd;
-	cursor: pointer;
-	opacity: 0.6;
-	vertical-align: middle;
-	transition: opacity 0.3s ease;
+.create .tag a:hover {
+	opacity: 0.5;
 }
 
-.tag a:hover {
-	opacity: 1.0;
-}
-
-.card.create-dates {
+.create .card.create-dates {
 	overflow: visible;
 }
 
-.add-date {
+.create .add-date {
 	z-index: 2;
 	position: absolute;
 	bottom: 7rem;
 	right: -1.3rem;
+}
+
+.create .rem-date-btn {
+	cursor: pointer;
 }
