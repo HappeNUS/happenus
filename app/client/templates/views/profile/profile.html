@@ -1,20 +1,33 @@
 <template name="profile">
 	<div class="profile">
-		<div class="page-header">
-			<h1>{{userData.username}}
-				{{#unless isSelf}}
-					{{#if isSubscribed}}
-						<span class="label label-success sub">Subscribed</span>
-					{{else}}
-						<span class="label label-info sub">Subscribe</span>
-					{{/if}}
-				{{/unless}}
-			</h1>
+		<div class="profile-header deep-orange lighten-2 z-depth-1">
+			<!--Temporary profile picture until profile pictures are implemented-->
+			<img src="http://www.lerendoseren.nl/assets/no_profile-e7da098727586478701d3f16def38b13.jpg" class="circle responsive-img">
+			<h1 class="white-text">{{userData.username}}</h1>
 		</div>
-		<div class="events">
-			{{#each userEvents}}
-				{{> eventcard}}
-			{{/each}}
+		<div class="container">
+			<div class="row">
+				<div class="col s12 offset-m1 m10 offset-l2 l8">
+					<div class="card">
+						<div class="card-content black-text">
+							{{#unless isSelf}}
+								{{#if isSubscribed}}
+									<a class="sub red accent-2 waves-effect waves-light btn">Subscribed</a>
+								{{else}}
+									<a class="sub green accent-2 waves-effect waves-light btn">Subscribe</a>
+								{{/if}}
+							{{/unless}}
+							<p class="sub-count">{{subCount}} Subscriber(s)</p>
+						</div>
+					</div>
+					<h3 class="user-events-header">{{userData.username}}'s events</h3>
+					<div class="events">
+						{{#each userEvents}}
+							{{> eventcard}}
+						{{/each}}
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>

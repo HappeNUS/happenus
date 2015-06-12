@@ -1,3 +1,31 @@
-.profile .page-header h1 span {
-	cursor: pointer;
+.profile .profile-header {
+	text-align: center;
+	padding-top: 4%;
+	padding-bottom: 5%;
+	margin-bottom: -4%;
+}
+
+.profile .profile-header h1 {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 400;
+}
+
+.profile .profile-header img {
+	width: 10rem;
+	height: 10rem;
+}
+
+.profile h3.user-events-header {
+	padding: 0.3em 0;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 400;
+}
+
+.profile a.sub {
+	display: inline-block;
+}
+
+.profile p.sub-count {
+	display: inline-block;
+	padding: 0 0.5em;
 }

@@ -12,16 +12,16 @@ Template.profile.helpers({
 	isSelf: function(){
 		return Router.current().params._id === Meteor.userId();
 	},
-
 	isSubscribed: function(){
 		return isSubscribed();
 	},
-
+	subCount: function() {
+		return Subs.find({subbedId: Router.current().params._id}).count();
+	},
 	userData: function(){
 		var userId = Router.current().params._id;
 		return Meteor.users.findOne({_id: userId});
 	},
-
 	userEvents: function(){
 		return Events.find({}, EventSorter['latest']);
 	}
