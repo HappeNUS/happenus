@@ -12,6 +12,9 @@ Template.eventsListHeader.onRendered(function(){
 Template.eventsListHeader.helpers({
 	sortedBy: function () {
 		return Session.get("sort");
+	},
+	display: function() {
+		return Session.get("display");
 	}
 });
 
@@ -19,8 +22,15 @@ function setSort(sort) {
 	Session.set("sort", sort);
 }
 
+function setDisplay(display) {
+	Session.set("display", display);
+}
+
 Template.eventsListHeader.events({
 	'click #sort-popu': function(event, temp) {setSort('popularity')},
 	'click #sort-late': function(event, temp) {setSort('latest')},
-	'click #sort-soon': function(event, temp) {setSort('soonest')}
+	'click #sort-soon': function(event, temp) {setSort('soonest')},
+
+	'click #disp-list': function(event, temp) {setDisplay('list')},
+	'click #disp-card': function(event, temp) {setDisplay('cards')},
 });

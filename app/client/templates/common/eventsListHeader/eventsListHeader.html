@@ -6,12 +6,20 @@
 					Sorted by: {{sortedBy}}
 					<i class="mdi-navigation-arrow-drop-down right"></i>
 				</a>
+				<a class="dropdown-button waves-effect waves-teal btn-flat" href="#" data-activates="display-dropdown" style="z-index: 0;">
+					Display: {{display}}
+					<i class="mdi-navigation-arrow-drop-down right"></i>
+				</a>
 			</div>
 		</div>
 		<ul id="sort-dropdown" class="dropdown-content" style="z-index: 1;">
 			<li><a id="sort-popu" class="waves-effect waves-light">Popularity</a></li>
 			<li><a id="sort-late" class="waves-effect waves-light">Latest</a></li>
 			<li><a id="sort-soon" class="waves-effect waves-light">Soonest</a></li>
+		</ul>
+		<ul id="display-dropdown" class="dropdown-content" style="z-index: 1;">
+			<li><a id="disp-list" class="waves-effect waves-light"><i class="mdi-action-view-list"></i> List</a></li>
+			<li><a id="disp-card" class="waves-effect waves-light"><i class="mdi-action-view-agenda"></i> Cards</a></li>
 		</ul>
 	</div>
 </template>

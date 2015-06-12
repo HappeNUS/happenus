@@ -7,13 +7,19 @@
 					{{> eventsListHeader}}
 				</div>
 			{{/if}}
-			<div class="col s12 m7 l7 offset-l1">
+			<div class="col s12 m8">
 				{{#each events}}
-					{{> eventcard}}
+					{{#if isDisplayList}}
+						{{> eventListItem}}
+					{{else}}
+						{{#if isDisplayCards}}
+							{{> eventcard}}
+						{{/if}}
+					{{/if}}
 				{{/each}}
 			</div>
 			{{#if rwindow.innerWidth 'gt' 600}}
-				<div class="col m5 l3">
+				<div class="col m4">
 					<div class="pinned">
 						{{> eventsListHeader}}
 					</div>

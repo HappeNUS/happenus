@@ -6,6 +6,7 @@ Template.home.onCreated(function () {
 		} else {
 			Session.set("view", "featured");
 			Session.set("sort", "popularity");
+			Session.set("display", "list");
 		}
 		var view = Session.get("view");
 		var sort = Session.get("sort");
@@ -17,5 +18,11 @@ Template.home.helpers({
 	events: function() {
 		var sort = Session.get("sort");
 		return Events.find(EventSorter.filterPast, EventSorter[sort]);
-	}
+	},
+	isDisplayList: function() {
+		return Session.get("display") === "list";
+	},
+	isDisplayCards: function() {
+		return Session.get("display") === "cards";
+	},
 });
