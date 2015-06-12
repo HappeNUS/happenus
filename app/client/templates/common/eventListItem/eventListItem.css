@@ -1,5 +1,5 @@
 .eventListItem .card {
-	height: 5.5em;
+	height: 7.0em;
 }
 
 .eventListItem .card .link-event{
@@ -11,8 +11,8 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  width: 5.5em;
-  height: 5.5em;
+  width: 7.0em;
+  height: 7.0em;
 }
 
 .eventListItem .card .listitem-content {
@@ -27,13 +27,13 @@
 .eventListItem .card .listitem-content p.eventname {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 700;
-	margin-bottom: 0.6em
+	margin-bottom: 0.3em
 }
 
 .eventListItem .card .listitem-content p.eventdate {
 	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: 400;
-	margin-top: 0.6em;
+	margin-top: 0.3em;
 }
 
 .eventListItem .card .listitem-actions a.like-btn {
@@ -69,6 +69,6 @@
 
 @media only screen and (max-width: 600px) {
 	.eventListItem .card .listitem-img {
-	  width: 4.0em;
+	  width: 6.0em;
 	}
 }
