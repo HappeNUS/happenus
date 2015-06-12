@@ -1,0 +1,68 @@
+.eventListItem .card {
+	height: 5.5em;
+}
+
+.eventListItem .card .link-event{
+	cursor: pointer;
+}
+
+.eventListItem .card .listitem-img {
+	float: left;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 5.5em;
+  height: 5.5em;
+}
+
+.eventListItem .card .listitem-content {
+	float: left;
+	padding: 0 1.0em;
+}
+
+.eventListItem .card .listitem-content p {
+	margin: 0 0;
+}
+
+.eventListItem .card .listitem-content p.eventname {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+	margin-bottom: 0.6em
+}
+
+.eventListItem .card .listitem-content p.eventdate {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 400;
+	margin-top: 0.6em;
+}
+
+.eventListItem .card .listitem-actions a.like-btn {
+	font-size: 1.2em;
+	position: absolute;
+	bottom: 0em;
+	right: 0.3em;
+	color: #ff1744;
+}
+
+.eventListItem .card .listitem-actions a.like-btn:hover {
+	opacity: 0.6;
+}
+
+@media only screen and (min-width: 992px) {
+	.eventListItem .card {
+		height: 7em;
+	}
+
+	.eventListItem .card .listitem-img {
+	  width: 7em;
+	  height: 7em;
+	}
+
+	.eventListItem .card .listitem-content p.eventname {
+		margin-bottom: 1.0em
+	}
+
+	.eventListItem .card .listitem-content p.eventdate {
+		margin-top: 1.0em;
+	}
+}

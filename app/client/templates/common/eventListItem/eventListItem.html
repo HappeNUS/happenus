@@ -1,0 +1,25 @@
+<template name="eventListItem">
+	<div class="eventListItem">
+		<div class="card valign-wrapper">
+			<div class="listitem-img link-event"></div>
+			<div class="listitem-content valign link-event">
+				<p class="eventname">{{name}} by
+					{{#with user}}
+          	<a class="username" href="{{pathFor route='profile'}}">{{username}}</a>
+        	{{/with}}
+        </p>
+				<p class="eventdate">{{dateTranslation}}</p>
+			</div>
+			<div class="listitem-actions">
+				<a class="like-btn">
+					{{#if isEventLiked}}
+						<i class="tiny mdi-action-favorite"></i>
+					{{else}}
+						<i class="tiny mdi-action-favorite-outline"></i>
+					{{/if}}
+					{{likeCount}}
+				</a>
+			</div>
+		</div>
+	</div>
+</template>
