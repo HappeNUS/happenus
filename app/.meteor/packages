@@ -13,6 +13,7 @@ anti:fake
 accounts-password
 useraccounts:materialize
 msavin:mongol
+momentjs:moment
 lbee:moment-helpers
 manuel:reactivearray
 gadicohen:reactive-window
