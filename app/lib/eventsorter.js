@@ -3,7 +3,7 @@ EventSorter = {
 		var dates = this.eventDates;
 		var now = new Date();
 		for (var i = 0; i < dates.length; i++) {
-			if (dates[i].from > now) {
+			if (dates[i].to > now) {
 				return true;
 			}
 		}
