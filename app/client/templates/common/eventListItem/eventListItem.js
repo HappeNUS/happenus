@@ -37,9 +37,9 @@ Template.eventListItem.helpers({
 		for (var i = 0; i < dates.length; i++) {
 			var from = dates[i].from, to = dates[i].to;
 			if (from < current && to > current) {
-				return 'Currently ongoing event: ' + formatDateRange(from, to);
+				return 'Ongoing: ' + formatDateRange(from, to);
 			} else if (from > current) {
-				return 'Upcoming event: ' + formatDateRange(from, to);
+				return 'Upcoming: ' + formatDateRange(from, to);
 			}
 		}
 		var last = dates[dates.length - 1];
