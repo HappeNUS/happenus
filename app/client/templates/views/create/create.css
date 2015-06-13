@@ -24,5 +24,12 @@
 }
 
 .create .rem-date-btn {
+	color: black;
+	font-size: 1.5em;
 	cursor: pointer;
+	transition: opacity 0.3s;
+}
+
+.create .rem-date-btn:hover {
+	opacity: 0.6;
 }
