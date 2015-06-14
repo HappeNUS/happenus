@@ -42,3 +42,13 @@ gadicohen:reactive-window
 
 # package to fix iron-router scroll issue
 okgrow:iron-router-autoscroll
+
+# package that allows you to attach a schema to a Mongo.Collection (Required by yogiben:notifications)
+aldeed:collection2
+aldeed:simple-schema
+
+# package which allow for template extensions
+aldeed:template-extension
+
+# notification package
+yogiben:notifications
