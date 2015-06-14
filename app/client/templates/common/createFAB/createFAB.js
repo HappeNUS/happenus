@@ -16,7 +16,7 @@ function toggleFAB () {
 };
 
 function hideFAB() {
-	$('#createFAB').animate({
+	$('#createFAB').stop(true, false).animate({
 		bottom: HIDDEN
 	}, {
 		duration: 250,
@@ -30,7 +30,7 @@ function hideFAB() {
 }
 
 function showFAB() {
-	$('#createFAB').animate({
+	$('#createFAB').stop(true, false).animate({
 		bottom: "23px"
 	}, {
 		duration: 250,
