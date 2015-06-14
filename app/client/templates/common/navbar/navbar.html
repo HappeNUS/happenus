@@ -15,9 +15,9 @@
             {{/if}}
           {{/if}}
           <li>{{> atNavButton}}</li>
-          <li><a href="#">Settings</a></li>
+          {{#if currentUser}}<li><a href="#">Settings</a></li>{{/if}}
         </ul>
-        {{> navNotifications}}
+        {{#if currentUser}}{{> navNotifications}}{{/if}}
         <ul class="side-nav" id="sidenav">
           {{#if loggingIn}}
             <li>Signing in...</li>
