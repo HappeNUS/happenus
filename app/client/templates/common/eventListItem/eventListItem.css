@@ -1,5 +1,10 @@
 .eventListItem .card {
 	height: 7.0em;
+	transition: box-shadow 0.3s;
+}
+
+.eventListItem .card:hover {
+	box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.16), 0px 4px 20px 0px rgba(0, 0, 0, 0.12);
 }
 
 .eventListItem .card .link-event{
