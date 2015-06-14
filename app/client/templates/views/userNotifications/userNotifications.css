@@ -1,0 +1,41 @@
+.userNotifications .collection {
+	border-bottom: medium none;
+}
+
+.userNotifications .collection .collection-header h4 {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+}
+
+.userNotifications .collection .collection-item {
+	border-bottom: 1px solid #E0E0E0;
+}
+
+.userNotifications .collection .collection-item.new {
+	background-color: #fffde7;
+}
+
+.userNotifications .collection .collection-item.new:hover {
+	background-color: #fff9c4;
+}
+
+.userNotifications .collection .collection-item span.title {
+	font-family: 'Roboto Slab', serif;
+	font-weight: 400;
+	color: black;
+}
+
+.userNotifications .collection .collection-item p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	color: #616161;
+}
+
+.userNotifications .collection .collection-item a.dismiss {
+	font-size: 1.4em;
+	transition: opacity 0.3s;
+}
+
+.userNotifications .collection .collection-item a.dismiss:hover {
+	opacity: 0.6;
+}

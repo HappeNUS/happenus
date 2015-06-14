@@ -21,6 +21,10 @@ Router.route('/event/:_id', {
 	}
 });
 
+Router.route('/my-notifications', {
+	name: 'userNotifications'
+});
+
 Router.plugin('ensureSignedIn', {
 	except: []
 });
