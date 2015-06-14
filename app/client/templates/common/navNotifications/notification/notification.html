@@ -1,0 +1,8 @@
+<template name="notification">
+	<li class="notification {{#unless read}}new{{/unless}}">
+		<a href="{{link}}">
+			<p class="notif-head">{{class}}</p>
+			<p class="notif-text">{{title}}</p>
+		</a>
+	</li>
+</template>

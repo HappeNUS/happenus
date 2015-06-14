@@ -1,0 +1,26 @@
+<template name="navNotifications">
+	<div class="navNotifications">
+		<div class="navbar-icon">
+			<ul class="right">
+		    <li>
+		    	<a id="notif-dropdown-btn" href="#" data-activates="notif-dropdown">
+		    		{{#if newNotifsCount}}
+		    			<i class="mdi-social-notifications"></i>
+	    			{{else}}
+			    		<i class="mdi-social-notifications-none"></i>
+		    		{{/if}}
+		    	</a>
+		    </li>
+		  </ul>
+		</div>
+		<div class="notif-dropdown">
+			<ul id="notif-dropdown" class="dropdown-content">
+			  {{#each userNotifs}}
+        	{{> notification}}
+        	<li class="divider"></li>
+      	{{/each}}
+    		<li class="view-all"><a href="{{pathFor route='userNotifications'}}" class="view-all center-align">View all notifications</a></li>
+			</ul>
+		</div>
+	</div>
+</template>

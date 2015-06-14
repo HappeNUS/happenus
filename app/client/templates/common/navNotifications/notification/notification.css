@@ -1,0 +1,8 @@
+li.notification.new {
+	background-color: #fffde7;
+	transition: background-color 0.3s;
+}
+
+li.notification.new:hover {
+	background-color: #fff9c4;
+}
