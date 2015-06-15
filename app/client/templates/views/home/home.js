@@ -1,4 +1,5 @@
 Template.home.onCreated(function () {
+	// Subscribe to the relevant info when Session variables change
 	var eventSub, instance = this;
 	this.autorun(function () {
 		if (eventSub) {
@@ -16,6 +17,7 @@ Template.home.onCreated(function () {
 
 Template.home.helpers({
 	events: function() {
+		// All events to be shown on the page
 		var sort = Session.get("sort");
 		return Events.find(EventSorter.filterPast, EventSorter[sort]);
 	},

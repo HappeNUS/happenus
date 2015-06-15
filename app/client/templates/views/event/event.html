@@ -1,13 +1,17 @@
+<!-- An event page for each event -->
 <template name="event">
 	{{#with currentEvent}}
 		<div class="container">
 			<div class="row">
+					<!-- The left column -->
 					<div class="col s12 m6">
+						<!-- The banner image -->
 						<div class="card">
 							<div class="card-image">
 								<img src="{{img}}">
 							</div>
 						</div>
+						<!-- The main details -->
 						<div class="card">
 							<div class="card-content black-text">
 								<span class="card-title black-text">{{name}}</span>
@@ -15,7 +19,9 @@
 							</div>
 						</div>
 					</div>
+					<!-- The right column -->
 					<div class="col s12 m6">
+						<!-- More details -->
 						<div class="card">
 							<div class="card-content black-text">
 								<span class="card-title black-text">
@@ -36,6 +42,7 @@
 					        {{/if}}
 					      </a>
 					    </div>
+					    <!-- The event's dates -->
 						</div>
 						<div class="card">
 							<div class="card-content black-text">
@@ -47,6 +54,7 @@
 							    </ul>
 							</div>
 						</div>
+						<!-- Additional details -->
 						<div class="card">
 							<div class="card-content black-text">
 								<span class="card-title black-text">Additional Details</span>

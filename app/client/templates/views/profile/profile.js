@@ -1,53 +1,54 @@
+/* Router.current().params._id is the userId of the user whose page you're viewing */
+
 Template.profile.onCreated(function() {
+	// Subsciptions to run when creating page
 	this.subscribe("allUserData");
 	this.subscribe("subData");
 	this.subscribe("userEventData", Router.current().params._id);
 });
 
+/* Checks if the current user is subscribed to this user */
 function isSubscribed () {
 	return Subs.findOne({subbedId: Router.current().params._id});
 }
 
 Template.profile.helpers({
-	isSelf: function(){
+	isSelf: function(){ // Checks if the page is the user's own page
 		return Router.current().params._id === Meteor.userId();
 	},
-	isSubscribed: function(){
+	isSubscribed: function(){ // Checks if the current user is subscribed to this user
 		return isSubscribed();
 	},
-	subCount: function() {
+	subCount: function() { // Shows the number of subscribers a user has
 		return Subs.find({subbedId: Router.current().params._id}).count();
 	},
-	userData: function(){
+	userData: function(){ // Gets the displayed user's information
 		var userId = Router.current().params._id;
 		return Meteor.users.findOne({_id: userId});
 	},
-	userEvents: function(){
+	userEvents: function(){ // Gets the displayed user's events sorted by date in descending order
 		return Events.find({}, EventSorter['latest']);
 	}
 });
 
 Template.profile.events({
 	'click .sub': function(event) {
-		if (isSubscribed()) {
+		// When the subscribe button is clicked
+		if (isSubscribed()) { // Run the unsubscribe method on the server
 			Meteor.call('unsub', Router.current().params._id);
-		} else {
+		} else { // Run the subscribe method on the server
 			Meteor.call('sub', Router.current().params._id);
 		}
 	},
 	'mouseenter .sub': function(event) {
 		var target = $(event.target);
 		if (isSubscribed()) {
-			target.removeClass('label-success');
-			target.addClass('label-danger');
 			target.text('Unsubscribe');
 		}
 	},
 	'mouseleave .sub': function(event) {
 		var target = $(event.target);
 		if (isSubscribed()) {
-			target.removeClass('label-danger');
-			target.addClass('label-success');
 			target.text('Subscribed');
 		}
 	}

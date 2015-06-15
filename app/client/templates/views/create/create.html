@@ -1,9 +1,12 @@
+<!-- Page that is shown when user wants to create a new event -->
 <template name="create">
 	<div class="create">
 		<div class="container">
 			<form role="form">
 				<div class="row">
+					<!-- The left column -->
 					<div class="col s12 m6">
+						<!-- The banner image card -->
 						<div class="card">
 							{{#if img}}
 								<div class="card-image">
@@ -17,6 +20,7 @@
 				        </div>
 							</div>
 						</div>
+						<!-- The main details card -->
 						<div class="card">
 							<div class="card-content black-text">
 								<span class="card-title black-text">Main Details</span>
@@ -31,7 +35,9 @@
 							</div>
 						</div>
 					</div>
+					<!-- The right column -->
 					<div class="col s12 m6">
+						<!-- The tag input card -->
 						<div class="card">
 							<div class="card-content black-text">
 								<span class="card-title black-text">Tags</span>
@@ -46,6 +52,7 @@
 					        {{/each}}
 							</div>
 						</div>
+						<!-- The dates card -->
 						<div class="card create-dates">
 							<div class="card-content black-text">
 								<span class="card-title black-text">Event Dates</span>
@@ -87,6 +94,7 @@
 						    <a class="add-date btn-floating btn waves-effect waves-light red"><i class="mdi-content-add"></i></a>
 							</div>
 						</div>
+						<!-- The submit button -->
 						<div class="row">
 							<div class="right">
 							  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
