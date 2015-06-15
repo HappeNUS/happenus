@@ -1,11 +1,14 @@
+<!-- The card which contains the sorted by and display dropdowns -->
 <template name="eventsListHeader">
 	<div class="eventsListHeader">
 		<div class="card">
 			<div class="card-content">
+				<!-- The sorted by dropdown -->
 				<a class="dropdown-button waves-effect waves-teal btn-flat" href="#" data-activates="sort-dropdown" style="z-index: 0;">
 					Sorted by: {{sortedBy}}
 					<i class="mdi-navigation-arrow-drop-down right"></i>
 				</a>
+				<!-- The display dropdown -->
 				<a class="dropdown-button waves-effect waves-teal btn-flat" href="#" data-activates="display-dropdown" style="z-index: 0;">
 					Display: {{display}}
 					<i class="mdi-navigation-arrow-drop-down right"></i>
