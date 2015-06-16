@@ -1,0 +1,17 @@
+<!-- Context has to be an event -->
+<template name="eventDropdown">
+	<div class="eventDropdown">
+	  <a class='dd-btn btn-flat waves-effect waves-teal' href='#'>
+	  	<i class="mdi-navigation-more-vert"></i>
+	  </a>
+	  <ul id='eventdd' class='dropdown-content' style="right: 0; z-index: 2;">
+	  	{{#if isOwnEvent}}
+		    <li><a href="#!">Edit event</a></li>
+		    <li class="divider"></li>
+		    <li><a href="#!">Delete event</a></li>
+	    {{else}}
+		    <li><a href="#!">Subscribe to user</a></li>
+	    {{/if}}
+	  </ul>
+	</div>
+</template>
