@@ -1,9 +1,23 @@
-.eventcard .card .like-btn {
-	cursor: pointer;
+.eventcard .card.custom .card-image {
+	height: 250px;
 }
 
 .eventcard .card .card-image {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+.eventcard .card .like-container a.like-btn {
+	cursor: pointer;
+	font-size: 1.2em;
+	position: absolute;
+	bottom: 0em;
+	right: 0.3em;
+	color: #ff1744;
+	transition: opacity 0.3s;
+}
+
+.eventcard .card .like-container a.like-btn:hover {
+	opacity: 0.6;
 }

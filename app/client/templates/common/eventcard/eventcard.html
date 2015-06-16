@@ -1,27 +1,26 @@
 <!-- The representation of an event in any list, alternative to eventListItem -->
 <template name="eventcard">
   <div class="eventcard">
-  	<div class="card medium" style="z-index: 0;">
+  	<div class="card custom" style="z-index: 0;">
     	<div class="card-image waves-effect waves-block waves-light activator"></div>    
    		<div class="card-content">
-        <span class="card-title card-title activator grey-text text-darken-4">
+        <span class="card-title activator grey-text text-darken-4">
           {{name}}
           {{#with user}}
             <a class="user" href="{{pathFor route='profile'}}">by {{username}}</a>
           {{/with}}
         </span>
+        <div class="like-container">
+          <a class="like-btn">
+            {{#if isEventLiked}}
+              <i class="tiny mdi-action-favorite"></i>
+            {{else}}
+              <i class="tiny mdi-action-favorite-outline"></i>
+            {{/if}}
+            {{likeCount}}
+          </a>
+        </div>
      	</div>
-      <div class="card-action">
-        <a class="like-btn">
-          {{#if isEventLiked}}
-            <i class="mdi-action-favorite"></i>
-            Liked ({{likeCount}})
-          {{else}}
-            <i class="mdi-action-favorite-outline"></i>
-            Like ({{likeCount}})
-          {{/if}}
-        </a>
-      </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">{{name}} <i class="mdi-navigation-close right"></i></span>
         <p>{{desc}}</p>
