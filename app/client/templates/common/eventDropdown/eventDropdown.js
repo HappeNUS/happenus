@@ -54,6 +54,7 @@ Template.eventDropdown.helpers({
 	}
 });
 
+/* Events on click of items in dropdown still yet to be completed */
 Template.eventDropdown.events({
 	'click .dd-btn': function (event, template) {
 		var dropdown = template.$('#eventdd');
