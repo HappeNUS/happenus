@@ -1,8 +1,8 @@
 <!-- The representation of an event in any list, alternative to eventListItem -->
 <template name="eventcard">
   <div class="eventcard">
-  	<div class="card custom" style="z-index: 0;">
-    	<div class="card-image waves-effect waves-block waves-light activator"></div>    
+  	<div class="card custom">
+    	<div class="card-image activator"></div>    
    		<div class="card-content">
         <span class="card-title activator grey-text text-darken-4">
           {{name}}
@@ -10,6 +10,9 @@
             <a class="user" href="{{pathFor route='profile'}}">by {{username}}</a>
           {{/with}}
         </span>
+        <div class="eventDropdown-container">
+          {{> eventDropdown}}
+        </div>
         <div class="like-container">
           <a class="like-btn">
             {{#if isEventLiked}}
