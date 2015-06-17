@@ -21,6 +21,8 @@ deps@1.0.7
 ejson@1.0.6
 email@1.0.6
 fastclick@1.0.3
+fortawesome:fontawesome@4.2.0_2
+froala:editor@1.2.7
 gadicohen:reactive-window@1.0.5
 geojson-utils@1.0.3
 gwendall:session-json@0.1.7
