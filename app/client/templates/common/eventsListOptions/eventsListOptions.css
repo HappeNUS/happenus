@@ -1,7 +1,3 @@
-.eventsListOptions .card {
-	overflow: visible;
-}
-
-.eventsListOptions .card .card-content .dropdown-button {
+.eventsListOptions .option-buttons .dropdown-button {
 	display: block;
 }
