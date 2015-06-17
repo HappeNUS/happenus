@@ -1,4 +1,4 @@
-Template.eventsListHeader.onRendered(function(){
+Template.eventsListOptions.onRendered(function(){
 	$('.dropdown-button').dropdown({
 		inDuration: 300,
 		outDuration: 300,
@@ -9,7 +9,7 @@ Template.eventsListHeader.onRendered(function(){
 	});
 });
 
-Template.eventsListHeader.helpers({
+Template.eventsListOptions.helpers({
 	sortedBy: function () {
 		return Session.get("sort");
 	},
@@ -26,7 +26,7 @@ function setDisplay(display) {
 	Session.set("display", display);
 }
 
-Template.eventsListHeader.events({
+Template.eventsListOptions.events({
 	'click #sort-popu': function(event, temp) {setSort('popularity')},
 	'click #sort-late': function(event, temp) {setSort('latest')},
 	'click #sort-soon': function(event, temp) {setSort('soonest')},

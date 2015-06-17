@@ -6,7 +6,7 @@
 			<div class="row">
 				{{#if rwindow.innerWidth 'lte' 600}}
 					<div class="col s12">
-						{{> eventsListHeader}}
+						{{> eventsListOptions}}
 					</div>
 				{{/if}}
 				<div class="col s12 m8">
@@ -23,7 +23,7 @@
 				{{#if rwindow.innerWidth 'gt' 600}}
 					<div class="col m4">
 						<div id="header-non-mobile" class="pinned">
-							{{> eventsListHeader}}
+							{{> eventsListOptions}}
 						</div>
 					</div>
 				{{/if}}
