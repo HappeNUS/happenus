@@ -1,3 +1,7 @@
+.eventsListOptions .option-buttons {
+	margin-top: 10px;
+}
+
 .eventsListOptions .option-buttons .dropdown-button {
 	display: block;
 }
