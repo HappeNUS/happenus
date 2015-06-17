@@ -6,3 +6,7 @@ li.notification.new {
 li.notification.new:hover {
 	background-color: #fff9c4;
 }
+
+li.notification p {
+	white-space: pre-wrap;
+}

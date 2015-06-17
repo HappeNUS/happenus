@@ -1,5 +1,5 @@
 #notif-dropdown {
-	max-width: 50%;
+	width: 25%;
 }
 
 #notif-dropdown a {
@@ -24,9 +24,15 @@
 	color: #607d8b;
 }
 
+@media only screen and (max-width: 992px) {
+	#notif-dropdown {
+		width: 35%;
+	}
+}
+
 @media only screen and (max-width: 600px) {
 	#notif-dropdown {
-		max-width: 85%;
+		width: 60%;
 	}
 
 	#notif-dropdown a {
