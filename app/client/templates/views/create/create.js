@@ -6,6 +6,11 @@ Template.create.onRendered(function(){
 	dates.clear();
 	tags.clear();
 
+	this.$('#desc_input').editable({
+		inlineMode: false,
+		imageUpload: false
+	});
+
 	var fromInput = $('#from_date_input').pickadate();
 	var fromPicker = fromInput.pickadate('picker');
 
@@ -16,13 +21,6 @@ Template.create.onRendered(function(){
 	toPicker.set('min', new Date());
 
 	$('.timepicker').lolliclock({autoclose: true});
-
-	$(window).keydown(function(event){
-	    if(event.keyCode == 13) {
-		    event.preventDefault();
-		    return false;
-	    }
-	});
 });
 
 var EventDateRange = function (from, to) {
@@ -77,9 +75,9 @@ Template.create.events({
 	"submit form": function(event, instance) {
 		event.preventDefault();
 		var nameVal = event.target.name_input.value.trim();
-		var descVal = event.target.desc_input.value.trim();
+		var descVal = instance.$('#desc_input').editable('getHTML');
 		var imgVal = event.target.img_input.value.trim();
-		console.log(nameVal + descVal + imgVal);
+
 		if (nameVal && descVal && imgVal && getDates().length) {
 			Meteor.call('createEvent', nameVal, descVal, imgVal, getDates(), getTags());
 			Router.go('home');
@@ -165,6 +163,7 @@ Template.create.events({
 	},
 	'keydown #tag_input': function(event, instance) {
 		if (event.which === 13) {
+			event.preventDefault();
 			var inputVal = $('#tag_input').val();	// Grab tag from input
 			inputVal = inputVal.replace(/\s/g, '');	// Remove spaces if found
 			inputVal = inputVal.toLowerCase();		// To lower case
