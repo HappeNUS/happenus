@@ -21,3 +21,7 @@
 .eventCard .card .like-container a.like-btn:hover {
 	opacity: 0.6;
 }
+
+.eventcard .card .card-reveal .event-desc {
+	display: block;
+}
