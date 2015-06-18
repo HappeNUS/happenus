@@ -19,8 +19,7 @@ Router.route('/profile/:_id', {
 	waitOn: function(){
 		return [
 			Meteor.subscribe("specificUserData", this.params._id),
-			Meteor.subscribe("subData"),
-			Meteor.subscribe("userEventData", this.params._id)
+			Meteor.subscribe("subData")
 		];
 	}
 });
