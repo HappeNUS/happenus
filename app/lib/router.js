@@ -12,7 +12,14 @@ Router.route('/create', {
 });
 
 Router.route('/profile/:_id', {
-	name: 'profile'
+	name: 'profile',
+	waitOn: function(){
+		return [
+			this.subscribe("specificUserData", this.params._id),
+			this.subscribe("subData"),
+			this.subscribe("userEventData", this.params._id)
+		];
+	}
 });
 
 Router.route('/event/:_id', {
