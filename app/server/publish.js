@@ -3,7 +3,7 @@ Meteor.publish("allUserData", function () {
 });	
 
 Meteor.publish("specificUserData", function(userId) {
-	return Meteor.users.find({_id: userId});
+	return Meteor.users.find({_id: userId}, {fields:{_id: 1, username:1}});
 });
 
 Meteor.publish("subData", function () {
