@@ -1,0 +1,12 @@
+.eventList #options-non-mobile {
+	position: absolute;
+	top: initial;
+}
+
+.pin-options {
+	position: fixed !important;
+}
+
+.eventList .list-end .load-spinner {
+	padding: 20px;
+}
