@@ -1,4 +1,4 @@
-Template.eventcard.onRendered(function(){
+Template.eventCard.onRendered(function(){
 	var url = 'url('.concat(this.data.img).concat(')');
 	this.$('.card-image').css('background-image', url);
 });
@@ -7,7 +7,7 @@ function isEventLiked (likes) {
 	return likes.indexOf(Meteor.userId()) !== -1;
 }
 
-Template.eventcard.helpers({
+Template.eventCard.helpers({
 	user: function(){
 		return Meteor.users.findOne({_id: this.userId});
 	},
@@ -22,7 +22,7 @@ Template.eventcard.helpers({
 	}
 });
 
-Template.eventcard.events({
+Template.eventCard.events({
 	'click .like-btn': function(event, template) {
 		if (isEventLiked(this.likes)) {
 			Meteor.call('unlikeEvent', this._id);
