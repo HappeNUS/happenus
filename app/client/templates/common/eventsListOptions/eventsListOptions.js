@@ -7,6 +7,21 @@ Template.eventsListOptions.onRendered(function(){
 		gutter: 0,
 		belowOrigin: true
 	});
+
+	if (this.data && this.data.pinned) {
+		var options = $('div.eventsListOptions#pinnable');
+		var navHeight = $('div.navbar-fixed nav').height();
+		var threshold = options.offset().top - navHeight;
+		$(window).scroll(function(){
+			if ($(this).scrollTop() > threshold) {
+				options.parent().css('position', 'fixed');
+				options.parent().css('top', navHeight);
+			} else {
+				options.parent().css('position', 'absolute');
+				options.parent().css('top', 'inherit');
+			}
+		});
+	}
 });
 
 Template.eventsListOptions.helpers({
@@ -15,6 +30,9 @@ Template.eventsListOptions.helpers({
 	},
 	display: function() {
 		return Session.get("display");
+	},
+	pin: function() {
+		return this.pinned ? 'pinnable' : 'non-pinnable';
 	}
 });
 
