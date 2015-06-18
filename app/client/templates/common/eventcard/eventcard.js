@@ -1,7 +1,3 @@
-Template.eventcard.onCreated(function(){
-	this.subscribe("allUserData", this.userId);
-});
-
 Template.eventcard.onRendered(function(){
 	var url = 'url('.concat(this.data.img).concat(')');
 	this.$('.card-image').css('background-image', url);

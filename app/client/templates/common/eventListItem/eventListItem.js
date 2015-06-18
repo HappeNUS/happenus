@@ -12,10 +12,6 @@ function isEventLiked (likes) {
 	return likes.indexOf(Meteor.userId()) !== -1;
 }
 
-Template.eventListItem.onCreated(function(){
-	this.subscribe("allUserData", this.userId);
-});
-
 Template.eventListItem.onRendered(function () {
 	var url = 'url('.concat(this.data.img).concat(')');
 	this.$('.listitem-img').css('background-image', url);

@@ -4,7 +4,10 @@ Router.configure({
 });
 
 Router.route('/', {
-	name: 'home'
+	name: 'home',
+	waitOn: function(){
+		return Meteor.subscribe("allUserData");
+	}
 });
 
 Router.route('/create', {
@@ -15,9 +18,9 @@ Router.route('/profile/:_id', {
 	name: 'profile',
 	waitOn: function(){
 		return [
-			this.subscribe("specificUserData", this.params._id),
-			this.subscribe("subData"),
-			this.subscribe("userEventData", this.params._id)
+			Meteor.subscribe("specificUserData", this.params._id),
+			Meteor.subscribe("subData"),
+			Meteor.subscribe("userEventData", this.params._id)
 		];
 	}
 });
