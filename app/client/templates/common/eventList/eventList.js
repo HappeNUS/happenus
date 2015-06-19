@@ -7,6 +7,7 @@ ITEMS_INCREMENT = 9;
 SPINNER_OFFSET = 20;
 
 var eventSub;
+var isLoading = new ReactiveVar(false);
 
 function isValidPageRequest (pageType) {
 	return PAGES.indexOf(pageType) !== -1;
@@ -59,7 +60,8 @@ Template.eventList.onCreated(function(){
 			sort = Session.get('sort');
 		}
 		var limit = Session.get('limit');
-		eventSub = instance.subscribe("eventData", view, sort, limit);
+		isLoading.set(true);
+		eventSub = instance.subscribe("eventData", view, sort, limit, function(){isLoading.set(false)});
 	});
 });
 
@@ -79,7 +81,7 @@ Template.eventList.helpers({
 	isDisplayCards: function() {
 		return Session.get("display") === "cards";
 	},
-	hasItemsRemaining: function() {
-		return hasItemsRemaining ();
+	showLoading: function() {
+		return hasItemsRemaining () || isLoading.get();
 	}
 });
