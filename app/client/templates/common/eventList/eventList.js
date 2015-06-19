@@ -28,6 +28,10 @@ function showMoreVisible() {
 	}
 }
 
+function setCascade() {
+	$('.events.cascade').cascade({autoResize: true});
+}
+
 Template.eventList.onCreated(function(){
 	var instance = this;
 	var pageType = instance.data.page;
@@ -35,14 +39,6 @@ Template.eventList.onCreated(function(){
 		console.log("Invalid page request!");
 		return;
 	}
-
-	instance.autorun(function(){
-		if (rwindow.innerWidth() > 992) {
-			Session.set("display", "cards");
-		} else {
-			Session.set("display", "list");
-		}
-	});
 
 	Session.set("limit", ITEMS_INCREMENT);
 	if (pageType === 'home') {
@@ -68,12 +64,23 @@ Template.eventList.onCreated(function(){
 		}
 		var limit = Session.get('limit');
 		isLoading.set(true);
-		eventSub = instance.subscribe("eventData", view, sort, limit, function(){isLoading.set(false)});
+		eventSub = instance.subscribe("eventData", view, sort, limit, function(){
+			setCascade();
+			isLoading.set(false)
+		});
 	});
 });
 
 Template.eventList.onRendered(function(){
 	$(window).scroll(showMoreVisible);
+	this.autorun(function(){
+		if (rwindow.innerWidth() > 992) {
+			Session.set("display", "cards");
+			setCascade();
+		} else {
+			Session.set("display", "list");
+		}
+	});
 });
 
 Template.eventList.helpers({

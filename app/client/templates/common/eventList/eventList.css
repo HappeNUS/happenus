@@ -10,12 +10,3 @@
 .eventList .list-end .load-spinner {
 	padding: 20px;
 }
-
-@media only screen and (min-width: 992px) {
-	.grid-style {
-		-moz-column-width: 16em;
-		-webkit-column-width: 16em;
-		-moz-column-gap: 1.2em;
-		-webkit-column-gap: 1.2em; 
-	}
-}
