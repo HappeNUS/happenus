@@ -33,3 +33,20 @@
 .create .rem-date-btn:hover {
 	opacity: 0.6;
 }
+
+.create div.main-details .input-field.desc {
+	border: 1px solid #9E9E9E;
+}
+
+.create div.main-details .input-field.desc #toolbar {
+	border-bottom: 1px solid #9E9E9E;
+}
+
+.create #editor {
+	overflow: visible;
+	min-height: 7.0rem;
+}
+
+.create div.main-details {
+	overflow: visible;
+}

@@ -2,13 +2,20 @@ var banner = new ReactiveVar();
 var dates = new ReactiveArray();
 var tags = new ReactiveArray();
 
+var quillEditor;
+
 Template.create.onRendered(function(){
 	dates.clear();
 	tags.clear();
 
-	this.$('#desc_input').editable({
-		inlineMode: false,
-		imageUpload: false
+	quillEditor = new Quill('#editor', {
+		modules: {
+			toolbar: {container: '#toolbar'},
+			'link-tooltip': true,
+			'image-tooltip': true
+		},
+		styles: false,
+		theme: 'snow'
 	});
 
 	var fromInput = $('#from_date_input').pickadate();
@@ -75,10 +82,11 @@ Template.create.events({
 	"submit form": function(event, instance) {
 		event.preventDefault();
 		var nameVal = event.target.name_input.value.trim();
-		var descVal = instance.$('#desc_input').editable('getHTML');
+		var descVal = quillEditor.getText().trim();
 		var imgVal = event.target.img_input.value.trim();
 
 		if (nameVal && descVal && imgVal && getDates().length) {
+			descVal = quillEditor.getHTML().trim();
 			Meteor.call('createEvent', nameVal, descVal, imgVal, getDates(), getTags());
 			Router.go('home');
 		} else {
@@ -182,5 +190,8 @@ Template.create.events({
 	},
 	'keyup #img_input': function(event, template) {
 		banner.set($(img_input).val());
+	},
+	'click #editor': function(event, template) {
+		template.$('#editor .ql-editor').focus();
 	}
 });
