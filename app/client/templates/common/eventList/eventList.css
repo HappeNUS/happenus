@@ -11,15 +11,6 @@
 	padding: 20px;
 }
 
-@media only screen and (min-width: 600px) {
-	.grid-style {
-		-moz-column-width: 15em;
-		-webkit-column-width: 15em;
-		-moz-column-gap: 1em;
-		-webkit-column-gap: 1em; 
-	}
-}
-
 @media only screen and (min-width: 992px) {
 	.grid-style {
 		-moz-column-width: 16em;

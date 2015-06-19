@@ -37,7 +37,7 @@ Template.eventList.onCreated(function(){
 	}
 
 	instance.autorun(function(){
-		if (rwindow.innerWidth() > 600) {
+		if (rwindow.innerWidth() > 992) {
 			Session.set("display", "cards");
 		} else {
 			Session.set("display", "list");
