@@ -54,4 +54,4 @@ aldeed:template-extension
 yogiben:notifications
 
 # rich text editor
-froala:editor
+jhartma:quill
