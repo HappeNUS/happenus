@@ -36,7 +36,14 @@ Template.eventList.onCreated(function(){
 		return;
 	}
 
-	Session.set("display", "list");
+	instance.autorun(function(){
+		if (rwindow.innerWidth() > 600) {
+			Session.set("display", "cards");
+		} else {
+			Session.set("display", "list");
+		}
+	});
+
 	Session.set("limit", ITEMS_INCREMENT);
 	if (pageType === 'home') {
 		Session.set("view", "featured");
