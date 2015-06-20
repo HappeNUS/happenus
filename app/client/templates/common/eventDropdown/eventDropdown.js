@@ -40,6 +40,10 @@ function hideDropdown (dropdown) {
 	}
 }
 
+function isSubscribed (userId) {
+	return Subs.find({subberId: Meteor.userId(), subbedId: userId}).count() !== 0;
+}
+
 Template.eventDropdown.onRendered(function(){
 	isDropdownAnimating = false;
 	$('*').click(function(event){
@@ -51,6 +55,9 @@ Template.eventDropdown.onRendered(function(){
 Template.eventDropdown.helpers({
 	isOwnEvent: function() {
 		return this.userId === Meteor.userId();
+	},
+	isSubscribed: function() {
+		return isSubscribed(this.userId);
 	}
 });
 
@@ -62,6 +69,16 @@ Template.eventDropdown.events({
 			hideDropdown(dropdown);
 		} else {
 			showDropdown(dropdown);
+		}
+	},
+	'click #delete-event': function () {
+		Meteor.call('deleteEvent', this._id);
+	},
+	'click #sub-user': function() {
+		if (isSubscribed(this.userId)) {
+			Meteor.call('unsub', this.userId);
+		} else {
+			Meteor.call('sub', this.userId);
 		}
 	}
 });
