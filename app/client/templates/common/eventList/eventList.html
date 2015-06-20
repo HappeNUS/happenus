@@ -8,21 +8,17 @@
 					</div>
 				{{/if}}
 				<div class="col s12 m8">
-					{{#if isDisplayList}}
-						<div class="events single">
-							{{#each events}}
+					<div class="events {{#if isDisplayCards}}cascade{{/if}}">
+						{{#each events}}
+							{{#if isDisplayList}}
 								{{> eventListItem}}
-							{{/each}}
-						</div>
-						{{else}}
-							{{#if isDisplayCards}}
-								<div class="events cascade">
-									{{#each events}}
-										{{> eventCard}}
-									{{/each}}
-								</div>
+							{{else}}
+								{{#if isDisplayCards}}
+									{{> eventCard}}
+								{{/if}}
 							{{/if}}
-					{{/if}}
+						{{/each}}
+					</div>
 					<div class="list-end">
 						<div class="card">
 							{{#if showLoading}}

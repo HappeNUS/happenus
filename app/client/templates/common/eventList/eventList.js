@@ -8,6 +8,7 @@ SPINNER_OFFSET = 20;
 
 var eventSub;
 var isLoading = new ReactiveVar(false);
+var cascade;
 
 function isValidPageRequest (pageType) {
 	return PAGES.indexOf(pageType) !== -1;
@@ -29,7 +30,13 @@ function showMoreVisible() {
 }
 
 function setCascade() {
-	$('.events.cascade').cascade({autoResize: true});
+	var elements = document.getElementsByClassName("events cascade");
+	if (elements.length > 0) {
+		cascade = new Cascade(elements[0], {
+			autoResize: false,
+			childrenSelector: '.eventCard'
+		});
+	}
 }
 
 Template.eventList.onCreated(function(){
@@ -72,15 +79,30 @@ Template.eventList.onCreated(function(){
 });
 
 Template.eventList.onRendered(function(){
+	var instance = this;
 	$(window).scroll(showMoreVisible);
+	
+	if (rwindow.innerWidth() > 992) {
+		Session.set("display", "cards");
+	} else {
+		Session.set("display", "list");
+	}
+
 	this.autorun(function(){
-		if (rwindow.innerWidth() > 992) {
-			Session.set("display", "cards");
-			setCascade();
-		} else {
-			Session.set("display", "list");
+		if (Session.get("display") === "cards") {
+			window.setTimeout(setCascade, 20);
+		} else if (Session.get("display") === "list") {
+			instance.$('.events').css('height', '');
 		}
 	});
+
+	this.autorun(function(){
+		// Reactive to window width changes
+		rwindow.innerWidth();
+		if (cascade) {
+			cascade.reflow();
+		}
+	})
 });
 
 Template.eventList.helpers({
