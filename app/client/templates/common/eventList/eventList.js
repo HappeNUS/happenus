@@ -3,7 +3,7 @@ PAGES = [
 	'profile'
 ];
 
-ITEMS_INCREMENT = 9;
+ITEMS_INCREMENT = 20;
 SPINNER_OFFSET = 20;
 
 var eventSub;
