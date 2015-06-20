@@ -41,6 +41,8 @@ function setCascade() {
 
 Template.eventList.onCreated(function(){
 	var instance = this;
+	instance.subscribe("subData");
+
 	var pageType = instance.data.page;
 	if (!isValidPageRequest(pageType)) {
 		console.log("Invalid page request!");
