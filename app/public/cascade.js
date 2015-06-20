@@ -25,7 +25,7 @@ function Cascade(element, options) {
 	//get DOM elements
 	this.element = element;
 	if (this.childrenSelector) {
-		this.children = this.element.querySelectorAll(childrenSelector);
+		this.children = this.element.querySelectorAll(this.childrenSelector);
 	} else {
 		this.children = this.element.children;
 	}
