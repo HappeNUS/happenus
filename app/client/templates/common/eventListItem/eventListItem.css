@@ -1,6 +1,7 @@
 .eventListItem .card {
 	height: 7.0em;
 	transition: box-shadow 0.3s;
+	overflow: visible;
 }
 
 .eventListItem .card:hover {
