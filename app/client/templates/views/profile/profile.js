@@ -1,12 +1,3 @@
-/* Router.current().params._id is the userId of the user whose page you're viewing */
-
-Template.profile.onCreated(function() {
-	// Subsciptions to run when creating page
-	this.subscribe("allUserData");
-	this.subscribe("subData");
-	this.subscribe("userEventData", Router.current().params._id);
-});
-
 /* Checks if the current user is subscribed to this user */
 function isSubscribed () {
 	return Subs.findOne({subbedId: Router.current().params._id});

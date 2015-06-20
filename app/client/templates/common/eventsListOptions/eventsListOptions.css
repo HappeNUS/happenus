@@ -1,0 +1,13 @@
+.eventsListOptions .option-buttons {
+	padding: 15px;
+}
+
+.eventsListOptions .option-buttons .dropdown-button {
+	display: block;
+}
+
+@media only screen and (max-width: 600px) {
+	.eventsListOptions .option-buttons {
+		padding: 8px;
+	}
+}

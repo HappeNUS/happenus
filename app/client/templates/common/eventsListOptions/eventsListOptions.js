@@ -1,4 +1,4 @@
-Template.eventsListHeader.onRendered(function(){
+Template.eventsListOptions.onRendered(function(){
 	$('.dropdown-button').dropdown({
 		inDuration: 300,
 		outDuration: 300,
@@ -7,14 +7,32 @@ Template.eventsListHeader.onRendered(function(){
 		gutter: 0,
 		belowOrigin: true
 	});
+
+	if (this.data && this.data.pinned) {
+		var options = $('div.eventsListOptions#pinnable');
+		var navHeight = $('div.navbar-fixed nav').height();
+		var threshold = options.offset().top - navHeight;
+		$(window).scroll(function(){
+			if ($(this).scrollTop() > threshold) {
+				options.parent().css('position', 'fixed');
+				options.parent().css('top', navHeight);
+			} else {
+				options.parent().css('position', 'absolute');
+				options.parent().css('top', 'inherit');
+			}
+		});
+	}
 });
 
-Template.eventsListHeader.helpers({
+Template.eventsListOptions.helpers({
 	sortedBy: function () {
 		return Session.get("sort");
 	},
 	display: function() {
 		return Session.get("display");
+	},
+	pin: function() {
+		return this.pinned ? 'pinnable' : 'non-pinnable';
 	}
 });
 
@@ -26,7 +44,7 @@ function setDisplay(display) {
 	Session.set("display", display);
 }
 
-Template.eventsListHeader.events({
+Template.eventsListOptions.events({
 	'click #sort-popu': function(event, temp) {setSort('popularity')},
 	'click #sort-late': function(event, temp) {setSort('latest')},
 	'click #sort-soon': function(event, temp) {setSort('soonest')},

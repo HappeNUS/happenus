@@ -2,9 +2,21 @@ var banner = new ReactiveVar();
 var dates = new ReactiveArray();
 var tags = new ReactiveArray();
 
+var quillEditor;
+
 Template.create.onRendered(function(){
 	dates.clear();
 	tags.clear();
+
+	quillEditor = new Quill('#editor', {
+		modules: {
+			toolbar: {container: '#toolbar'},
+			'link-tooltip': true,
+			'image-tooltip': true
+		},
+		styles: false,
+		theme: 'snow'
+	});
 
 	var fromInput = $('#from_date_input').pickadate();
 	var fromPicker = fromInput.pickadate('picker');
@@ -16,13 +28,6 @@ Template.create.onRendered(function(){
 	toPicker.set('min', new Date());
 
 	$('.timepicker').lolliclock({autoclose: true});
-
-	$(window).keydown(function(event){
-	    if(event.keyCode == 13) {
-		    event.preventDefault();
-		    return false;
-	    }
-	});
 });
 
 var EventDateRange = function (from, to) {
@@ -77,10 +82,11 @@ Template.create.events({
 	"submit form": function(event, instance) {
 		event.preventDefault();
 		var nameVal = event.target.name_input.value.trim();
-		var descVal = event.target.desc_input.value.trim();
+		var descVal = quillEditor.getText().trim();
 		var imgVal = event.target.img_input.value.trim();
-		console.log(nameVal + descVal + imgVal);
+
 		if (nameVal && descVal && imgVal && getDates().length) {
+			descVal = quillEditor.getHTML().trim();
 			Meteor.call('createEvent', nameVal, descVal, imgVal, getDates(), getTags());
 			Router.go('home');
 		} else {
@@ -165,6 +171,7 @@ Template.create.events({
 	},
 	'keydown #tag_input': function(event, instance) {
 		if (event.which === 13) {
+			event.preventDefault();
 			var inputVal = $('#tag_input').val();	// Grab tag from input
 			inputVal = inputVal.replace(/\s/g, '');	// Remove spaces if found
 			inputVal = inputVal.toLowerCase();		// To lower case
@@ -183,5 +190,8 @@ Template.create.events({
 	},
 	'keyup #img_input': function(event, template) {
 		banner.set($(img_input).val());
+	},
+	'click #editor': function(event, template) {
+		template.$('#editor .ql-editor').focus();
 	}
 });

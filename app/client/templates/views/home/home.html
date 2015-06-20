@@ -1,34 +1,14 @@
 <!-- Home page which shows featured events and subscriptions -->
 <template name="home">
 	<div class="home">
-	  {{> homeTabs}}
-		<div class="container">
-			<div class="row">
-				{{#if rwindow.innerWidth 'lte' 600}}
-					<div class="col s12">
-						{{> eventsListHeader}}
-					</div>
-				{{/if}}
-				<div class="col s12 m8">
-					{{#each events}}
-						{{#if isDisplayList}}
-							{{> eventListItem}}
-						{{else}}
-							{{#if isDisplayCards}}
-								{{> eventcard}}
-							{{/if}}
-						{{/if}}
-					{{/each}}
-				</div>
-				{{#if rwindow.innerWidth 'gt' 600}}
-					<div class="col m4">
-						<div id="header-non-mobile" class="pinned">
-							{{> eventsListHeader}}
-						</div>
-					</div>
-				{{/if}}
-			</div>
+		<div class="homeTabs-container">
+			{{> homeTabs}}
 		</div>
-		{{> createFAB}}
+		<div class="eventList-container">
+			{{> eventList page="home"}}
+		</div>
+		<div class="createFAB-container">
+			{{> createFAB}}
+		</div>
 	</div>
 </template>

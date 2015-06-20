@@ -1,9 +1,9 @@
-<!-- The representation of an event in any list, alternative to eventcard -->
+<!-- The representation of an event in any list, alternative to eventCard -->
 <template name="eventListItem">
 	<div class="eventListItem">
-		<div class="card valign-wrapper">
-			<div class="listitem-img link-event"></div>
-			<div class="listitem-content valign link-event">
+		<div class="card valign-wrapper link-event">
+			<div class="listitem-img"></div>
+			<div class="listitem-content valign">
 				<p class="eventname">{{name}} by
 					{{#with user}}
           	<a class="username" href="{{pathFor route='profile'}}">{{username}}</a>
@@ -15,7 +15,7 @@
 				{{> eventDropdown}}
 			</div>
 			<div class="listitem-actions">
-				<a class="like-btn">
+				<a href="#" class="like-btn">
 					{{#if isEventLiked}}
 						<i class="tiny mdi-action-favorite"></i>
 					{{else}}

@@ -1,12 +1,26 @@
 /* Anything here should be applied to all pages */
 .card {
 	overflow: visible;
+	margin: 7px 7px;
+	margin-bottom: 14px;
 }
 
+.container {
+	width: 75%;
+	max-width: 1920px;
+}
+
+/* Only affects screen widths <= 992px */
+@media only screen and (max-width: 992px) {
+	.container {
+		width: 90%;
+		padding: 0 0;
+	}
+}
 
 /* Only affects screen widths <= 600px */
 @media only screen and (max-width: 600px) {
 	.container {
-		padding: 0 0;
+		width: 95%;
 	}
 }

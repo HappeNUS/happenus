@@ -52,3 +52,6 @@ aldeed:template-extension
 
 # notification package
 yogiben:notifications
+
+# rich text editor
+jhartma:quill

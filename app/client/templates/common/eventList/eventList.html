@@ -1,0 +1,60 @@
+<template name="eventList">
+	<div class="eventList">
+		<div class="container">
+			<div class="row">
+				{{#if rwindow.innerWidth 'lte' 600}}
+					<div class="col s12">
+						{{> eventsListOptions}}
+					</div>
+				{{/if}}
+				<div class="col s12 m8">
+					{{#if isDisplayList}}
+						<div class="events single">
+							{{#each events}}
+								{{> eventListItem}}
+							{{/each}}
+						</div>
+						{{else}}
+							{{#if isDisplayCards}}
+								<div class="events cascade">
+									{{#each events}}
+										{{> eventCard}}
+									{{/each}}
+								</div>
+							{{/if}}
+					{{/if}}
+					<div class="list-end">
+						<div class="card">
+							{{#if showLoading}}
+								<div id="load-spinner" class="load-spinner center-align">
+									<div class="preloader-wrapper small active">
+										<div class="spinner-layer spinner-blue-only">
+											<div class="circle-clipper left">
+												<div class="circle"></div>
+											</div>
+											<div class="gap-patch">
+												<div class="circle"></div>
+											</div>
+											<div class="circle-clipper right">
+												<div class="circle"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							{{else}}
+								<p class="center-align">No remaining events</p>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+				{{#if rwindow.innerWidth 'gt' 600}}
+					<div class="col m4">
+						<div id="options-non-mobile">
+							{{> eventsListOptions pinned=true}}
+						</div>
+					</div>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>

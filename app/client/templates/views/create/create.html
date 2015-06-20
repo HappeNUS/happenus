@@ -21,17 +21,21 @@
 							</div>
 						</div>
 						<!-- The main details card -->
-						<div class="card">
+						<div class="card main-details">
 							<div class="card-content black-text">
 								<span class="card-title black-text">Main Details</span>
 								<div class="input-field">
-				          <input id="name_input" type="text" class="validate">
-				          <label for="name_input">Event Name</label>
-				        </div>
-				        <div class="input-field">
-				          <textarea id="desc_input" class="materialize-textarea"></textarea>
-				          <label for="desc_input">Description</label>
-				        </div>
+									<input id="name_input" type="text" class="validate">
+									<label for="name_input">Event Name</label>
+								</div>
+								<label class="desc_label">Description</label>
+								<div class="input-field desc">
+									<div id="toolbar" class="desc-input-toolbar">
+										{{> quillToolbar}}
+									</div>
+									<div id="editor" class="desc-input-editor"></div>
+								</div>
+
 							</div>
 						</div>
 					</div>

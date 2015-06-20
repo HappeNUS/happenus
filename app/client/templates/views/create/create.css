@@ -33,3 +33,24 @@
 .create .rem-date-btn:hover {
 	opacity: 0.6;
 }
+
+.create div.main-details .input-field.desc #editor,
+.create div.main-details .input-field.desc #toolbar {
+	box-shadow: none;
+	transition: box-shadow 0.3s;
+}
+
+.create div.main-details .input-field.desc #editor:hover,
+.create div.main-details .input-field.desc #toolbar:hover {
+	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.create #editor {
+	overflow: visible;
+	min-height: 3.5rem;
+	border-bottom: 1px solid #9E9E9E;
+}
+
+.create div.main-details {
+	overflow: visible;
+}
