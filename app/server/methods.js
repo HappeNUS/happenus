@@ -45,5 +45,13 @@ Meteor.methods({
 		if (userId) {
 			Events.update({_id: eventId}, {$pullAll: {likes: [userId]}, $inc: {likeCount: -1}});
 		}
+	},
+	'deleteEvent': function(eventId) {
+		var userId = this.userId;
+		var eventToDelete = Events.findOne({_id: eventId, userId: userId});
+		if (eventToDelete) {
+			NotificationFactory.eventDelNotif(eventToDelete);
+			Events.remove({_id: eventId, userId: userId});
+		}
 	}
 });
