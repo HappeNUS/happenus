@@ -80,5 +80,8 @@ Template.eventDropdown.events({
 		} else {
 			Meteor.call('sub', this.userId);
 		}
+	},
+	'click #edit-event': function() {
+		Meteor.call('editEvent', this._id);
 	}
 });

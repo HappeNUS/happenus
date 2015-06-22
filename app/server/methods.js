@@ -53,5 +53,10 @@ Meteor.methods({
 			NotificationFactory.eventDelNotif(eventToDelete);
 			Events.remove({_id: eventId, userId: userId});
 		}
+	},
+	'editEvent': function(eventId) {
+		var userId = this.userId;
+		var eventToEdit = Events.findOne({_id: eventId, userId: userId});
+		
 	}
 });
