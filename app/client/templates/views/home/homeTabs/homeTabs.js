@@ -13,7 +13,7 @@ function setSort(sort) {
 }
 
 function setLimit() {
-	Session.set("limit", 9);
+	Session.set("limit", 20);
 }
 
 Template.homeTabs.events({
@@ -22,13 +22,13 @@ Template.homeTabs.events({
 		// Sets view to 'featured' and sort to 'popularity'
 		setView('featured');
 		setSort('popularity');
-		setLimit('9');
+		setLimit();
 	},
 	'click #subsTab': function(event, template){
 		// When the subscriptions tab is clicked
 		// Sets view to 'subscriptions' and sort to 'latest'
 		setView('subscriptions');
 		setSort('latest');
-		setLimit('9');
+		setLimit();
 	}
 });
