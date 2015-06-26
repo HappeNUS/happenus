@@ -45,5 +45,8 @@ Meteor.methods({
 		if (userId) {
 			Events.update({_id: eventId}, {$pullAll: {likes: [userId]}, $inc: {likeCount: -1}});
 		}
+	},
+	'profile_upload': function(response) {
+		Meteor.users.update({_id: this.userId}, {$set: {profile_img: response.upload_data.public_id}});
 	}
 });

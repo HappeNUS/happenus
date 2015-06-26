@@ -1,0 +1,27 @@
+<!-- Temporary placeholder for testing image uploads -->
+<template name="settings">
+	<div id="settings">
+		<div class="container">
+			<img src="{{c.url userData.profile_img format='JPG' width='150' height='150' crop='fill' gravity='center'}}" class="circle responsive-img">
+			<div class="row">
+				<div class="col s6">
+					{{#c_upload_stream callback="profile_upload"}}
+						<div class="file-field input-field">
+							<div class="btn">
+								<span>upload</span>
+								<input type="file"/>
+							</div>
+						</div>
+					{{/c_upload_stream}}
+				</div>
+				<div class="col s6">
+					{{#each c.uploading_images}}
+						<div class="progress">
+							<div class="determinate" style="width: {{percent_uploaded}}%"></div>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
