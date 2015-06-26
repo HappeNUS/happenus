@@ -55,3 +55,7 @@ yogiben:notifications
 
 # rich text editor
 jhartma:quill
+
+# Cloudinary for image upload and manipulation
+lepozepo:cloudinary
+matb33:collection-hooks
