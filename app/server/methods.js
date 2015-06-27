@@ -20,18 +20,18 @@ Meteor.methods({
 			subbedId: subbedUser
 		});
 	},
-	'createEvent': function(name, desc, img, eventDates, tags){
+	'createEvent': function(details, img_details){
 		Events.insert({
 			_id: new Meteor.Collection.ObjectID()._str,
 			userId: Meteor.userId(),
-			name: name,
-			desc: desc,
-			img: img,
-			eventDates: eventDates,
+			name: details.name,
+			desc: details.desc,
+			img: img_details,
+			eventDates: details.eventDates,
 			dateCreated: new Date(),
 			likeCount: 0,
 			likes: [],
-			tags: tags
+			tags: details.tags
 		});
 	},
 	'likeEvent': function (eventId) {
