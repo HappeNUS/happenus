@@ -3,6 +3,11 @@ function isSubscribed () {
 	return Subs.findOne({subbedId: Router.current().params._id});
 }
 
+function getUserData () {
+	var userId = Router.current().params._id;
+	return Meteor.users.findOne({_id: userId})
+}
+
 Template.profile.helpers({
 	isSelf: function(){ // Checks if the page is the user's own page
 		return Router.current().params._id === Meteor.userId();
@@ -14,11 +19,13 @@ Template.profile.helpers({
 		return Subs.find({subbedId: Router.current().params._id}).count();
 	},
 	userData: function(){ // Gets the displayed user's information
-		var userId = Router.current().params._id;
-		return Meteor.users.findOne({_id: userId});
+		return getUserData();
 	},
 	userEvents: function(){ // Gets the displayed user's events sorted by date in descending order
 		return Events.find({}, EventSorter['latest']);
+	},
+	profile_img_url: function(){
+		return $.cloudinary.url(getUserData().profile.img);
 	}
 });
 
