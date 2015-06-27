@@ -46,7 +46,15 @@ Meteor.methods({
 			Events.update({_id: eventId}, {$pullAll: {likes: [userId]}, $inc: {likeCount: -1}});
 		}
 	},
-	'profile_upload': function(response) {
-		Meteor.users.update({_id: this.userId}, {$set: {profile_img: response.upload_data.public_id}});
+	'profileUpload': function(uploadedFile) {
+		var user = Meteor.users.findOne({_id: this.userId});
+		if (user.profile.img !== Meteor.settings.Cloudinary.default_profile_img) {
+			Meteor.call("cloudinary_delete", user.profile.img, function(e,r) {
+				if (!e) {
+					console.log(r);
+				}
+			});
+		}
+		Meteor.users.update({_id: this.userId}, {$set: {'profile.img': uploadedFile.public_id}});
 	}
 });
