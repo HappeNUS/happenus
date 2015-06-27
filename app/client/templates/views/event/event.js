@@ -24,6 +24,9 @@ Template.event.helpers({
 	},
 	isEventLiked: function(){
 		return isEventLiked(this.likes);
+	},
+	eventImage: function(){
+		return $.cloudinary.url(this.img.normal);
 	}
 });
 
