@@ -89,6 +89,7 @@ Template.eventList.onRendered(function(){
 	}
 
 	this.autorun(function(){
+		Events.find().count();
 		if (Session.get("display") === "cards") {
 			window.setTimeout(setCascade, 20);
 		} else if (Session.get("display") === "list") {
@@ -99,10 +100,12 @@ Template.eventList.onRendered(function(){
 	this.autorun(function(){
 		// Reactive to window width changes
 		rwindow.innerWidth();
+		// Reactive to event count changes
+		Events.find().count();
 		if (cascade) {
-			cascade.reflow();
+			setCascade();
 		}
-	})
+	});
 });
 
 Template.eventList.helpers({
