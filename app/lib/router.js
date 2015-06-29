@@ -14,6 +14,10 @@ Router.route('/create', {
 	name: 'create'
 });
 
+Router.route('/help', {
+	name: 'help'
+});
+
 Router.route('/profile/:_id', {
 	name: 'profile',
 	waitOn: function(){
