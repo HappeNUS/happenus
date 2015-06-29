@@ -31,6 +31,14 @@
 										<a href="{{pathFor route='profile'}}">{{username}}</a>
 									{{/with}}
 								</span>
+								{{#if tags}}
+									<div class="tags">
+										<p>Tags:</p>
+										{{#each tags}}
+											<a class="red accent-2 waves-effect waves-light btn">{{this}}</a>
+										{{/each}}
+									</div>
+								{{/if}}
 							</div>
 							<div class="card-action">
 					      <a class="like-btn">
