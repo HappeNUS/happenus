@@ -11,6 +11,10 @@ Template.event.onCreated(function(){
 	this.subscribe("specificUserData", userId);
 });
 
+Template.event.onRendered(function(){
+	this.$('.materialboxed').materialbox();
+});
+
 Template.event.helpers({
 	currentEvent: function(){
 		return getCurrentEvent();

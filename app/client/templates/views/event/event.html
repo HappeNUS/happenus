@@ -1,14 +1,15 @@
 <!-- An event page for each event -->
 <template name="event">
-	{{#with currentEvent}}
-		<div class="container">
-			<div class="row">
+	<div class="event">
+		{{#with currentEvent}}
+			<div class="container">
+				<div class="row">
 					<!-- The left column -->
 					<div class="col s12 m6">
 						<!-- The banner image -->
 						<div class="card">
 							<div class="card-image">
-								<img src="{{eventImage}}">
+								<img class="materialboxed" src="{{eventImage}}">
 							</div>
 						</div>
 						<!-- The main details -->
@@ -65,4 +66,5 @@
 		    </div>
 	    </div>
     {{/with}}
+	</div>
 </template>
