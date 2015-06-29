@@ -1,0 +1,42 @@
+#settings-dropdown {
+	width: 25%;
+}
+
+#settings-dropdown a {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 1.0em;
+}
+
+#settings-dropdown p {
+	margin: 0;
+}
+
+#settings-dropdown li.view-all {
+	background-color: #eceff1;
+	transition: background-color 0.3s;
+}
+
+#settings-dropdown li.view-all:hover {
+	background-color: #cfd8dc;
+}
+
+#settings-dropdown a.view-all {
+	color: #607d8b;
+}
+
+@media only screen and (max-width: 992px) {
+	#settings-dropdown {
+		width: 35%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	#settings-dropdown {
+		width: 60%;
+	}
+
+	#settings-dropdown a {
+		font-size: 0.9em;
+		padding: 0.6rem;
+	}
+}

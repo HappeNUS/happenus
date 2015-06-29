@@ -16,7 +16,7 @@
             {{/if}}
           {{/if}}
           <li>{{> atNavButton}}</li>
-          {{#if currentUser}}<li><a href="{{pathFor route='settings'}}">Settings</a></li>{{/if}}
+          {{#if currentUser}}<li>{{> settingsMenu}}</li>{{/if}}
         </ul>
         {{#if currentUser}}{{> navNotifications}}{{/if}}
         <!-- The sidenav is placed here as well -->
