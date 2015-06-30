@@ -13,3 +13,9 @@
 	font-size: small;
 	padding: 0 0.7em;
 }
+
+.event .card .card-content > .event-dropdown {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
