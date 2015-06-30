@@ -17,7 +17,7 @@ var RESIZE_CARD = {
 
 var quillEditor;
 
-function setCreateNewVars() {
+function setDefaultVars() {
 	banner.set('');
 	dates.clear();
 	tags.clear();
@@ -62,11 +62,10 @@ function setFieldOptions () {
 
 Template.create.onRendered(function(){
 	setFieldOptions();
+	setDefaultVars();
 	var params = Router.current().params;
 	if (params) {
 		setEditVars(params._id, this);
-	} else {
-		setCreateNewVars();		
 	}
 });
 
@@ -97,6 +96,7 @@ function createEvent (details, template) {
 	var proceedIfComplete = function () {
 		if (img_details.thumbnail && img_details.card && img_details.normal) {
 			Meteor.call('createEvent', details, img_details);
+			showToast('Event successfully created');
 		}
 	}
 
@@ -124,6 +124,10 @@ function createEvent (details, template) {
 		img_details.normal = res.public_id;
 		proceedIfComplete();
 	});
+}
+
+function editEvent (details, template) {
+	showToast('Event successfully edited');
 }
 
 function showToasts (nameVal, descVal, imgVal, dateLength) {
@@ -168,7 +172,11 @@ Template.create.events({
 				eventDates: getDates(),
 				tags: getTags()
 			};
-			createEvent(details, instance);
+			if (eventToEdit) {
+				editEvent(details, instance);
+			} else {
+				createEvent(details, instance);				
+			}
 			Router.go('home');
 		} else {
 			showToasts(nameVal, descVal, imgVal, getDates().length);
