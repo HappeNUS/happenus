@@ -11,6 +11,10 @@ Template.event.onCreated(function(){
 	this.subscribe("specificUserData", userId);
 });
 
+Template.event.onRendered(function(){
+	this.$('.materialboxed').materialbox();
+});
+
 Template.event.helpers({
 	currentEvent: function(){
 		return getCurrentEvent();
@@ -24,6 +28,9 @@ Template.event.helpers({
 	},
 	isEventLiked: function(){
 		return isEventLiked(this.likes);
+	},
+	eventImage: function(){
+		return $.cloudinary.url(this.img.normal);
 	}
 });
 

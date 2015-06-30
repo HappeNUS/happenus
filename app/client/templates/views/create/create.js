@@ -2,9 +2,22 @@ var banner = new ReactiveVar();
 var dates = new ReactiveArray();
 var tags = new ReactiveArray();
 
+var RESIZE_THUMBNAIL = {
+	width: 75,
+	height: 75,
+	cropSquare: true
+};
+
+var RESIZE_CARD = {
+	width: 300,
+	height: 300,
+	cropSquare: true
+};
+
 var quillEditor;
 
 Template.create.onRendered(function(){
+	banner.set('');
 	dates.clear();
 	tags.clear();
 
@@ -51,6 +64,41 @@ function showToast (message) {
 	Materialize.toast(message, 5000);
 }
 
+function createEvent (details, template) {
+	var img_details = {thumbnail: '', card: '', normal: ''};
+	var files = template.find('#img_input').files;
+	var proceedIfComplete = function () {
+		if (img_details.thumbnail && img_details.card && img_details.normal) {
+			Meteor.call('createEvent', details, img_details);
+		}
+	}
+
+	Resizer.resize(files[0], RESIZE_THUMBNAIL, function (err, file) {
+		if (!err) {
+			C.upload_stream([file], function(res) {
+				img_details.thumbnail = res.public_id;
+				proceedIfComplete();
+			});
+		} else {
+			console.log(err);
+		}
+	});
+	Resizer.resize(files[0], RESIZE_CARD, function (err, file) {
+		if (!err) {
+			C.upload_stream([file], function(res) {
+				img_details.card = res.public_id;
+				proceedIfComplete();
+			});
+		} else {
+			console.log(err);
+		}
+	});
+	C.upload_stream(files, function(res) {
+		img_details.normal = res.public_id;
+		proceedIfComplete();
+	});
+}
+
 function showToasts (nameVal, descVal, imgVal, dateLength) {
 	if (!nameVal) {
 		showToast('Please give your event a name');
@@ -83,11 +131,17 @@ Template.create.events({
 		event.preventDefault();
 		var nameVal = event.target.name_input.value.trim();
 		var descVal = quillEditor.getText().trim();
-		var imgVal = event.target.img_input.value.trim();
+		var imgVal = instance.find('#img_input').files;
 
 		if (nameVal && descVal && imgVal && getDates().length) {
 			descVal = quillEditor.getHTML().trim();
-			Meteor.call('createEvent', nameVal, descVal, imgVal, getDates(), getTags());
+			details = {
+				name: nameVal,
+				desc: descVal,
+				eventDates: getDates(),
+				tags: getTags()
+			};
+			createEvent(details, instance);
 			Router.go('home');
 		} else {
 			showToasts(nameVal, descVal, imgVal, getDates().length);
@@ -193,5 +247,20 @@ Template.create.events({
 	},
 	'click #editor': function(event, template) {
 		template.$('#editor .ql-editor').focus();
+	},
+	'change #img_input': function(event, template) {
+		var files = event.target.files;
+		if (files.length === 1) {
+			var file = files[0];
+			var reader = new FileReader();
+
+			reader.onload = function(e){
+				banner.set(e.target.result);
+			};
+
+			reader.readAsDataURL(file);
+		} else {
+			banner.set('');
+		}
 	}
 });

@@ -1,0 +1,15 @@
+.event .card,
+.event .card .card-image {
+	overflow: visible;
+}
+
+.event .card .card-content .tags p {
+	display: block;
+	margin-bottom: 0.5em;
+}
+
+.event .card .card-content .tags a {
+	display: inline-block;
+	font-size: small;
+	padding: 0 0.7em;
+}

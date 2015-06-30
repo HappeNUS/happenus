@@ -1,5 +1,5 @@
 Template.eventCard.onRendered(function(){
-	var url = 'url('.concat(this.data.img).concat(')');
+	var url = 'url('.concat($.cloudinary.url(this.data.img.card)).concat(')');
 	this.$('.card-image').css('background-image', url);
 });
 

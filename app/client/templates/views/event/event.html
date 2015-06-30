@@ -1,14 +1,15 @@
 <!-- An event page for each event -->
 <template name="event">
-	{{#with currentEvent}}
-		<div class="container">
-			<div class="row">
+	<div class="event">
+		{{#with currentEvent}}
+			<div class="container">
+				<div class="row">
 					<!-- The left column -->
 					<div class="col s12 m6">
 						<!-- The banner image -->
 						<div class="card">
 							<div class="card-image">
-								<img src="{{img}}">
+								<img class="materialboxed" data-caption="{{name}}" src="{{eventImage}}">
 							</div>
 						</div>
 						<!-- The main details -->
@@ -30,6 +31,14 @@
 										<a href="{{pathFor route='profile'}}">{{username}}</a>
 									{{/with}}
 								</span>
+								{{#if tags}}
+									<div class="tags">
+										<p>Tags:</p>
+										{{#each tags}}
+											<a class="red accent-2 waves-effect waves-light btn">{{this}}</a>
+										{{/each}}
+									</div>
+								{{/if}}
 							</div>
 							<div class="card-action">
 					      <a class="like-btn">
@@ -65,4 +74,5 @@
 		    </div>
 	    </div>
     {{/with}}
+	</div>
 </template>

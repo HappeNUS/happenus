@@ -13,7 +13,7 @@ function isEventLiked (likes) {
 }
 
 Template.eventListItem.onRendered(function () {
-	var url = 'url('.concat(this.data.img).concat(')');
+	var url = 'url('.concat($.cloudinary.url(this.data.img.thumbnail)).concat(')');
 	this.$('.listitem-img').css('background-image', url);
 });
 

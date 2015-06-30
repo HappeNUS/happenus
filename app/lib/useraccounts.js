@@ -10,3 +10,11 @@ AccountsTemplates.addFields([{
 	required: true,
 	minLength: 5
 }, pwd]);
+
+if (Meteor.isClient) {
+	Meteor.users.deny({
+		update: function() {
+			return true;
+		}
+	});
+}

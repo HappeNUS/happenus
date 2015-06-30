@@ -1,0 +1,18 @@
+<template name="settingsMenu">
+	<div class="settingsMenu">
+		<div class="settingsName">
+			<li>
+		    	<a id="settings-dropdown-btn" href="#" data-activates="settings-dropdown">
+		    		Settings
+		    	</a>
+			</li>
+		</div>
+		<div class="settings-dropdown">
+			<ul id="settings-dropdown" class="dropdown-content">
+				<li><a href="{{pathFor route='settings'}}" class="view-all center-align">My Profile</a></li>
+				<li><a href="{{pathFor route='help'}}" class="view-all center-align">Help</a></li>
+				<li><a href="#" class="view-all center-align">Report a bug</a></li>
+			</ul>
+		</div>
+	</div>
+</template>

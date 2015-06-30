@@ -67,3 +67,7 @@
 .eventCard .card .card-reveal .event-desc {
 	display: block;
 }
+
+.eventCard .card .card-reveal .btn.view-more {
+	margin: 1em 0;
+}

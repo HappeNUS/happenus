@@ -20,18 +20,18 @@ Meteor.methods({
 			subbedId: subbedUser
 		});
 	},
-	'createEvent': function(name, desc, img, eventDates, tags){
+	'createEvent': function(details, img_details){
 		Events.insert({
 			_id: new Meteor.Collection.ObjectID()._str,
 			userId: Meteor.userId(),
-			name: name,
-			desc: desc,
-			img: img,
-			eventDates: eventDates,
+			name: details.name,
+			desc: details.desc,
+			img: img_details,
+			eventDates: details.eventDates,
 			dateCreated: new Date(),
 			likeCount: 0,
 			likes: [],
-			tags: tags
+			tags: details.tags
 		});
 	},
 	'likeEvent': function (eventId) {
@@ -57,6 +57,16 @@ Meteor.methods({
 	'editEvent': function(eventId) {
 		var userId = this.userId;
 		var eventToEdit = Events.findOne({_id: eventId, userId: userId});
-		
+	},
+	'profileUpload': function(uploadedFile) {
+		var user = Meteor.users.findOne({_id: this.userId});
+		if (user.profile.img !== Meteor.settings.Cloudinary.default_profile_img) {
+			Meteor.call("cloudinary_delete", user.profile.img, function(e,r) {
+				if (!e) {
+					console.log(r);
+				}
+			});
+		}
+		Meteor.users.update({_id: this.userId}, {$set: {'profile.img': uploadedFile.public_id}});
 	}
 });
