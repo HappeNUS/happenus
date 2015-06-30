@@ -10,3 +10,7 @@ li.notification.new:hover {
 li.notification p {
 	white-space: pre-wrap;
 }
+
+li.notification p.notif-head {
+	font-weight: 700;
+}

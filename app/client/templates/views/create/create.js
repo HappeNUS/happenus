@@ -1,6 +1,7 @@
 var banner = new ReactiveVar();
 var dates = new ReactiveArray();
 var tags = new ReactiveArray();
+var eventToEdit;
 
 var RESIZE_THUMBNAIL = {
 	width: 75,
@@ -16,11 +17,27 @@ var RESIZE_CARD = {
 
 var quillEditor;
 
-Template.create.onRendered(function(){
+function setDefaultVars() {
 	banner.set('');
 	dates.clear();
 	tags.clear();
+	eventToEdit = null;
+}
 
+function setEditVars (eventId, template) {
+	eventToEdit = Events.findOne({_id: eventId});
+
+	template.$('#name_input').val(eventToEdit.name);
+	template.$('#name_input').focus();
+
+	quillEditor.setHTML(eventToEdit.desc);
+	banner.set($.cloudinary.url(eventToEdit.img.normal));
+
+	for (var i = 0; i < eventToEdit.eventDates.length; i++) {dates.push(eventToEdit.eventDates[i]);}
+	for (var i = 0; i < eventToEdit.tags.length; i++) {tags.push(eventToEdit.tags[i]);}
+}
+
+function setFieldOptions () {
 	quillEditor = new Quill('#editor', {
 		modules: {
 			toolbar: {container: '#toolbar'},
@@ -41,6 +58,15 @@ Template.create.onRendered(function(){
 	toPicker.set('min', new Date());
 
 	$('.timepicker').lolliclock({autoclose: true});
+}
+
+Template.create.onRendered(function(){
+	setFieldOptions();
+	setDefaultVars();
+	var params = Router.current().params;
+	if (params) {
+		setEditVars(params._id, this);
+	}
 });
 
 var EventDateRange = function (from, to) {
@@ -70,6 +96,7 @@ function createEvent (details, template) {
 	var proceedIfComplete = function () {
 		if (img_details.thumbnail && img_details.card && img_details.normal) {
 			Meteor.call('createEvent', details, img_details);
+			showToast('Event successfully created');
 		}
 	}
 
@@ -97,6 +124,49 @@ function createEvent (details, template) {
 		img_details.normal = res.public_id;
 		proceedIfComplete();
 	});
+}
+
+function editEvent (details, template) {
+	var files = template.find('#img_input').files;
+	var proceed = function() {
+		Meteor.call('editEvent', eventToEdit._id, details);
+		showToast('Event successfully edited')
+	}
+	var img_details = {thumbnail: '', card: '', normal: ''};
+	var proceedIfComplete = function() {
+		if (img_details.thumbnail && img_details.card && img_details.normal) {
+			details.img = img_details;
+			proceed(details);
+		}
+	}
+	if (files.length) {
+		Resizer.resize(files[0], RESIZE_THUMBNAIL, function (err, file) {
+			if (!err) {
+				C.upload_stream([file], function(res) {
+					img_details.thumbnail = res.public_id;
+					proceedIfComplete();
+				});
+			} else {
+				console.log(err);
+			}
+		});
+		Resizer.resize(files[0], RESIZE_CARD, function (err, file) {
+			if (!err) {
+				C.upload_stream([file], function(res) {
+					img_details.card = res.public_id;
+					proceedIfComplete();
+				});
+			} else {
+				console.log(err);
+			}
+		});
+		C.upload_stream(files, function(res) {
+			img_details.normal = res.public_id;
+			proceedIfComplete();
+		});
+	} else {
+		proceed();
+	}
 }
 
 function showToasts (nameVal, descVal, imgVal, dateLength) {
@@ -131,7 +201,7 @@ Template.create.events({
 		event.preventDefault();
 		var nameVal = event.target.name_input.value.trim();
 		var descVal = quillEditor.getText().trim();
-		var imgVal = instance.find('#img_input').files;
+		var imgVal = banner.get();
 
 		if (nameVal && descVal && imgVal && getDates().length) {
 			descVal = quillEditor.getHTML().trim();
@@ -141,7 +211,11 @@ Template.create.events({
 				eventDates: getDates(),
 				tags: getTags()
 			};
-			createEvent(details, instance);
+			if (eventToEdit) {
+				editEvent(details, instance);
+			} else {
+				createEvent(details, instance);				
+			}
 			Router.go('home');
 		} else {
 			showToasts(nameVal, descVal, imgVal, getDates().length);

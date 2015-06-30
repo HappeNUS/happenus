@@ -23,6 +23,9 @@ Template.eventCard.helpers({
 });
 
 Template.eventCard.events({
+	'click .link-event': function() {
+		Router.go('event', {_id: this._id});
+	},
 	'click .like-btn': function(event, template) {
 		if (isEventLiked(this.likes)) {
 			Meteor.call('unlikeEvent', this._id);

@@ -2,9 +2,13 @@
 <template name="eventCard">
   <div class="eventCard">
   	<div class="card custom" style="z-index: 0;">
-    	<div class="card-image waves-effect waves-block waves-light activator"></div>    
-   		<div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">
+    	<div class="card-image waves-effect waves-block waves-light link-event">
+        <div class="eventDropdown-container">
+          {{> eventDropdown}}
+        </div>
+      </div>
+   		<div class="card-content activator">
+        <span class="card-title grey-text text-darken-4 link-event">
           {{name}}
           {{#with user}}
             <a class="user" href="{{pathFor route='profile'}}">by {{username}}</a>

@@ -46,6 +46,22 @@ Meteor.methods({
 			Events.update({_id: eventId}, {$pullAll: {likes: [userId]}, $inc: {likeCount: -1}});
 		}
 	},
+	'deleteEvent': function(eventId) {
+		var userId = this.userId;
+		var eventToDelete = Events.findOne({_id: eventId, userId: userId});
+		if (eventToDelete) {
+			NotificationFactory.eventDelNotif(eventToDelete);
+			Events.remove({_id: eventId, userId: userId});
+		}
+	},
+	'editEvent': function(eventId, detailsChanged) {
+		var userId = this.userId;
+		var eventToEdit = Events.findOne({_id: eventId, userId: userId});
+		if (eventToEdit) {
+			NotificationFactory.eventEditNotif(eventToEdit);
+			Events.update({_id: eventToEdit._id}, {$set: detailsChanged});
+		}
+	},
 	'profileUpload': function(uploadedFile) {
 		var user = Meteor.users.findOne({_id: this.userId});
 		if (user.profile.img !== Meteor.settings.Cloudinary.default_profile_img) {
