@@ -127,7 +127,46 @@ function createEvent (details, template) {
 }
 
 function editEvent (details, template) {
-	showToast('Event successfully edited');
+	var files = template.find('#img_input').files;
+	var proceed = function() {
+		Meteor.call('editEvent', eventToEdit._id, details);
+		showToast('Event successfully edited')
+	}
+	var img_details = {thumbnail: '', card: '', normal: ''};
+	var proceedIfComplete = function() {
+		if (img_details.thumbnail && img_details.card && img_details.normal) {
+			details.img = img_details;
+			proceed(details);
+		}
+	}
+	if (files.length) {
+		Resizer.resize(files[0], RESIZE_THUMBNAIL, function (err, file) {
+			if (!err) {
+				C.upload_stream([file], function(res) {
+					img_details.thumbnail = res.public_id;
+					proceedIfComplete();
+				});
+			} else {
+				console.log(err);
+			}
+		});
+		Resizer.resize(files[0], RESIZE_CARD, function (err, file) {
+			if (!err) {
+				C.upload_stream([file], function(res) {
+					img_details.card = res.public_id;
+					proceedIfComplete();
+				});
+			} else {
+				console.log(err);
+			}
+		});
+		C.upload_stream(files, function(res) {
+			img_details.normal = res.public_id;
+			proceedIfComplete();
+		});
+	} else {
+		proceed();
+	}
 }
 
 function showToasts (nameVal, descVal, imgVal, dateLength) {
@@ -162,7 +201,7 @@ Template.create.events({
 		event.preventDefault();
 		var nameVal = event.target.name_input.value.trim();
 		var descVal = quillEditor.getText().trim();
-		var imgVal = instance.find('#img_input').files;
+		var imgVal = banner.get();
 
 		if (nameVal && descVal && imgVal && getDates().length) {
 			descVal = quillEditor.getHTML().trim();
