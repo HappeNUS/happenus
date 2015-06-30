@@ -14,6 +14,15 @@ Router.route('/create', {
 	name: 'create'
 });
 
+Router.route('/edit/:_id', {
+	name: 'edit',
+	template: 'create',
+	waitOn: function(){
+		var eventId = this.params._id;
+		return Meteor.subscribe("specificEventData", eventId);
+	}
+})
+
 Router.route('/help', {
 	name: 'help'
 });
