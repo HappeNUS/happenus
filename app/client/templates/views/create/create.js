@@ -1,6 +1,8 @@
 var banner = new ReactiveVar();
 var dates = new ReactiveArray();
 var tags = new ReactiveArray();
+var showProgress = new ReactiveVar(false);
+var percentProgress = new ReactiveVar(0);
 var eventToEdit;
 
 var RESIZE_THUMBNAIL = {
@@ -22,6 +24,8 @@ function setDefaultVars() {
 	dates.clear();
 	tags.clear();
 	eventToEdit = null;
+	showProgress.set(false);
+	percentProgress.set(0);
 }
 
 function setEditVars (eventId, template) {
@@ -64,7 +68,7 @@ Template.create.onRendered(function(){
 	setFieldOptions();
 	setDefaultVars();
 	var params = Router.current().params;
-	if (params) {
+	if (params.length) {
 		setEditVars(params._id, this);
 	}
 });
@@ -97,13 +101,16 @@ function createEvent (details, template) {
 		if (img_details.thumbnail && img_details.card && img_details.normal) {
 			Meteor.call('createEvent', details, img_details);
 			showToast('Event successfully created');
+			Router.go('home');
 		}
 	}
+	showProgress.set(true);
 
 	Resizer.resize(files[0], RESIZE_THUMBNAIL, function (err, file) {
 		if (!err) {
 			C.upload_stream([file], function(res) {
 				img_details.thumbnail = res.public_id;
+				percentProgress.set(percentProgress.get() + 15);
 				proceedIfComplete();
 			});
 		} else {
@@ -114,6 +121,7 @@ function createEvent (details, template) {
 		if (!err) {
 			C.upload_stream([file], function(res) {
 				img_details.card = res.public_id;
+				percentProgress.set(percentProgress.get() + 30);
 				proceedIfComplete();
 			});
 		} else {
@@ -122,6 +130,7 @@ function createEvent (details, template) {
 	});
 	C.upload_stream(files, function(res) {
 		img_details.normal = res.public_id;
+		percentProgress.set(percentProgress.get() + 55);
 		proceedIfComplete();
 	});
 }
@@ -130,7 +139,8 @@ function editEvent (details, template) {
 	var files = template.find('#img_input').files;
 	var proceed = function() {
 		Meteor.call('editEvent', eventToEdit._id, details);
-		showToast('Event successfully edited')
+		showToast('Event successfully edited');
+		Router.go('home');
 	}
 	var img_details = {thumbnail: '', card: '', normal: ''};
 	var proceedIfComplete = function() {
@@ -140,10 +150,14 @@ function editEvent (details, template) {
 		}
 	}
 	if (files.length) {
+		Meteor.call('deleteEventImages', eventToEdit.img);
+		showProgress.set(true);
+
 		Resizer.resize(files[0], RESIZE_THUMBNAIL, function (err, file) {
 			if (!err) {
 				C.upload_stream([file], function(res) {
 					img_details.thumbnail = res.public_id;
+					percentProgress.set(percentProgress.get() + 15);
 					proceedIfComplete();
 				});
 			} else {
@@ -154,6 +168,7 @@ function editEvent (details, template) {
 			if (!err) {
 				C.upload_stream([file], function(res) {
 					img_details.card = res.public_id;
+					percentProgress.set(percentProgress.get() + 30);
 					proceedIfComplete();
 				});
 			} else {
@@ -162,6 +177,7 @@ function editEvent (details, template) {
 		});
 		C.upload_stream(files, function(res) {
 			img_details.normal = res.public_id;
+			percentProgress.set(percentProgress.get() + 55);
 			proceedIfComplete();
 		});
 	} else {
@@ -193,6 +209,12 @@ Template.create.helpers({
 	},
 	img: function() {
 		return banner.get();
+	},
+	showProgress: function() {
+		return showProgress.get();
+	},
+	percentProgress: function() {
+		return percentProgress.get();
 	}
 });
 
@@ -216,7 +238,6 @@ Template.create.events({
 			} else {
 				createEvent(details, instance);				
 			}
-			Router.go('home');
 		} else {
 			showToasts(nameVal, descVal, imgVal, getDates().length);
 		}
