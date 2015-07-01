@@ -7,4 +7,5 @@ Template.help.onRendered(function () {
 	   	'scrollTop': $target.offset().top
 	   }, 200, 'swing');
 	});
+	this.$('.materialboxed').materialbox();
 });
