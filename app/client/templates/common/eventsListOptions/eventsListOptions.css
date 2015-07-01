@@ -6,6 +6,11 @@
 	display: block;
 }
 
+.eventsListOptions .social-btn {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
 @media only screen and (max-width: 600px) {
 	.eventsListOptions .option-buttons {
 		padding: 8px;
