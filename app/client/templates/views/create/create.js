@@ -67,9 +67,9 @@ function setFieldOptions () {
 Template.create.onRendered(function(){
 	setFieldOptions();
 	setDefaultVars();
-	var params = Router.current().params;
-	if (params.length) {
-		setEditVars(params._id, this);
+	var id = Router.current().params._id;
+	if (id) {
+		setEditVars(id, this);
 	}
 });
 
