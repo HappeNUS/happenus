@@ -1,4 +1,4 @@
-#sidebar {
+.help #sidebar {
 	position: fixed;
   	left: 0;
   	height:100%; width:200px;
@@ -6,7 +6,7 @@
   	box-shadow: 2px 2px 2px 1px #bdbdbd;
 }
 
-#sidebar a {
+.help #sidebar a {
 	color: #E57373;
 	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 17px;
@@ -16,42 +16,37 @@
 	text-transform: capitalize;
 }
 
-#sidebar h4 {
+.help #sidebar h4 {
 	font-family: 'Roboto Condensed', sans-serif;
 	text-align: center;
 	color: #E57373;
 }
 
-#sidebar a:hover {
+.help #sidebar a:hover {
 	background-color: #E57373;
 	color: #ffffff;
 }
 
-#slide-out a {
-	text-transform: capitalize;
-}
-
-#slide-out h4 {
-	text-align: center;
-	color: #E57373;
-}
-
-#mainContent h3 {
+.help #mainContent h3 {
 	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: bold;
 	font-size: 40px;
 	margin-top: 20px;
 }
 
-#mainContent p {
+.help #mainContent p {
 	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 20px;
 }
 
-#option-btn {
+.help #option-btn {
 	color: #4db6ac;
 }
 
-#warning-btn {
+.help #warning-btn {
 	color: red;
+}
+
+.help #fixer {
+	color: white;
 }
