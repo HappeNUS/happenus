@@ -52,7 +52,18 @@ Meteor.methods({
 		if (eventToDelete) {
 			NotificationFactory.eventDelNotif(eventToDelete);
 			Events.remove({_id: eventId, userId: userId});
+			Meteor.call('deleteEventImages', eventToDelete.img);
 		}
+	},
+	'deleteEventImages': function(img) {
+		var callback = function(e,r) {
+			if (!e) {
+				console.log(r);
+			}
+		}
+		Meteor.call("cloudinary_delete", img.thumbnail, callback);
+		Meteor.call("cloudinary_delete", img.card, callback);
+		Meteor.call("cloudinary_delete", img.normal, callback);
 	},
 	'editEvent': function(eventId, detailsChanged) {
 		var userId = this.userId;
