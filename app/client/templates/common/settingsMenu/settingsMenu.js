@@ -3,4 +3,5 @@ Template.settingsMenu.onRendered(function(){
 		constrain_width: false,
 		belowOrigin: true,
 	});
+	$('.modal-trigger').leanModal();
 });
