@@ -1,3 +1,5 @@
- Template.bugPage.onRendered(function () {
+/*
+Template.bugPage.onRendered(function () {
  	$('.modal-trigger').leanModal();
 });
+*/

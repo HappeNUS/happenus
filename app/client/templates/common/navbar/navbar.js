@@ -1,6 +1,6 @@
 Template.navbar.onRendered(function () {
 	$('.button-collapse').sideNav();
-	$('.modal-trigger').leanModal();
+	//$('.modal-trigger').leanModal();
 });
 
 Template.navbar.events({
