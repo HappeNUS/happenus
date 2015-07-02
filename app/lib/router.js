@@ -37,6 +37,10 @@ Router.route('/profile/:_id', {
 	}
 });
 
+Router.route('/test', {
+	name: 'test'
+});
+
 Router.route('/event/:_id', {
 	name: 'event',
 	waitOn: function(){
