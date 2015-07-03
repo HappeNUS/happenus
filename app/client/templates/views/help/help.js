@@ -3,8 +3,12 @@ Template.help.onRendered(function () {
 	    e.preventDefault();
 	    var target = this.hash;
 	    var $target = $(target);
-	   $('html, body').stop().animate({
-	   	'scrollTop': $target.offset().top
-	   }, 200, 'swing');
+	    try {
+	    	$('html, body').stop().animate({
+	    		'scrollTop': $target.offset().top
+	    	}, 200, 'swing');
+	    } catch(err) {
+	    	//Do nothing here
+	    }
 	});
 });
