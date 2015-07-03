@@ -1,6 +1,7 @@
 Template.navbar.onRendered(function () {
 	$('.button-collapse').sideNav();
 	//$('.modal-trigger').leanModal();
+	$('#search').hide();
 });
 
 Template.navbar.events({
@@ -16,5 +17,4 @@ Template.navbar.events({
 			search.slideDown();
 		}
 	}
-
 });
