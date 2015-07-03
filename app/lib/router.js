@@ -52,8 +52,8 @@ Router.route('/my-notifications', {
 	name: 'userNotifications'
 });
 
-Router.route('/settings', {
-	name: 'settings',
+Router.route('/profile-settings', {
+	name: 'profileSettings',
 	waitOn: function(){
 		return Meteor.subscribe("ownUserData");
 	}

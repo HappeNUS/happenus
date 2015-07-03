@@ -4,11 +4,11 @@ var RESIZE_OPTIONS = {
 	cropSquare: true
 };
 
-Template.settings.onCreated(function(){
+Template.profileSettings.onCreated(function(){
 	Session.set("img_preview", "");
 });
 
-Template.settings.helpers({
+Template.profileSettings.helpers({
 	img_preview: function(){
 		return Session.get("img_preview");
 	},
@@ -17,7 +17,7 @@ Template.settings.helpers({
 	}
 });
 
-Template.settings.events({
+Template.profileSettings.events({
 	'click .upload-btn button': function (event, template) {
 		var files = template.find('.file-input input[type=file]').files;
 		if (files) {
