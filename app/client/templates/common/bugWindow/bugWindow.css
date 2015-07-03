@@ -17,18 +17,16 @@
 	font-size: 17px;
 }
 
-.bugWindow a {
+.bugWindow .modal-footer a {
 	padding-left: 15px;
 	padding-right: 15px;
+	transition: background-color 0.3s;
 }
 
-.bugWindow .modal .modal-footer .btn {
-	float: right;
-	margin-left: 5px;
-	margin-right: 10px;
+.bugWindow .modal-footer a:hover {
+	background-color: #eeeeee;
 }
 
 .bugWindow #close {
 	float: left;
-	margin-left: 10px;
 }
