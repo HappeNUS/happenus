@@ -16,6 +16,11 @@
             {{/if}}
           {{/if}}
           <li>{{> atNavButton}}</li>
+          <li>
+                            <a id="toggle-search" href="#!">
+                            <i class="large mdi-action-search"></i>
+                            </a>
+                        </li>
           {{#if currentUser}}<li>{{> settingsMenu}}</li>{{/if}}
         </ul>
         {{#if currentUser}}{{> navNotifications}}{{/if}}
@@ -44,6 +49,16 @@
         </ul>
       </div>
     </nav>
+    <div class="row white-text grey darken-3" id="search" style="display: block;">
+
+      <div class="container">
+        <form action="https://www.google.com/search" method="get">
+          <input class="form-control" type="text" name="q" placeholder="Search ...">
+          <input type="hidden" name="as_sitesearch" value="makoframework.com">
+        </form>
+      </div>
+
+    </div>
   </div>
   <!-- Modals -->
   {{> bugPage}}
