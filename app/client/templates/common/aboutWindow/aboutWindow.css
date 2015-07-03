@@ -32,10 +32,11 @@
 	padding-right: 15px;
 }
 
-.aboutWindow .modal .modal-body .btn-flat {
+.aboutWindow .modal .modal-body .btn {
 	float: right;
 	margin-left: 5px;
 	margin-top: 20px;
+	background-color: red;
 }
 
 .aboutWindow .links {
@@ -43,7 +44,6 @@
 	padding-right: 10px;
 	padding-bottom: 5px;
 }
-
-.aboutWindow .btn-flat {
-	color: #ffffff;
+.aboutWindow .modal .modal-body .btn:hover {
+	background-color: #e57373;
 }
