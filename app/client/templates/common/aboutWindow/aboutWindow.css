@@ -32,11 +32,10 @@
 	padding-right: 15px;
 }
 
-.aboutWindow .modal .modal-body .btn {
+.aboutWindow .modal .modal-body #close {
 	float: right;
 	margin-left: 5px;
 	margin-top: 20px;
-	background-color: red;
 }
 
 .aboutWindow .links {

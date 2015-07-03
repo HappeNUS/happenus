@@ -1,5 +1,5 @@
  /*
- Template.aboutPage.onRendered(function () {
+ Template.aboutWindow.onRendered(function () {
  	$('.modal-trigger').leanModal();
 });
 */
