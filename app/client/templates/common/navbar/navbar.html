@@ -16,7 +16,7 @@
             {{/if}}
           {{/if}}
           <li>{{> atNavButton}}</li>
-          {{#if currentUser}}<li>{{> settingsMenu}}</li>{{/if}}
+          {{#if currentUser}}<li>{{> navMenu}}</li>{{/if}}
         </ul>
         {{#if currentUser}}{{> navNotifications}}{{/if}}
         <!-- The sidenav is placed here as well -->
@@ -31,7 +31,6 @@
             {{/if}}
           {{/if}}
           <li>{{> atNavButton}}</li>
-          <li>{{> settingsMenu}}</li> <!-- Need to change this -->
         </ul>
       </div>
     </nav>

@@ -1,14 +1,14 @@
-<template name="settingsMenu">
-	<div class="settingsMenu">
-		<div class="settingsName">
+<template name="navMenu">
+	<div class="navMenu">
+		<div class="menu-dropdown-btn">
 			<li>
-		    	<a id="settings-dropdown-btn" href="#" data-activates="settings-dropdown">
+		    	<a id="dropdown-btn" href="#" data-activates="dropdown-list">
 		    		<i class="material-icons">more_vert</i>
 		    	</a>
 			</li>
 		</div>
-		<div class="settings-dropdown">
-			<ul id="settings-dropdown" class="dropdown-content">
+		<div class="menu-dropdown-list">
+			<ul id="dropdown-list" class="dropdown-content">
 				<li><a href="{{pathFor route='profileSettings'}}" class="view-all center-align">My Profile</a></li>
 				<li><a href="{{pathFor route='help'}}" class="view-all center-align">Help</a></li>
 				<li><a href="#bugModal" class="view-all center-align modal-trigger">Report a bug</a></li>
