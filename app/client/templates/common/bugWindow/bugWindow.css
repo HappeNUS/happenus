@@ -17,7 +17,7 @@
 	font-size: 17px;
 }
 
-.bugWindow .btn {
+.bugWindow a {
 	padding-left: 15px;
 	padding-right: 15px;
 }
@@ -31,25 +31,4 @@
 .bugWindow #close {
 	float: left;
 	margin-left: 10px;
-	background-color: red;
-}
-
-.bugWindow #close:hover {
-	background-color: #e57373;
-}
-
-.bugWindow #git:hover {
-	background-color: #455a64;
-}
-
-.bugWindow #mail:hover {
-	background-color: #29b6f6;
-}
-
-.bugWindow #git {
-	background-color: #263238;
-}
-
-.bugWindow #mail {
-	background-color: #0091ea;
 }
