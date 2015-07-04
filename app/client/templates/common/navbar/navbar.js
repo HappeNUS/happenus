@@ -1,5 +1,6 @@
 Template.navbar.onRendered(function () {
 	$('.button-collapse').sideNav();
+	$('#search').hide();
 });
 
 Template.navbar.events({
