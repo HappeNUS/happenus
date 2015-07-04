@@ -1,0 +1,26 @@
+<!-- Temporary placeholder for testing image uploads -->
+<template name="settings">
+	<div class="settings">
+		<div class="container">
+			<div class="row">
+				<h3 class="settings-header">Settings</h3>
+			</div>
+			<div class="row">
+				<ul class="collapsible popout" data-collapsible="accordion">
+					<li>
+						<div class="collapsible-header"><i class="material-icons">face</i>Profile Image</div>
+						<div class="collapsible-body">{{> profilePicSettings}}</div>
+					</li>
+					<li>
+						<div class="collapsible-header"><i class="material-icons">description</i>User description</div>
+						<div class="collapsible-body">{{> userDescSettings}}</div>
+					</li>
+					<li>
+						<div class="collapsible-header"><i class="material-icons">lock</i>Change password</div>
+						<div class="collapsible-body">{{> passwordChangeSettings}}</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>

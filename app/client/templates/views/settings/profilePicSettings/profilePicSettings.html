@@ -1,0 +1,28 @@
+<template name="profilePicSettings">
+	<div class="profilePicSettings">
+		<div class="current-img">
+			<h6>Current:</h6>
+			<img src="{{profile_img_url}}" class="circle responsive-img">
+		</div>
+		<div class="file-input">
+			<button class="btn waves-effect waves-light">Change</button>
+			<input type="file">
+		</div>
+		{{#if img_preview}}
+			<div class="img-preview">
+				<h6>New:</h6>
+				<img src="{{img_preview}}" class="circle responsive-img" alt="Nothing selected">
+			</div>
+			<div class="img-upload">
+				<button class="upload-btn btn waves-effect waves-light red" type="button">
+					<i class="material-icons">done</i>
+				</button>
+			</div>
+			{{#each c.uploading_images}}
+				<div class="progress">
+					<div class="determinate" style="width: {{percent_uploaded}}%"></div>
+				</div>
+			{{/each}}
+		{{/if}}
+	</div>
+</template>

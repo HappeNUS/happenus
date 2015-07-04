@@ -37,13 +37,13 @@ Meteor.methods({
 	'likeEvent': function (eventId) {
 		var userId = this.userId;
 		if (userId) {
-			Events.update({_id: eventId}, {$addToSet: {likes: userId}, $inc: {likeCount: 1}});
+			Events.update({_id: eventId}, {$addToSet: {likes: userId}});
 		}
 	},
 	'unlikeEvent': function(eventId) {
 		var userId = this.userId;
 		if (userId) {
-			Events.update({_id: eventId}, {$pullAll: {likes: [userId]}, $inc: {likeCount: -1}});
+			Events.update({_id: eventId}, {$pullAll: {likes: [userId]}});
 		}
 	},
 	'deleteEvent': function(eventId) {
@@ -73,7 +73,7 @@ Meteor.methods({
 			Events.update({_id: eventToEdit._id}, {$set: detailsChanged});
 		}
 	},
-	'profileUpload': function(uploadedFile) {
+	'changeProfilePic': function(uploadedFile) {
 		var user = Meteor.users.findOne({_id: this.userId});
 		if (user.profile.img !== Meteor.settings.Cloudinary.default_profile_img) {
 			Meteor.call("cloudinary_delete", user.profile.img, function(e,r) {
@@ -83,5 +83,8 @@ Meteor.methods({
 			});
 		}
 		Meteor.users.update({_id: this.userId}, {$set: {'profile.img': uploadedFile.public_id}});
+	},
+	'updateProfileDesc': function(desc) {
+		Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.description': desc}});
 	}
 });
