@@ -10,6 +10,11 @@
 				<div class="col s12 offset-m1 m10">
 					<div class="card">
 						<div class="card-content black-text">
+							{{#if userData.profile.description}}
+								<p class="about-header">About {{userData.username}}</p>
+								<p>{{userData.profile.description}}</p>
+								<div><br></div>
+							{{/if}}
 							<!-- Shows a subscribe button unless it is your own profile page -->
 							{{#unless isSelf}}
 								{{#if isSubscribed}}

@@ -21,6 +21,10 @@
 	font-weight: 400;
 }
 
+.profile p.about-header {
+	font-weight: 700;
+}
+
 .profile a.sub {
 	display: inline-block;
 }
