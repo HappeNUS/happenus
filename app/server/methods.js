@@ -83,5 +83,8 @@ Meteor.methods({
 			});
 		}
 		Meteor.users.update({_id: this.userId}, {$set: {'profile.img': uploadedFile.public_id}});
+	},
+	'updateProfileDesc': function(desc) {
+		Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.description': desc}});
 	}
 });
