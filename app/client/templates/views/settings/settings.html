@@ -1,33 +1,25 @@
 <!-- Temporary placeholder for testing image uploads -->
 <template name="settings">
-	<div id="settings">
+	<div class="settings">
 		<div class="container">
 			<div class="row">
-				<img src="{{profile_img_url}}" class="circle responsive-img">
+				<h3 class="settings-header">Settings</h3>
 			</div>
 			<div class="row">
-				<div class="col s6">
-					<div class="file-input">
-						<input type="file">
-					</div>
-					<div class="upload-btn">
-						<button class="btn waves-effect waves-light" type="button">
-							<i class="material-icons">backup</i>
-						</button>
-					</div>
-				</div>
-				<div class="col s6">
-					{{#each c.uploading_images}}
-						<div class="progress">
-							<div class="determinate" style="width: {{percent_uploaded}}%"></div>
-						</div>
-					{{/each}}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col s6">
-					<img src="{{img_preview}}" alt="Image Preview" class="responsive-img">
-				</div>
+				<ul class="collapsible popout" data-collapsible="accordion">
+					<li>
+						<div class="collapsible-header"><i class="material-icons">face</i>Profile Image</div>
+						<div class="collapsible-body">{{> profilePicSettings}}</div>
+					</li>
+					<li>
+						<div class="collapsible-header"><i class="material-icons">description</i>User description</div>
+						<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><i class="material-icons">lock</i>Change password</div>
+						<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
