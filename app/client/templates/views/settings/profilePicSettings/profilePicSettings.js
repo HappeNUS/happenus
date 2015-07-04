@@ -42,6 +42,7 @@ Template.profilePicSettings.events({
 					C.upload_stream([file], function(res) {
 						Session.set("img_preview", "");
 						Meteor.call('changeProfilePic', res);
+						Materialize.toast('Profile picture changed', 5000);
 					});
 				} else {
 					console.log(err);
