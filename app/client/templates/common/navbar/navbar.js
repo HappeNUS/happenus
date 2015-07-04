@@ -1,7 +1,5 @@
 Template.navbar.onRendered(function () {
 	$('.button-collapse').sideNav();
-	//$('.modal-trigger').leanModal();
-	$('#search').hide();
 });
 
 Template.navbar.events({
@@ -12,9 +10,9 @@ Template.navbar.events({
 	'click #toggle-search': function () {
 		var search = $('#search');
 		if (search.is(":visible")) {
-			search.slideUp();
+			search.slideUp(100);
 		} else {
-			search.slideDown();
+			search.slideDown(100);
 		}
 	}
 });

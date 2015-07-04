@@ -17,9 +17,10 @@
             {{/if}}
           {{/if}}
           <li>{{> atNavButton}}</li>
-          <li><a href="#" id="toggle-search"><i class="large mdi-action-search"></i></a></li>
+          <li></li>
         </ul>
         {{#if currentUser}}{{> navNotifications}}{{/if}}
+        <a class="right" href="#" id="toggle-search"><i class="large mdi-action-search"></i></a>
         <!-- The sidenav is placed here as well -->
         <ul class="side-nav" id="sidenav">
           {{#if loggingIn}}
