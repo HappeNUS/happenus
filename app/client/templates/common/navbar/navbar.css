@@ -11,30 +11,3 @@
 	padding-left: 20px;
 	padding-right: 20px;
 }
-
-.nav-wrapper .input-field input[type=search] {
-  display: block;
-  line-height: inherit;
-  padding-left: 4rem;
-  width: calc(100% - 4rem);
-}
-.nav-wrapper .input-field {
-  position: relative;
-  min-width: 300px;
-	overflow: hidden;
-  margin-top: 1rem;
-}
-.nav-wrapper .input-field input[type=search] ~ .mdi-navigation-close {
-  position: absolute;
-  top: 0;
-  right: 1rem;
-  color: transparent;
-  cursor: pointer;
-  font-size: 2rem;
-  transition: .3s color;
-}
-
-.nav-wrapper .input-field {
-	margin-left: 155px;
-	margin-top: 0;
-}
