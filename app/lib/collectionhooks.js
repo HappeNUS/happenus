@@ -10,3 +10,7 @@ Meteor.users.after.insert(function (userId, user) {
 		}
 	);
 });
+
+Events.after.update(function (userId, doc, fieldNames, modifier, options) {
+	Events.direct.update({_id: doc._id}, {$set: {likeCount: doc.likes.length}});
+}, {fetchPrevious: false});

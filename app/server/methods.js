@@ -37,13 +37,13 @@ Meteor.methods({
 	'likeEvent': function (eventId) {
 		var userId = this.userId;
 		if (userId) {
-			Events.update({_id: eventId}, {$addToSet: {likes: userId}, $inc: {likeCount: 1}});
+			Events.update({_id: eventId}, {$addToSet: {likes: userId}});
 		}
 	},
 	'unlikeEvent': function(eventId) {
 		var userId = this.userId;
 		if (userId) {
-			Events.update({_id: eventId}, {$pullAll: {likes: [userId]}, $inc: {likeCount: -1}});
+			Events.update({_id: eventId}, {$pullAll: {likes: [userId]}});
 		}
 	},
 	'deleteEvent': function(eventId) {
