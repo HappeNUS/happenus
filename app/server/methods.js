@@ -73,7 +73,7 @@ Meteor.methods({
 			Events.update({_id: eventToEdit._id}, {$set: detailsChanged});
 		}
 	},
-	'profileUpload': function(uploadedFile) {
+	'changeProfilePic': function(uploadedFile) {
 		var user = Meteor.users.findOne({_id: this.userId});
 		if (user.profile.img !== Meteor.settings.Cloudinary.default_profile_img) {
 			Meteor.call("cloudinary_delete", user.profile.img, function(e,r) {

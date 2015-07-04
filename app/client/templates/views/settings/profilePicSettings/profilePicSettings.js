@@ -41,7 +41,7 @@ Template.profilePicSettings.events({
 				if (!err) {
 					C.upload_stream([file], function(res) {
 						Session.set("img_preview", "");
-						Meteor.call('profileUpload', res);
+						Meteor.call('changeProfilePic', res);
 					});
 				} else {
 					console.log(err);
