@@ -9,9 +9,9 @@ Template.navbar.events({
 		$('.button-collapse').sideNav('hide');
 	},
 
-	'click #toggle-search': function (event, template) {
+	'click #toggle-search': function () {
 		var search = $('#search');
-		if (search.is(':visible')) {
+		if (search.is(":visible")) {
 			search.slideUp();
 		} else {
 			search.slideDown();

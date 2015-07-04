@@ -12,34 +12,12 @@
 	padding-right: 20px;
 }
 
-.nav-wrapper .input-field input[type=search] {
-  display: block;
-  line-height: 30px;
-  padding-left: 2.7rem;
-  width: calc(100% - 5rem);
-  margin-top: 16px;
-}
-.nav-wrapper .input-field {
-  position: relative;
-  min-width: 300px;
-	overflow: hidden;
-  margin-top: 1rem;
-}
-.nav-wrapper .input-field input[type=search] ~ .mdi-navigation-close {
-  position: absolute;
-  top: 0;
-  right: 1rem;
-  color: transparent;
-  cursor: pointer;
-  font-size: 2rem;
-  transition: .3s color;
+#search {
+    display: none;
+    margin-bottom: 0;
+
 }
 
-.nav-wrapper .input-field {
-	margin-left: 155px;
-	margin-top: 0;
-}
-
-.nav-wrapper .input-field input[type=search] + label {
-  left: 0.3rem;
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+  height: 2rem;
 }
