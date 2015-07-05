@@ -1,0 +1,27 @@
+<!-- View of the event in the searchbar -->
+<template name="eventSearchItem">
+	<div class="eventSearchItem">
+		<div class="card blue-grey lighten-5 valign-wrapper link-event">
+			<div class="listitem-img"></div>
+			<div class="mainContent">
+				{{name}} by
+				{{#with user}}
+					{{username}}
+				{{/with}}
+			</div>
+				<div class="date">
+				{{dateTranslation}}
+			</div>
+			<div class="listitem-actions">
+				<a href="#" class="like-btn">
+					{{#if isEventLiked}}
+						<i class="tiny mdi-action-favorite"></i>
+					{{else}}
+						<i class="tiny mdi-action-favorite-outline"></i>
+					{{/if}}
+					{{likeCount}}
+				</a>
+			</div>
+		</div>
+	</div>
+</template>
