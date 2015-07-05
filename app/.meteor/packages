@@ -62,4 +62,6 @@ matb33:collection-hooks
 
 # Image resize and crop
 thinksoftware:image-resize-client
+
+# Search for events
 matteodem:easy-search
