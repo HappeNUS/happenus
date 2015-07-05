@@ -1,0 +1,21 @@
+<template name="ezSearch">
+	<div class="searchbar">
+	{{> esInput index="events" placeholder="Search events..."}}
+
+    <ul>
+        {{#esEach index="events"}}
+            <li>Name of event: {{name}}</li>
+        {{/esEach}}
+    </ul>
+
+    {{> esLoadMoreButton index="events"}}
+
+    {{#ifEsHasNoResults index="events"}}
+        <div class="no-results">No results found!</div>
+    {{/ifEsHasNoResults}}
+
+    {{#ifEsIsSearching index="events"}}
+            {{> loading}}
+    {{/ifEsIsSearching}}
+  </div>
+</template>
