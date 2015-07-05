@@ -1,0 +1,25 @@
+<template name="notificationSettings">
+	<div class="notificationSettings">
+		<div class="notification-settings-header">
+			<p>I want to be notified when:</p>
+		</div>
+		<div class="notification-options">
+			<p>
+				<input type="checkbox" class="filled-in" id="edited-box" />
+				<label for="edited-box">An event I liked has been <strong>edited</strong></label>
+			</p>
+			<p>
+				<input type="checkbox" class="filled-in" id="deleted-box" />
+				<label for="deleted-box">An event I liked has been <strong>deleted</strong></label>
+			</p>
+			<p>
+				<input type="checkbox" class="filled-in" id="like-box" />
+				<label for="like-box">Someone likes my event</label>
+			</p>
+		</div>
+		<div class="submit-reset-btns">
+			<button id="save" class="btn waves-effect waves-light disabled" type="button">Save</button>
+			<button id="discard" class="btn waves-effect waves-light disabled" type="button">Discard</button>
+		</div>
+	</div>
+</template>

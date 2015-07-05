@@ -1,0 +1,27 @@
+.notificationSettings {
+	padding: 2.0rem;
+}
+
+.notificationSettings p {
+	padding: 0;
+}
+
+.notificationSettings > .notification-settings-header p {
+	padding-bottom: 0.5rem;
+}
+
+.notificationSettings > .notification-options p {
+	padding: 0.5rem 0;
+}
+
+.notificationSettings > .submit-reset-btns {
+	padding-top: 0.5rem;
+}
+
+.notificationSettings > .submit-reset-btns #save {
+	margin-right: 0.5rem;
+}
+
+.notificationSettings > .submit-reset-btns #discard {
+	margin: 0 0.5rem;
+}
