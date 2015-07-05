@@ -1,14 +1,5 @@
 EventFilter = {
-	filterPast: {$where: function(){
-		var dates = this.eventDates;
-		var now = new Date();
-		for (var i = 0; i < dates.length; i++) {
-			if (dates[i].to > now) {
-				return true;
-			}
-		}
-		return false;
-	}},
+	filterPast: {$where: 'function(){ var dates = this.eventDates; var now = new Date(); for (var i = 0; i < dates.length; i++) { if (dates[i].to > now) { return true;}} return false;}'},
 	filterUser: function(userId) {
 		return {userId: userId};
 	},
