@@ -5,6 +5,11 @@ Meteor.users.after.insert(function (userId, user) {
 				profile: {
 					img: Meteor.settings.Cloudinary.default_profile_img,
 					description: ''
+				},
+				notifSettings: {
+					edited: true,
+					deleted: true,
+					liked: true 
 				}
 			}
 		}
