@@ -86,5 +86,8 @@ Meteor.methods({
 	},
 	'updateProfileDesc': function(desc) {
 		Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.description': desc}});
+	},
+	'updateNotifSettings': function(notifSettings) {
+		Meteor.users.update({_id: Meteor.userId()}, {$set: {notifSettings: notifSettings}})
 	}
 });
