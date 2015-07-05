@@ -17,8 +17,8 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  width: 7.0em;
-  height: 7.0em;
+  width: 64px;
+  height: 64px;
 }
 /*
 .eventSearchItem .card .listitem-content {
@@ -99,8 +99,19 @@
 	font-size: 130%;
 }
 
+.eventSearchItem .mainContent #keyword {
+	font-weight: normal;
+	font-size: 70%;
+}
+
 .eventSearchItem .date {
 	padding-left: 20px;
 	color: #ff3d00;
 	font-family: 'Roboto Slab', serif;
+}
+
+.eventSearchItem .card {
+	height: 64px;
+	margin-top: 0px;
+	margin-bottom: 7px;
 }
