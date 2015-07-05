@@ -1,6 +1,6 @@
 Events = new Mongo.Collection('events');
 
-Events.initEasySearch(['name'], {
-	'limit': 20,
+Events.initEasySearch(['name', 'tags', 'desc'], {
+	'limit': 10,
 	'use': 'mongo-db'
 });
