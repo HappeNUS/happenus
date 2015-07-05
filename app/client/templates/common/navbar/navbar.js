@@ -3,16 +3,16 @@ Template.navbar.onRendered(function () {
 
 	$('#search').hide();
 
-	/*$(document).mouseup(function(event){
-		//var target1 = $(".form-control");
-		var target2 = $('#search');
-		var target3 =  $('input');
-    if((!target2.is(event.target) || target3.is(event.target)) && target2.is(":visible")) {
-       target2.slideUp(100);
+	$(document).mouseup(function(event){
+		var target = $('#search');
+		var child1 = $('.searchbar');
+		var child2 = $('.searchbar input');
+    if(!(target.is(event.target) || child1.is(event.target) || child2.is(event.target)) && target.is(":visible")) {
+       target.slideUp(100);
     } else {
       return false;
     }
-  });*/
+  });
 });
 
 Template.navbar.events({
