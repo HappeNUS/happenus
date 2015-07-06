@@ -37,6 +37,7 @@ Meteor.methods({
 	'likeEvent': function (eventId) {
 		var userId = this.userId;
 		if (userId) {
+			NotificationFactory.eventLikeNotif(eventId, Meteor.userId());
 			Events.update({_id: eventId}, {$addToSet: {likes: userId}});
 		}
 	},
