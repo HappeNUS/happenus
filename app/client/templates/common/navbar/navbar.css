@@ -13,9 +13,8 @@
 }
 
 #search {
-    display: none;
-    margin-bottom: 0;
-
+	display: none;
+	margin-bottom: 0;
 }
 
 .nav-wrapper #toggle-search i {
