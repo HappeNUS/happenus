@@ -18,12 +18,6 @@ Template.eventSearchItem.onRendered(function () {
 });
 
 Template.eventSearchItem.helpers({
-	likeCount: function(){
-		return this.likeCount;
-	},
-	isEventLiked: function(){
-		return isEventLiked(this.likes);
-	},
 	user: function(){
 		return Meteor.users.findOne({_id: this.userId});
 	},
@@ -46,12 +40,5 @@ Template.eventSearchItem.helpers({
 Template.eventSearchItem.events({
 	'click .link-event': function() {
 		Router.go('event', {_id: this._id});
-	},
-	'click .like-btn': function(event, template) {
-		if (isEventLiked(this.likes)) {
-			Meteor.call('unlikeEvent', this._id);
-		} else {
-			Meteor.call('likeEvent', this._id);
-		}
 	}
 });
