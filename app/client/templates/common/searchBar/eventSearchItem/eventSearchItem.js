@@ -14,7 +14,7 @@ function isEventLiked (likes) {
 
 Template.eventSearchItem.onRendered(function () {
 	var url = 'url('.concat($.cloudinary.url(this.data.img.thumbnail)).concat(')');
-	this.$('.listitem-img').css('background-image', url);
+	this.$('.search-item-img').css('background-image', url);
 });
 
 Template.eventSearchItem.helpers({
