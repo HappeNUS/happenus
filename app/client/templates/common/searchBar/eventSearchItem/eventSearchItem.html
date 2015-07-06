@@ -1,0 +1,17 @@
+<!-- View of the event in the searchbar -->
+<template name="eventSearchItem">
+	<div class="eventSearchItem">
+		<div class="card blue-grey lighten-5 valign-wrapper link-event">
+			<div class="search-item-img"></div>
+			<div class="mainContent">
+				{{name}} <span id="keyword">by</span>
+				{{#with user}}
+					{{username}}
+				{{/with}}
+			</div>
+			<div class="date hide-on-small-only">
+				{{dateTranslation}}
+			</div>
+		</div>
+	</div>
+</template>

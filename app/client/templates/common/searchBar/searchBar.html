@@ -1,0 +1,17 @@
+<template name="searchBar">
+	<div class="searchBar">
+		{{> esInput index="events" placeholder="Search events..."}}
+		<ul>
+		{{#esEach index="events"}}
+			{{> eventSearchItem}}
+		{{/esEach}}
+		</ul>
+		{{> esLoadMoreButton index="events"}}
+		{{#ifEsHasNoResults index="events"}}
+			<div class="no-results">No events matched!</div>
+		{{/ifEsHasNoResults}}
+		{{#ifEsIsSearching index="events"}}
+			{{> searchLoading}}
+		{{/ifEsIsSearching}}
+	</div>
+</template>

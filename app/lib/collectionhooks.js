@@ -5,10 +5,18 @@ Meteor.users.after.insert(function (userId, user) {
 				profile: {
 					img: Meteor.settings.Cloudinary.default_profile_img,
 					description: ''
+				},
+				notifSettings: {
+					edited: true,
+					deleted: true,
+					liked: true 
 				}
 			}
 		}
 	);
+	if (Meteor.isServer) {
+		NotificationFactory.welcomeNotif(user._id);
+	}
 });
 
 Events.after.update(function (userId, doc, fieldNames, modifier, options) {

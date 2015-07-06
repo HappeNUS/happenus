@@ -19,6 +19,11 @@
           <li>{{> atNavButton}}</li>
         </ul>
         {{#if currentUser}}{{> navNotifications}}{{/if}}
+        {{#if currentUser}}
+          <a class="{{#if rwindow.innerWidth 'lte' 600}}left{{else}}right{{/if}}" href="#" id="toggle-search">
+            <i class="large mdi-action-search"></i>
+          </a>
+        {{/if}}
         <!-- The sidenav is placed here as well -->
         <ul class="side-nav" id="sidenav">
           {{#if loggingIn}}
@@ -32,6 +37,11 @@
           {{/if}}
           <li>{{> atNavButton}}</li>
         </ul>
+      </div>
+      <div class="row white-text grey darken-3 z-depth-2" id="search" style="display: block;">
+        <div class="container">
+          {{> searchBar}}
+        </div>
       </div>
     </nav>
   </div>

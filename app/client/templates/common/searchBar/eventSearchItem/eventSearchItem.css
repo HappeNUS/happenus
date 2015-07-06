@@ -1,0 +1,57 @@
+.eventSearchItem .card:hover {
+	box-shadow: 2px 2px 5px 2px #616161;
+}
+
+.eventSearchItem .link-event{
+	cursor: pointer;
+}
+
+.eventSearchItem .card .search-item-img {
+	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 4.5rem;
+  height: 100%;
+}
+
+.eventSearchItem .mainContent {
+	margin: 1.0rem;
+	padding-left: 4.5rem;
+	color: black;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+	font-size: 1.3em;
+	line-height: 1.6em;
+}
+
+.eventSearchItem .mainContent #keyword {
+	font-weight: normal;
+	font-size: 70%;
+}
+
+.eventSearchItem .date {
+	padding: 0 1.0em;
+	color: #ff3d00;
+	font-family: 'Roboto Slab', serif;
+	line-height: 1.6em;
+}
+
+.eventSearchItem .card {
+	margin-top: 0px;
+	margin-bottom: 7px;
+}
+
+@media only screen and (max-width: 600px) {
+	.eventSearchItem .card .search-item-img  {
+		width: 3.5rem;
+	}
+
+	.eventSearchItem .mainContent {
+		margin: 0.7rem;
+		padding-left: 3.5rem;
+	}
+}

@@ -11,3 +11,17 @@
 	padding-left: 20px;
 	padding-right: 20px;
 }
+
+#search {
+	display: none;
+	margin-bottom: 0;
+}
+
+.nav-wrapper #toggle-search i {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.navbar-fixed input[type=text] {
+  height: 2rem;
+}
