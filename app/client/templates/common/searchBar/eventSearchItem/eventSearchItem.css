@@ -6,7 +6,7 @@
 	cursor: pointer;
 }
 
-.eventSearchItem .card .listitem-img {
+.eventSearchItem .card .search-item-img {
 	float: left;
   background-size: cover;
   background-position: center center;
