@@ -20,8 +20,8 @@ Template.navbar.events({
 		$('.button-collapse').sideNav('hide');
 	},
 
-	'click #toggle-search': function () {
-		var search = $('#search');
+	'click #toggle-search': function (event, template) {
+		var search = template.$('#search');
 		if (search.is(":visible")) {
 			search.slideUp(100);
 		} else {
