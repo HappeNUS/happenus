@@ -1,5 +1,4 @@
 .eventListItem .card {
-	height: 7.0em;
 	transition: box-shadow 0.3s;
 	overflow: visible;
 }
@@ -14,16 +13,21 @@
 
 .eventListItem .card .listitem-img {
 	float: left;
+	position: absolute;
+	top: 0;
+	left: 0;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   width: 7.0em;
-  height: 7.0em;
+  height: 100%;
 }
 
 .eventListItem .card .listitem-content {
 	float: left;
-	padding: 0 1.0em;
+	margin: 1.0em;
+	padding-left: 7.0em;
+	padding-right: 0.5em;
 }
 
 .eventListItem .card .listitem-content p {
@@ -62,31 +66,26 @@
 	right: 0.3em;
 }
 
-@media only screen and (min-width: 992px) {
-	.eventListItem .card {
-		height: 7em;
-	}
-
-	.eventListItem .card .listitem-img {
-	  width: 7em;
-	  height: 7em;
-	}
-
-	.eventListItem .card .listitem-content p.eventname {
-		margin-bottom: 1.0em
-	}
-
-	.eventListItem .card .listitem-content p.eventdate {
-		margin-top: 1.0em;
-	}
-}
-
 @media only screen and (max-width: 600px) {
 	.eventListItem .card .listitem-img {
-	  width: 6.0em;
+	  width: 5.0em;
+	}
+
+	.eventListItem .card .listitem-content {
+		padding-left: 5.0em;
 	}
 
 	.eventListItem .card .eventDropdown-container {
 		right: 0;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.eventListItem .card .listitem-img {
+	  width: 4.0em;
+	}
+
+	.eventListItem .card .listitem-content {
+		padding-left: 4.0em;
 	}
 }

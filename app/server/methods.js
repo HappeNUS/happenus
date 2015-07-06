@@ -37,6 +37,7 @@ Meteor.methods({
 	'likeEvent': function (eventId) {
 		var userId = this.userId;
 		if (userId) {
+			NotificationFactory.eventLikeNotif(eventId, Meteor.userId());
 			Events.update({_id: eventId}, {$addToSet: {likes: userId}});
 		}
 	},
@@ -86,5 +87,8 @@ Meteor.methods({
 	},
 	'updateProfileDesc': function(desc) {
 		Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.description': desc}});
+	},
+	'updateNotifSettings': function(notifSettings) {
+		Meteor.users.update({_id: Meteor.userId()}, {$set: {notifSettings: notifSettings}})
 	}
 });
