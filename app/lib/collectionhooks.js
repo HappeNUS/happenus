@@ -14,6 +14,9 @@ Meteor.users.after.insert(function (userId, user) {
 			}
 		}
 	);
+	if (Meteor.isServer) {
+		NotificationFactory.welcomeNotif(user._id);
+	}
 });
 
 Events.after.update(function (userId, doc, fieldNames, modifier, options) {
