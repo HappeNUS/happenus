@@ -1,0 +1,25 @@
+.profilePicSettings {
+	margin: 1.0rem;
+}
+
+.profilePicSettings div.current-img,
+.profilePicSettings div.file-input,
+.profilePicSettings div.img-preview,
+.profilePicSettings div.img-upload {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0.5rem;
+}
+
+.profilePicSettings div button {
+	margin-top: 2.5rem;
+}
+
+.profilePicSettings div.file-input input[type=file] {
+	display: none;
+}
+
+.profilePicSettings img {
+	width: 3.5rem;
+	height: 3.5rem;
+}

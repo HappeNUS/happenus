@@ -1,3 +1,7 @@
+.homeTabs ul.tabs {
+	background-color: #f5f5f5;
+}
+
 .homeTabs li.tab {
 	cursor: pointer;
 }

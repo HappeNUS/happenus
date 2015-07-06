@@ -1,0 +1,11 @@
+.userDescSettings {
+	margin: 1.0rem;
+}
+
+.userDescSettings div.confirm-buttons #done {
+	margin-right: 0.5rem; 
+}
+
+.userDescSettings div.confirm-buttons #clear {
+	margin-left: 0.5rem;
+}
