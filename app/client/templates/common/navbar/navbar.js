@@ -5,8 +5,8 @@ Template.navbar.onRendered(function () {
 
 	$(document).mouseup(function(event){
 		var target = $('#search');
-		var child1 = $('.searchbar');
-		var child2 = $('.searchbar input');
+		var child1 = $('.searchBar');
+		var child2 = $('.searchBar input');
     if(!(target.is(event.target) || child1.is(event.target) || child2.is(event.target)) && target.is(":visible")) {
        target.slideUp(100);
     } else {
