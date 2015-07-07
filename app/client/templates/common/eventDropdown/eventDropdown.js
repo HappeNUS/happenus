@@ -71,8 +71,20 @@ Template.eventDropdown.events({
 			showDropdown(dropdown);
 		}
 	},
-	'click #delete-event': function () {
-		Meteor.call('deleteEvent', this._id);
+	'click #delete-event': function (event, template) {
+		var modalOptions = {
+			title: 'Delete event',
+			message: "Are you sure you want to delete the event, '" + template.data.name + "'?",
+			label: 'Warning!',
+			closeLabel: 'No',
+			submitLabel: 'Yes',
+			callback: function(yesNo, data, event) {
+				if (yesNo) {
+					Meteor.call('deleteEvent', this._id);
+				}
+			}
+		};
+		MaterializeModal.alert(modalOptions);
 	},
 	'click #sub-user': function() {
 		if (isSubscribed(this.userId)) {
