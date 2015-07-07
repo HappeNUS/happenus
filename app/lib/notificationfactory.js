@@ -49,6 +49,13 @@ if (Meteor.isServer) {
 			}
 			
 		},
+		commentNotif: function(eventId, userId, comment) {
+			var event = Events.findOne({_id: eventId});
+			if (event.userId !== userId) {
+				var username = Meteor.users.findOne({_id: userId}).username;
+				this.newNotification(event.userId, username + " commented on your event, '" + event.name + "'.", "'" + comment + "'", '/event/' + eventId);
+			}
+		},
 		welcomeNotif: function(userId) {
 			var username = Meteor.users.findOne({_id: userId}).username;
 			this.newNotification(userId, 'Welcome to HappeNUS, ' + username + '!', 'Click on this notification to learn more about HappeNUS', '/help');
