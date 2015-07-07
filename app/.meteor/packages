@@ -65,3 +65,6 @@ thinksoftware:image-resize-client
 
 # Search for events
 matteodem:easy-search
+
+# Materialize modals
+pfafman:materialize-modal
