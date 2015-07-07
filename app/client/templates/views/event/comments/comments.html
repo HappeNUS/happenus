@@ -1,8 +1,15 @@
 <template name="comments">
 	<div class="comments">
-		<div class="input-field">
-			<textarea id="add-comment" class="materialize-textarea"></textarea>
-			<label for="add-comment">Add a comment</label>
+		{{> addComment eventId=eventId}}
+		<div class="comments-collection">
+			<ul class="collection">
+				{{#each comments}}
+					{{> comment}}
+				{{/each}}
+				{{#unless comments}}
+					<li class="collection-item">No comments</li>
+				{{/unless}}
+			</ul>
 		</div>
 	</div>
 </template>
