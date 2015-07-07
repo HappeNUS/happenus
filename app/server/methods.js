@@ -103,7 +103,7 @@ Meteor.methods({
 			date: new Date()
 		}
 		Comments.insert(comment);
-		NotificationFactory.commentNotif(eventId, userId, data);
+		NotificationFactory.commentNotif(eventId, userId, data, parent);
 		if (parent) {
 			Comments.update({_id: parent}, {$addToSet: {children: _id}});
 		}

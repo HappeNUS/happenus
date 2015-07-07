@@ -49,11 +49,26 @@ if (Meteor.isServer) {
 			}
 			
 		},
-		commentNotif: function(eventId, userId, comment) {
+		commentNotif: function(eventId, userId, comment, parent) {
 			var event = Events.findOne({_id: eventId});
+			var commentingUser = Meteor.users.findOne({_id: userId});
+			var parentComment, parentCommentUser;
+			if (parent) {
+				parentComment = Comments.findOne({_id: parent});
+				parentCommentUser = Meteor.users.findOne({_id: parentComment.userId});
+			}
 			if (event.userId !== userId) {
-				var username = Meteor.users.findOne({_id: userId}).username;
-				this.newNotification(event.userId, username + " commented on your event, '" + event.name + "'.", "'" + comment + "'", '/event/' + eventId);
+				var username = commentingUser.username;
+				if (!parentCommentUser || parentCommentUser._id !== event.userId) {
+					this.newNotification(event.userId, username + " commented on your event, '" + event.name + "'.", "'" + comment + "'", '/event/' + eventId);
+				}
+			}
+			if (parentComment && parentCommentUser && commentingUser._id !== parentCommentUser._id) {
+				this.newNotification(
+					parentCommentUser._id,
+					commentingUser.username + " replied to your comment on the event, '" + event.name + "'.",
+					"'" + comment + "'",
+					'/event/' + eventId);
 			}
 		},
 		welcomeNotif: function(userId) {
