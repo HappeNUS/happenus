@@ -19,3 +19,8 @@
 	top: 0;
 	right: 0;
 }
+
+.event .card #fbBtn {
+	float: right;
+	color: #2196f3;
+}
