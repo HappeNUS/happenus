@@ -68,3 +68,6 @@ matteodem:easy-search
 
 # Materialize modals
 pfafman:materialize-modal
+
+# Comments/Feedback for events
+arkham:comments-ui
