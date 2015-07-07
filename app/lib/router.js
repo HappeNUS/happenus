@@ -40,7 +40,11 @@ Router.route('/profile/:_id', {
 Router.route('/event/:_id', {
 	name: 'event',
 	waitOn: function(){
-		return Meteor.subscribe("specificEventData", this.params._id);
+		return [
+			Meteor.subscribe("specificEventData", this.params._id),
+			Meteor.subscribe("eventCommentData", this.params._id),
+			Meteor.subscribe("allUserData")
+		];
 	}
 });
 
