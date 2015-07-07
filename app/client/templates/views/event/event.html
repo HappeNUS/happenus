@@ -39,23 +39,23 @@
 										{{/each}}
 									</div>
 								{{/if}}
-							<div class="event-dropdown">
-								{{> eventDropdown}}
+								<div class="event-dropdown">
+									{{> eventDropdown}}
+								</div>
 							</div>
+							<div class="card-action">
+					      <a class="like-btn">
+					        {{#if isEventLiked}}
+					          <i class="mdi-action-favorite"></i>
+					          Liked ({{likeCount}})
+					        {{else}}
+					          <i class="mdi-action-favorite-outline"></i>
+					          Like ({{likeCount}})
+					        {{/if}}
+					      </a>
+					    </div>
 						</div>
-						<div class="card-action">
-				      <a class="like-btn">
-				        {{#if isEventLiked}}
-				          <i class="mdi-action-favorite"></i>
-				          Liked ({{likeCount}})
-				        {{else}}
-				          <i class="mdi-action-favorite-outline"></i>
-				          Like ({{likeCount}})
-				        {{/if}}
-				      </a>
-				    </div>
 				    <!-- The event's dates -->
-						</div>
 						<div class="card">
 							<div class="card-content black-text">
 								<span class="card-title black-text">Event Dates</span>
@@ -63,6 +63,15 @@
 							    	{{#each eventDates}}
 								      {{> date}}
 							      {{/each}}
+							    </ul>
+							</div>
+						</div>
+						<!-- Feedback -->
+						<div class="card">
+							<div class="card-content black-text">
+								<span class="card-title black-text">Feedback</span>
+							    <ul class="collection">
+							    	
 							    </ul>
 							</div>
 						</div>
