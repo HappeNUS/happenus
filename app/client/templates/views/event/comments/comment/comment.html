@@ -6,10 +6,14 @@
 				<a class="black-text" id="reply-{{_id}}" href="#"><i class="material-icons">reply</i></a>
 			</div>
 		</div>
-		<p class="username">{{#with userData}}<a href="{{pathFor route='profile'}}">{{username}}</a>{{/with}} {{moFromNow d=date withoutSuffix=false}}
+		<p class="username">{{#with userData}}<a href="{{pathFor route='profile'}}">{{username}}</a>{{/with}}
+			<small>{{moFromNow d=date withoutSuffix=false}}</small>
 		</p>
-		<div class="comment-data">
+		<div class="comment-data hide-excess">
 			{{data}}
+		</div>
+		<div class="comment-show-more">
+			Show more
 		</div>
 		<div id="add-{{_id}}" class="add-comment">
 			{{> addComment reply_id=_id eventId=eventId}}

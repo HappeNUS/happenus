@@ -1,3 +1,21 @@
 .collection li.comment.collection-item.avatar {
 	height: inherit;
 }
+
+li.comment div.comment-data.hide-excess {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+li.comment div.comment-show-more {
+	text-align: center;
+	cursor: pointer;
+	color: #2196f3;
+	transition: color 0.3s, background-color 0.3s;
+}
+
+li.comment div.comment-show-more:hover {
+	color: #90caf9;
+	background-color: #eee;
+}
