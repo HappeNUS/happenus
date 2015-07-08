@@ -7,3 +7,22 @@
 .help .side-nav:hover {
 	overflow: auto;
 }
+
+.help .mainContent {
+	margin-left: 5rem;
+	margin-top: 20px;
+	z-index: -200;
+}
+
+@media only screen and (max-width: 992px) {
+	.help .col.s10.offset-s2 {
+		margin-left: 20px;
+	}
+}
+
+/* Only affects screen widths <= 600px */
+@media only screen and (max-width: 600px) {
+	.help .col.s10.offset-s2 {
+		margin-left: 20px;
+	}
+}
