@@ -1,81 +1,64 @@
 <!-- Help page when user click nav-menu/help -->
 <template name="help">
-	<div class="help">
-		<div class="row">
-			<div class="col s1">
-				<div id="sidebar" class="right hide-on-med-and-down">
-					<h4>Help Menu</h4>
-					<hr color="#e0e0e0">
-					<ul>
-						<li><a class="waves-effect waves-grey btn-flat" href="#create">Create event</a></li>
-						<li><a class="waves-effect waves-grey btn-flat" href="#edit">Edit event</a></li>
-						<li><a class="waves-effect waves-grey btn-flat" href="#delete">Delete event</a></li>
-						<li><a class="waves-effect waves-grey btn-flat" href="#like">Like event</a></li>
-						<li><a class="waves-effect waves-grey btn-flat" href="#event">Event page</a></li>
-						<li><a class="waves-effect waves-grey btn-flat" href="#subscribe">Subscribe</a></li>
-					</ul>
-				</div>
-				<p id="fixer">t</p><!--Fixer to identify the first column-->
-			</div>
-			<div class="col s9">
-				<div id="mainContent" class="container">
-					<ul>
-						<li>
-							<h3><blockquote>Have a problem?</blockquote></h3>
-							<p >Here at HappeNUS, we try to make sure that our website is very easy to use even for those non tech-savvy people. If you encounter any issues, this page is definitely meant for you!</p>
-						</li>
-						<br id="create"><br>
-						<li>
-							<h3><blockquote>Create event</blockquote></h3>
-							<p>To create an event, simply click on the <a class="btn-floating btn-small red"><i class="material-icons">add</i></a> button on the bottom right corner of your screen. This will bring you to the event creation page like the one shown below.</p>
-							<img class="responsive-img z-depth-2" src="http://res.cloudinary.com/adam/image/upload/v1435651130/Create_page_cuinco.png">
-							<p>Once in the page, you can fill in all the necessary details of the upcoming event. Make sure to fill in everything with the exception of tags which is optional.</p>
-							<p>Once completed, click on <a class="btn">Submit<i class="material-icons">send</i></a> to create the event and post it online in HappeNUS. That's it. You're done!</p>
-						</li>
-						<br id="edit"><br>
-						<li>
-							<h3><blockquote>Edit event</blockquote></h3>
-							<p>There are times when unforseen circumstances takes its toll and you have no choice but to change the time and date of the event that you organised. With HappeNUS, editing an event is simple as two clicks!</p>
-							<img class="responsive-img z-depth-2" src="http://res.cloudinary.com/adam/image/upload/v1435682947/3_dots_card_tlnfq2.png">
-							<img class="responsive-img z-depth-2" src="http://res.cloudinary.com/adam/image/upload/v1435685498/edit_delete_card_nnhoib.png">
-							<p>Simply click on <i class="mdi-navigation-more-vert"></i> found at the top right corner of the event card. Then you may click on the <a id="option-btn">Edit event</a> button. From here, you will be brought into the create event page with all the details intact. You may choose to modify certain details of the event. After doing so, click on the <a class="btn">Submit<i class="material-icons">send</i></a> to save the changes.</p>
-							<p><i class="tiny material-icons">error</i><a id="warning-btn"> Do note that in order to edit an event, the event must be belong to you.</a></p>
-						</li>
-						<br id="delete"><br>
-						<li>
-							<h3><blockquote>Delete event</blockquote></h3>
-							<p>For deleting events, the steps is very similar to editing an event. Instead of clicking on the <a id="option-btn">Edit event</a> button, click on the <a id="option-btn">Delete event</a> button.</p>
-							<p><i class="tiny material-icons">error</i><a id="warning-btn"> Do note that in order to delete an event, the event must be belong to you.</a></p>
-						</li>
-						<br id="like"><br>
-						<li>
-							<h3><blockquote>Like event</blockquote></h3>
-							<p>On the event card, notice that there is an <a class="like-btn-home"><i class="small mdi-action-favorite-outline"></i></a> icon. Click on it to like or unlike the event.</p>
-							<img class="responsive-img z-depth-2" src="http://res.cloudinary.com/adam/image/upload/v1435653822/unlike_card_cmlbf9.png">
-							<img class="responsive-img z-depth-2" src="http://res.cloudinary.com/adam/image/upload/v1435653822/like_card_uovwlq.png">
-							<p>If you liked an event and the organiser made some changes to the event, HappeNUS will notify you via your notification hub, <i class="mdi-social-notifications-none"></i> found in the top right hard corner.</p>
-						</li>
-						<br id="event"><br>
-						<li>
-							<h3><blockquote>Event page</blockquote></h3>
-							<p>If you current display is cards, click on the event card and then click <a class="btn light-blue lighten-2 white-text">View more</a>. If your current display is list, just click on the event list. This will bring you to the event page.</p>
-							<img class="responsive-img z-depth-2" src="http://res.cloudinary.com/adam/image/upload/v1435655616/event_page_wahhfu.png">
-							<p>Here on the event page, you can see more important details such as the date and time of the event and when was the event created. Here, you can also like the event by clicking on the <a class="like-btn-event"><i class="mdi-action-favorite-outline"></i>Like</a> button</p>
-						</li>
-						<br id="subscribe"><br>
-						<li>
-							<h3><blockquote>Subscribe</blockquote></h3>
-							<img class="responsive-img z-depth-2" src="http://res.cloudinary.com/adam/image/upload/v1435682947/3_dots_card_tlnfq2.png">
-							<img class="responsive-img z-depth-2" src="http://res.cloudinary.com/adam/image/upload/v1435682947/subscribe_card_unoszb.png">
-							<p>On the hompage, simply click on <i class="mdi-navigation-more-vert"></i> found at the top right corner of the event card. Then you may click on the <a id="option-btn">Subscribe to user</a> button.</p>
-							<p><i class="tiny material-icons">error</i><a id="warning-btn"> If you are the owner of the event, clicking <i class="mdi-navigation-more-vert"></i> will provide you with other options. You cannot subscribe to yourself!</a></p>
-							<p>Alternatively, you can subscribe to the organiser simply by visiting their profile page. This can be done by clicking on their User ID which can be found on the event card on the homepage or eventpage. Then click on the subscribe button just below their profile picture. Repeat process to unsubscribe.</p>
-							<img class="responsive-img z-depth-2" src="http://res.cloudinary.com/adam/image/upload/v1435656517/subscribe_dvz46z.png">
-							<p>Here you can also see all the different events created by the organiser itself. You will not receive notifications when the organiser you subscribed to has modify the details of his or her events unless you <a class="like-btn-event"><i class="mdi-action-favorite-outline"></i>Like</a> that particular event.</p>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="row">
+
+      <div class="col s2">
+      	<div class="card-panel teal lighten-2">
+        	Side panel
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+        	<h5>Topic</h5>
+      	</div>
+      </div>
+
+      <div class="col s10 offset-s2">
+        <div class="card-panel grey lighten-2">
+        	Main content
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+        	<h1>Test</h1>
+      	</div>
+      </div>
+
+    </div>
 </template>
