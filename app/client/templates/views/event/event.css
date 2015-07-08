@@ -31,3 +31,9 @@
 	color: #2196f3;
 	margin-right: 1rem;
 }
+
+.event .card #emailBtn {
+	float: right;
+	color: #263238;
+	margin-right: 1rem;
+}
