@@ -13,6 +13,7 @@ Template.event.onCreated(function(){
 
 Template.event.onRendered(function(){
 	this.$('.materialboxed').materialbox();
+	this.$('.tooltipped').tooltip({delay: 10});
 });
 
 Template.event.helpers({
