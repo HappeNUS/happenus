@@ -53,6 +53,7 @@ Meteor.methods({
 		if (eventToDelete) {
 			NotificationFactory.eventDelNotif(eventToDelete);
 			Events.remove({_id: eventId, userId: userId});
+			Comments.remove({eventId: eventId});
 			Meteor.call('deleteEventImages', eventToDelete.img);
 		}
 	},
@@ -106,6 +107,12 @@ Meteor.methods({
 		NotificationFactory.commentNotif(eventId, userId, data, parent);
 		if (parent) {
 			Comments.update({_id: parent}, {$addToSet: {children: _id}});
+		}
+	},
+	'deleteComment': function(commentId) {
+		var comment = Comments.findOne({_id: commentId});
+		if (comment && comment.userId === Meteor.userId() && !comment.deleted) {
+			Comments.update({_id: commentId}, {$set: {deleted: true, data: '', userId: ''}});
 		}
 	}
 });

@@ -1,16 +1,26 @@
 <template name="comment">
 	<li id="{{_id}}" class="comment collection-item avatar">
 		<img src="{{profileImg}}" alt="" class="circle">
-		<div class="comment-actions">
-			<div class="reply right">
-				<a class="black-text" id="reply-{{_id}}" href="#"><i class="material-icons">reply</i></a>
-			</div>
+		<div class="comment-actions right">
+			{{#if isOwner}}
+				<a class="black-text" id="delete-{{_id}}" href="#"><i class="material-icons">delete</i></a>
+			{{/if}}
+			<a class="black-text" id="reply-{{_id}}" href="#"><i class="material-icons">reply</i></a>
 		</div>
-		<p class="username">{{#with userData}}<a href="{{pathFor route='profile'}}">{{username}}</a>{{/with}}
+		<p class="username">
+			{{#if isDeleted}}
+			[deleted]
+			{{else}}
+				{{#with userData}}<a href="{{pathFor route='profile'}}">{{username}}</a>{{/with}}
+			{{/if}}
 			<small>{{moFromNow d=date withoutSuffix=false}}</small>
 		</p>
 		<div class="comment-data hide-excess">
-			{{data}}
+			{{#if isDeleted}}
+				[deleted]
+			{{else}}
+				{{data}}
+			{{/if}}
 		</div>
 		<div class="comment-show-more">
 			Show more

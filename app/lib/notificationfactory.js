@@ -55,6 +55,9 @@ if (Meteor.isServer) {
 			var parentComment, parentCommentUser;
 			if (parent) {
 				parentComment = Comments.findOne({_id: parent});
+				if (parentComment.delete) {
+					return;
+				}
 				parentCommentUser = Meteor.users.findOne({_id: parentComment.userId});
 			}
 			if (event.userId !== userId) {
