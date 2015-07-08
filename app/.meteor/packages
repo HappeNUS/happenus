@@ -68,3 +68,6 @@ matteodem:easy-search
 
 # Materialize modals
 pfafman:materialize-modal
+
+# Fast-render for improved loading performance
+meteorhacks:fast-render
