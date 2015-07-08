@@ -7,6 +7,27 @@
 .help .side-nav:hover {
 	overflow: auto;
 }
+.help #logo {
+	height: 100px;
+	width: 100px;
+	float: center;
+}
+
+.help #sideHeader {
+	margin: 0;
+	width: 210px;
+}
+
+.help #sideHeader #title {
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 0;
+
+}
+
+.help #sideHeader span {
+	font-size: 30px;
+}
 
 .help .mainContent {
 	position: absolute;
