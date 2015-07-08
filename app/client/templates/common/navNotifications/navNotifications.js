@@ -3,6 +3,15 @@ Template.navNotifications.onRendered(function(){
 		constrain_width: false,
 		belowOrigin: true,
 	});
+
+	var originalCount = 0;
+	this.autorun(function() {
+		var newCount = Notifications.find({read: false}).count();
+		if (newCount > originalCount) {
+			Materialize.toast('You have a new notification!', 3000);
+		}
+		originalCount = newCount;
+	});
 });
 
 Template.navNotifications.helpers({
