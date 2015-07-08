@@ -23,4 +23,5 @@
 .event .card #fbBtn {
 	float: right;
 	color: #2196f3;
+	margin-right: 0;
 }
