@@ -1,16 +1,8 @@
-.card-panel {
-	height: 100vh;
-	margin: 0;
+.help .side-nav {
+	top: 64px;
+	overflow: hidden;
 }
 
-.col.s2 {
-	padding: 0;
-	position: fixed;
-	overflow: scroll;
-}
-
-.col.s10{
-	padding: 0;
-	position: fixed;
-	overflow: scroll;
+.help .side-nav:hover {
+	overflow: auto;
 }
