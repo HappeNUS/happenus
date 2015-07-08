@@ -12,11 +12,11 @@
 }
 
 .userNotifications .collection .collection-item.new {
-	background-color: #fffde7;
+	background-color: #cfd8dc;
 }
 
 .userNotifications .collection .collection-item.new:hover {
-	background-color: #fff9c4;
+	background-color: #b0bec5;
 }
 
 .userNotifications .collection .collection-item span.title {
@@ -34,6 +34,7 @@
 .userNotifications .collection .collection-item a.dismiss {
 	font-size: 1.4em;
 	transition: opacity 0.3s;
+	color: red;
 }
 
 .userNotifications .collection .collection-item a.dismiss:hover {
