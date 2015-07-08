@@ -1,6 +1,7 @@
 .help .side-nav {
 	top: 64px;
 	overflow: hidden;
+	z-index: -100;
 }
 
 .help .side-nav:hover {
