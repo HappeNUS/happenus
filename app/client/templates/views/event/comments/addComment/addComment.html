@@ -1,0 +1,10 @@
+<template name="addComment">
+	<div class="addComment">
+		<form id="form-{{#if reply_id}}{{reply_id}}{{else}}main{{/if}}" action="#">
+			<div class="input-field">
+				<input id="comment-input-{{#if reply_id}}{{reply_id}}{{else}}main{{/if}}" type="text">
+				<label for="comment-input-{{#if reply_id}}{{reply_id}}{{else}}main{{/if}}">{{#if reply_id}}Reply to comment{{else}}Add a comment{{/if}}</label>
+			</div>
+		</form>
+	</div>
+</template>

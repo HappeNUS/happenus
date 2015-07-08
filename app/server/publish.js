@@ -41,3 +41,7 @@ Meteor.publish("eventData", function(view, sort, limit) {
 Meteor.publish("specificEventData", function(eventId){
 	return Events.find({_id: eventId});
 });
+
+Meteor.publish("eventCommentData", function(eventId){
+	return Comments.find({eventId: eventId}, {sort: {date: -1}});
+})

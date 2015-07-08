@@ -1,0 +1,5 @@
+.comments ul.collection {
+	background-color: #ddd;
+	max-height: 15rem;
+	overflow-y: auto;
+}

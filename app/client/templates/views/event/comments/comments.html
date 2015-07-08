@@ -1,0 +1,15 @@
+<template name="comments">
+	<div class="comments">
+		{{> addComment eventId=eventId}}
+		<div class="comments-collection">
+			<ul class="collection">
+				{{#each comments}}
+					{{> comment}}
+				{{/each}}
+				{{#unless comments}}
+					<li class="collection-item">No comments</li>
+				{{/unless}}
+			</ul>
+		</div>
+	</div>
+</template>

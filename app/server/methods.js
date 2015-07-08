@@ -90,5 +90,22 @@ Meteor.methods({
 	},
 	'updateNotifSettings': function(notifSettings) {
 		Meteor.users.update({_id: Meteor.userId()}, {$set: {notifSettings: notifSettings}})
+	},
+	'createComment': function(eventId, userId, data, parent) {
+		var _id = new Meteor.Collection.ObjectID()._str;
+		comment = {
+			_id: _id,
+			eventId: eventId,
+			userId: userId,
+			parent: parent,
+			children: [],
+			data: data,
+			date: new Date()
+		}
+		Comments.insert(comment);
+		NotificationFactory.commentNotif(eventId, userId, data, parent);
+		if (parent) {
+			Comments.update({_id: parent}, {$addToSet: {children: _id}});
+		}
 	}
 });
