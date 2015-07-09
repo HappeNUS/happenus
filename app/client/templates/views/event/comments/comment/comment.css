@@ -2,6 +2,14 @@
 	height: inherit;
 }
 
+li.comment.event-owner {
+	background-color: #fffde7;
+}
+
+li.comment.comment-owner {
+	background-color: #e0f7fa;
+}
+
 li.comment div.comment-data.hide-excess {
 	white-space: nowrap;
 	overflow: hidden;

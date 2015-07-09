@@ -72,7 +72,11 @@ Template.comment.helpers({
 			return $.cloudinary.url(profileImg);
 		}
 	},
-	isOwner: function() {
+	isCommentOwner: function() {
 		return this.userId === Meteor.userId();
+	},
+	isEventOwner: function() {
+		event = Events.findOne({_id: this.eventId});
+		return event.userId === this.userId;
 	}
 });
