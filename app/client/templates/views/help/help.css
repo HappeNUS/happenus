@@ -1,3 +1,4 @@
+/* CSS for side nav */
 .help .side-nav {
 	top: 64px;
 	overflow: hidden;
@@ -29,6 +30,15 @@
 	font-size: 30px;
 }
 
+.help .side-nav li {
+	padding: 0;
+}
+
+.help .side-nav a {
+	padding-left: 40px;
+}
+
+/* CSS for the main content */
 .help .mainContent {
 	position: absolute;
 	margin-left: 5rem;
