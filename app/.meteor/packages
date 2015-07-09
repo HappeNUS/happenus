@@ -7,9 +7,6 @@
 # default package
 meteor-platform
 
-# to be removed on final release
-insecure
-
 # for routing paths
 iron:router
 
@@ -19,15 +16,9 @@ jquery
 # design framework
 materialize:materialize
 
-# for protyping, making random words
-anti:fake
-
 # accounts-related
 accounts-password
 useraccounts:materialize
-
-# visualisation of databases
-msavin:mongol
 
 # formatting dates
 momentjs:moment
