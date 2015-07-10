@@ -39,6 +39,13 @@
 	padding-left: 40px;
 }
 
+.help .side-nav a:hover {
+	padding-left: 80px;
+	font-size: 130%;
+	background-color: #e57373;
+	color: white;
+}
+
 /* CSS for the main content */
 .help .mainContent {
 	position: absolute;
