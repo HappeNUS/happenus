@@ -19,6 +19,8 @@ materialize:materialize
 # accounts-related
 accounts-password
 useraccounts:materialize
+service-configuration
+accounts-google
 
 # formatting dates
 momentjs:moment
