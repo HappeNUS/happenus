@@ -62,3 +62,6 @@ pfafman:materialize-modal
 
 # Fast-render for improved loading performance
 meteorhacks:fast-render
+
+# Fast-click for more responsive performance on mobile
+fastclick
