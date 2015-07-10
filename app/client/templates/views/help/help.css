@@ -8,6 +8,7 @@
 .help .side-nav:hover {
 	overflow: auto;
 }
+
 .help #logo {
 	height: 100px;
 	width: 100px;
@@ -43,6 +44,16 @@
 	position: absolute;
 	margin-left: 5rem;
 	margin-right: 5rem;
+}
+
+.help .mainContent h3 {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: bold;
+	font-size: 2.8em;
+}
+
+.help .mainContent p {
+	font-size: 1.2em;
 }
 
 @media only screen and (max-width: 992px) {
