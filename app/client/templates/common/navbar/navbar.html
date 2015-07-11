@@ -12,7 +12,7 @@
           {{else}}
             {{#if currentUser}}
               {{#with currentUser}}
-                <li><a href="{{pathFor route='profile'}}">{{username}}</a></li>
+                <li><a href="{{pathFor route='profile'}}">{{display_name}}</a></li>
               {{/with}}
             {{/if}}
           {{/if}}
@@ -31,7 +31,7 @@
           {{else}}
             {{#if currentUser}}
               {{#with currentUser}}
-                <li><a href="{{pathFor route='profile'}}">{{username}}</a></li>
+                <li><a href="{{pathFor route='profile'}}">{{display_name}}</a></li>
               {{/with}}
             {{/if}}
           {{/if}}
