@@ -1,0 +1,23 @@
+.displayNameSettings {
+	padding: 2.0rem;
+}
+
+.displayNameSettings div.row {
+	margin-bottom: 5px;
+}
+
+.displayNameSettings p {
+	padding: 0;
+}
+
+.displayNameSettings .display-name-options button {
+	display: inline-block;
+}
+
+.displayNameSettings .display-name-options button#check-valid-btn {
+	margin-right: 1.0em;
+}
+
+.displayNameSettings .display-name-options button#save-display-name-btn {
+	margin-left: 1.0em;
+}
