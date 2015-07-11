@@ -16,12 +16,25 @@ function setDefaultProfileItems (user) {
 	);
 }
 
+function isUniqueDisplayName(displayName){
+	return Meteor.users.direct.find({display_name: displayName}).count() === 0;
+}
+
+function generateDisplayName(displayName){
+	return displayName + Math.floor(Math.random() * 10);
+}
+
 function setDisplayName (user) {
 	var displayName;
 	if (user.username) {
 		displayName = user.username;
 	} else if (user.services.google) {
 		displayName = user.services.google.name;
+	}
+	if (displayName) {
+		while (!isUniqueDisplayName(displayName)) {
+			displayName = generateDisplayName(displayName);
+		}
 	}
 	Meteor.users.direct.update({_id: user._id}, {$set: {display_name: displayName}});
 }
