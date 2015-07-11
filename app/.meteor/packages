@@ -21,6 +21,7 @@ accounts-password
 useraccounts:materialize
 service-configuration
 accounts-google
+accounts-facebook
 
 # formatting dates
 momentjs:moment
