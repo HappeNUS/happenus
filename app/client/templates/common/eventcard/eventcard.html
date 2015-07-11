@@ -17,16 +17,16 @@
         <div class="like-container">
           <a class="like-btn">
             {{#if isEventLiked}}
-              <i class="tiny mdi-action-favorite"></i>
+              <i class="tiny material-icons">favorite</i>
             {{else}}
-              <i class="tiny mdi-action-favorite-outline"></i>
+              <i class="tiny material-icons">favorite_border</i>
             {{/if}}
             {{likeCount}}
           </a>
         </div>
      	</div>
       <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">{{name}} <i class="mdi-navigation-close right"></i></span>
+        <span class="card-title grey-text text-darken-4">{{name}} <i class="material-icons right">close</i></span>
         <div class="event-desc">
           {{{desc}}}
         </div>

@@ -13,8 +13,7 @@ function showDropdown (dropdown) {
 			start: function(){
 				isDropdownAnimating = true;
 				var ddbtn = dropdown.siblings('a.dd-btn');
-				ddbtn.children('i').removeClass('mdi-navigation-more-vert');
-				ddbtn.children('i').addClass('mdi-navigation-expand-less');
+				ddbtn.children('i').html('expand_less');
 			},
 			complete: function(){isDropdownAnimating = false}
 		});
@@ -28,8 +27,7 @@ function hideDropdown (dropdown) {
 			start: function() {
 				isDropdownAnimating = true;
 				var ddbtn = dropdown.siblings('a.dd-btn');
-				ddbtn.children('i').removeClass('mdi-navigation-expand-less');
-				ddbtn.children('i').addClass('mdi-navigation-more-vert');
+				ddbtn.children('i').html('more_vert');
 			},
 			complete: function() {
 				dropdown.css('display', 'none');

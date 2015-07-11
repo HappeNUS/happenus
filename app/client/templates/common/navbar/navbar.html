@@ -4,7 +4,7 @@
     <nav>
       <div class="nav-wrapper">
         <a href="{{pathFor route='home'}}" class="brand-logo">HappeNUS</a>
-        <a href="#" data-activates="sidenav" class="button-collapse"><i class="large mdi-navigation-menu"></i></a>
+        <a href="#" data-activates="sidenav" class="button-collapse"><i class="large material-icons">menu</i></a>
         {{#if currentUser}}{{> navMenu}}{{/if}}
         <ul class="right hide-on-med-and-down">
           {{#if loggingIn}}
@@ -21,7 +21,7 @@
         {{#if currentUser}}{{> navNotifications}}{{/if}}
         {{#if currentUser}}
           <a class="{{#if rwindow.innerWidth 'lte' 600}}left{{else}}right{{/if}}" href="#" id="toggle-search">
-            <i class="large mdi-action-search"></i>
+            <i class="large material-icons">search</i>
           </a>
         {{/if}}
         <!-- The sidenav is placed here as well -->
