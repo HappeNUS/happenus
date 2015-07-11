@@ -1,0 +1,4 @@
+db.users.find().forEach(function(user){db.users.update({_id: user._id}, {$set: {display_name: user.username}})})
+db.users.find().forEach(function(user){print(user.display_name)})
+db.users.find({"services.google": {$exists: true}}).forEach(function(user){db.users.remove({_id: user._id})})
+db.users.find({"display_name": {$exists: true}}).forEach(function(user){db.users.update({_id: user._id}, {$unset: {display_name: ""}})})

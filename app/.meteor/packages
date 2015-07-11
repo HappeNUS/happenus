@@ -19,6 +19,9 @@ materialize:materialize
 # accounts-related
 accounts-password
 useraccounts:materialize
+service-configuration
+accounts-google
+accounts-facebook
 
 # formatting dates
 momentjs:moment
@@ -65,3 +68,6 @@ meteorhacks:fast-render
 
 # Fast-click for more responsive performance on mobile
 fastclick
+
+# TO BE REMOVED ON RELEASE
+msavin:mongol

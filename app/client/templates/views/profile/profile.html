@@ -3,7 +3,7 @@
 	<div class="profile">
 		<div class="profile-header grey darken-4 z-depth-2">
 			<img src="{{profile_img_url}}" class="circle responsive-img">
-			<h3 class="white-text">{{userData.username}}</h3>
+			<h3 class="white-text">{{userData.display_name}}</h3>
 		</div>
 		<div class="container">
 			<div class="row">
@@ -11,7 +11,7 @@
 					<div class="card">
 						<div class="card-content black-text">
 							{{#if userData.profile.description}}
-								<p class="about-header">About {{userData.username}}</p>
+								<p class="about-header">About {{userData.display_name}}</p>
 								<p>{{userData.profile.description}}</p>
 								<div><br></div>
 							{{/if}}
@@ -26,7 +26,7 @@
 							<p class="sub-count">{{subCount}} Subscriber(s)</p>
 						</div>
 					</div>
-					<h3 class="user-events-header">{{userData.username}}'s events</h3>
+					<h3 class="user-events-header">{{userData.display_name}}'s events</h3>
 				</div>
 			</div>
 		</div>

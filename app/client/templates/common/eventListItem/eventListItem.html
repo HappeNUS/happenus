@@ -6,7 +6,7 @@
 			<div class="listitem-content valign">
 				<p class="eventname">{{name}} by
 					{{#with user}}
-          	<a class="username" href="{{pathFor route='profile'}}">{{username}}</a>
+          	<a class="user" href="{{pathFor route='profile'}}">{{display_name}}</a>
         	{{/with}}
         </p>
 				<p class="eventdate">{{dateTranslation}}</p>
@@ -17,9 +17,9 @@
 			<div class="listitem-actions">
 				<a href="#" class="like-btn">
 					{{#if isEventLiked}}
-						<i class="tiny mdi-action-favorite"></i>
+						<i class="tiny material-icons">favorite</i>
 					{{else}}
-						<i class="tiny mdi-action-favorite-outline"></i>
+						<i class="tiny material-icons">favorite_border</i>
 					{{/if}}
 					{{likeCount}}
 				</a>

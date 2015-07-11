@@ -41,7 +41,7 @@ if (Meteor.isServer) {
 				var likee = Meteor.users.findOne({_id: likeeId});
 
 				if (!likee.notifSettings || likee.notifSettings.liked) {
-					var title = liker.username + " liked your event '" + event.name + "'.";
+					var title = liker.display_name + " liked your event '" + event.name + "'.";
 					var description = "at " + moment(new Date()).format('DD/MM/YYYY h:mm a');
 					var link = '/profile/' + likerId;
 					this.newNotification(likeeId, title, description, link);
@@ -61,22 +61,22 @@ if (Meteor.isServer) {
 				parentCommentUser = Meteor.users.findOne({_id: parentComment.userId});
 			}
 			if (event.userId !== userId) {
-				var username = commentingUser.username;
+				var display_name = commentingUser.display_name;
 				if (!parentCommentUser || parentCommentUser._id !== event.userId) {
-					this.newNotification(event.userId, username + " commented on your event, '" + event.name + "'.", "'" + comment + "'", '/event/' + eventId);
+					this.newNotification(event.userId, display_name + " commented on your event, '" + event.name + "'.", "'" + comment + "'", '/event/' + eventId);
 				}
 			}
 			if (parentComment && parentCommentUser && commentingUser._id !== parentCommentUser._id) {
 				this.newNotification(
 					parentCommentUser._id,
-					commentingUser.username + " replied to your comment on the event, '" + event.name + "'.",
+					commentingUser.display_name + " replied to your comment on the event, '" + event.name + "'.",
 					"'" + comment + "'",
 					'/event/' + eventId);
 			}
 		},
 		welcomeNotif: function(userId) {
-			var username = Meteor.users.findOne({_id: userId}).username;
-			this.newNotification(userId, 'Welcome to HappeNUS, ' + username + '!', 'Click on this notification to learn more about HappeNUS', '/help');
+			var display_name = Meteor.users.findOne({_id: userId}).display_name;
+			this.newNotification(userId, 'Welcome to HappeNUS, ' + display_name + '!', 'Click on this notification to learn more about HappeNUS', '/help');
 		}
 	};
 }

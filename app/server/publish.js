@@ -3,11 +3,11 @@ function extendObject (target, object) {
 }
 
 Meteor.publish("allUserData", function () {
-	return Meteor.users.find({}, {fields:{_id: 1, username:1, profile: 1}});
+	return Meteor.users.find({}, {fields:{_id: 1, username: 1, display_name: 1, profile: 1}});
 });
 
 Meteor.publish("specificUserData", function(userId) {
-	return Meteor.users.find({_id: userId}, {fields:{_id: 1, username:1, profile: 1}});
+	return Meteor.users.find({_id: userId}, {fields:{_id: 1, username:1, display_name: 1, profile: 1}});
 });
 
 Meteor.publish("ownUserData", function() {

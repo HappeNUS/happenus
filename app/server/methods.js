@@ -89,6 +89,24 @@ Meteor.methods({
 	'updateProfileDesc': function(desc) {
 		Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.description': desc}});
 	},
+	'changeDisplayName': function(newName) {
+		Meteor.call('checkDisplayName', newName, function(err){
+			if (!err) {
+				Meteor.users.update({_id: Meteor.userId()}, {$set: {display_name: newName}});
+			} else {
+				throw err;
+			}
+		});
+	},
+	'checkDisplayName': function(name) {
+		var count = Meteor.users.find({display_name: name}).count();
+		if (count) {
+			throw new Meteor.Error('invalid-display-name', 'Someone is already using this display name!');
+		}
+		if (!name) {
+			throw new Meteor.Error('invalid-display-name', 'Please enter a display name');
+		}
+	},
 	'updateNotifSettings': function(notifSettings) {
 		Meteor.users.update({_id: Meteor.userId()}, {$set: {notifSettings: notifSettings}})
 	},

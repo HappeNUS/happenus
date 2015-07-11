@@ -7,11 +7,11 @@
 			{{/if}}
 			<a class="black-text" id="reply-{{_id}}" href="#"><i class="material-icons">reply</i></a>
 		</div>
-		<p class="username">
+		<p class="user">
 			{{#if isDeleted}}
 			[deleted]
 			{{else}}
-				{{#with userData}}<a href="{{pathFor route='profile'}}">{{username}}</a>{{/with}}
+				{{#with userData}}<a href="{{pathFor route='profile'}}">{{display_name}}</a>{{/with}}
 			{{/if}}
 			<small>{{moFromNow d=date withoutSuffix=false}}</small>
 		</p>
