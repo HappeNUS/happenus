@@ -67,3 +67,6 @@ meteorhacks:fast-render
 
 # Fast-click for more responsive performance on mobile
 fastclick
+
+# TO BE REMOVED ON RELEASE
+msavin:mongol
