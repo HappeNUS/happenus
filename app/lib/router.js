@@ -49,7 +49,10 @@ Router.route('/event/:_id', {
 });
 
 Router.route('/my-notifications', {
-	name: 'userNotifications'
+	name: 'userNotifications',
+	waitOn: function(){
+		return Meteor.subscribe("ownUserData");
+	}
 });
 
 Router.route('/settings', {
