@@ -14,6 +14,13 @@ Meteor.users.after.insert(function (userId, user) {
 			}
 		}
 	);
+	var displayName;
+	if (user.username) {
+		displayName = user.username;
+	} else if (user.services.google) {
+		displayName = user.services.google.name;
+	}
+	Meteor.users.direct.update({_id: user._id}, {$set: {display_name: displayName}});
 	if (Meteor.isServer) {
 		NotificationFactory.welcomeNotif(user._id);
 	}
