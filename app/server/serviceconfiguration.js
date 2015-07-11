@@ -8,3 +8,14 @@ ServiceConfiguration.configurations.upsert(
 		}
 	}
 );
+
+ServiceConfiguration.configurations.upsert(
+	{ service: "facebook" },
+	{
+		$set: {
+			appId: Meteor.settings.Facebook.app_id,
+			loginStyle: "popup",
+			secret: Meteor.settings.Facebook.secret
+		}
+	}
+);
