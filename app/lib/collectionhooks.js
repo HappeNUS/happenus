@@ -30,6 +30,8 @@ function setDisplayName (user) {
 		displayName = user.username;
 	} else if (user.services.google) {
 		displayName = user.services.google.name;
+	} else if (user.services.facebook) {
+		displayName = user.services.facebook.name;
 	}
 	if (displayName) {
 		while (!isUniqueDisplayName(displayName)) {
