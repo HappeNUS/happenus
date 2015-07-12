@@ -12,10 +12,3 @@
 .navMenu #dropdown-list li:hover {
 	background-color: #cfd8dc;
 }
-
-@media only screen and (max-width: 600px) {
-	.navMenu > .menu-dropdown-btn #dropdown-btn i {
-		height: 56px;
-		line-height: 56px;
-	}
-}

@@ -1,51 +1,57 @@
 <!-- The navbar that appears on the top of the screen in the layout -->
-<template name="navbar">  
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="{{pathFor route='home'}}" class="brand-logo">HappeNUS</a>
-        <a href="#" data-activates="sidenav" class="button-collapse"><i class="large material-icons">menu</i></a>
-        {{#if currentUser}}{{> navMenu}}{{/if}}
-        <ul class="right hide-on-med-and-down">
-          {{#if loggingIn}}
-            <li>Signing in...</li>
-          {{else}}
-            {{#if currentUser}}
-              {{#with currentUser}}
-                <li><a href="{{pathFor route='profile'}}">{{display_name}}</a></li>
-              {{/with}}
-            {{/if}}
-          {{/if}}
-          <li>{{> atNavButton}}</li>
-        </ul>
-        {{#if currentUser}}{{> navNotifications}}{{/if}}
-        {{#if currentUser}}
-          <a class="{{#if rwindow.innerWidth 'lte' 600}}left{{else}}right{{/if}}" href="#" id="toggle-search">
-            <i class="large material-icons">search</i>
-          </a>
-        {{/if}}
-        <!-- The sidenav is placed here as well -->
-        <ul class="side-nav" id="sidenav">
-          {{#if loggingIn}}
-            <li>Signing in...</li>
-          {{else}}
-            {{#if currentUser}}
-              {{#with currentUser}}
-                <li><a href="{{pathFor route='profile'}}">{{display_name}}</a></li>
-              {{/with}}
-            {{/if}}
-          {{/if}}
-          <li>{{> atNavButton}}</li>
-        </ul>
-      </div>
-      <div class="row white-text grey darken-3 z-depth-2" id="search" style="display: block;">
-        <div class="container">
-          {{> searchBar}}
-        </div>
-      </div>
-    </nav>
+<template name="navbar">
+	<div class="navbar">
+	  <div class="navbar-fixed">
+	    <nav>
+	      <div class="nav-wrapper">
+	        <a href="{{pathFor route='home'}}" class="brand-logo">HappeNUS</a>
+	        <a href="#" data-activates="sidenav" class="button-collapse"><i class="large material-icons">menu</i></a>
+	        {{#if currentUser}}{{> navMenu}}{{/if}}
+	        <ul class="right hide-on-med-and-down">
+	          {{#if loggingIn}}
+	            <li>Signing in...</li>
+	          {{else}}
+	            {{#if currentUser}}
+	              {{#with currentUser}}
+	                <li><a href="{{pathFor route='profile'}}">{{display_name}}</a></li>
+	              {{/with}}
+	            {{/if}}
+	          {{/if}}
+	          <li>{{> atNavButton}}</li>
+	        </ul>
+	        {{#if currentUser}}{{> navNotifications}}{{/if}}
+	        {{#if currentUser}}
+		        <ul class="{{#if rwindow.innerWidth 'lte' 600}}left{{else}}right{{/if}}">
+		          <li>
+		          	<a href="#" id="toggle-search">
+									<i class="large material-icons">search</i>
+								</a>
+		          </li>
+		        </ul>
+	        {{/if}}
+	        <!-- The sidenav is placed here as well -->
+	        <ul class="side-nav" id="sidenav">
+	          {{#if loggingIn}}
+	            <li>Signing in...</li>
+	          {{else}}
+	            {{#if currentUser}}
+	              {{#with currentUser}}
+	                <li><a href="{{pathFor route='profile'}}">{{display_name}}</a></li>
+	              {{/with}}
+	            {{/if}}
+	          {{/if}}
+	          <li>{{> atNavButton}}</li>
+	        </ul>
+	      </div>
+	      <div class="row white-text grey darken-3 z-depth-2" id="search" style="display: block;">
+	        <div class="container">
+	          {{> searchBar}}
+	        </div>
+	      </div>
+	    </nav>
+	  </div>
+	  <!-- Modals -->
+	  {{> bugWindow}}
+	  {{> aboutWindow}}
   </div>
-  <!-- Modals -->
-  {{> bugWindow}}
-  {{> aboutWindow}}
 </template>
