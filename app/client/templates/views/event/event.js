@@ -29,7 +29,6 @@ Template.event.onRendered(function(){
 		} else {
 			minWidth = rwindow.innerWidth() * 0.75 / 3.2;
 		}
-		console.log(minWidth);
 		cascade = new Cascade(elements[0], {
 			autoResize: false,
 			childrenSelector: '.card',
