@@ -33,14 +33,6 @@ Template.comment.onRendered(function () {
 			showMoreDiv.html('Show more');
 		}
 	});
-	commentDataDiv.bind('DOMSubtreeModified', function(){
-		if (commentDataDiv[0].scrollWidth > commentDataDiv.innerWidth()
-		 || commentDataDiv.height() > parseFloat(commentDataDiv.css('line-height'), 10)) {
-			showMoreDiv.css('display', '');
-		} else {
-			showMoreDiv.css('display', 'none');
-		}
-	});
 
 	this.$('div.comment-actions #delete-' + _id).click(function (event) {
 		var modalOptions = {
