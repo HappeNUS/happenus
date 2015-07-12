@@ -1,0 +1,1 @@
+Template.navLoginButton.replaces("atNavButton");
