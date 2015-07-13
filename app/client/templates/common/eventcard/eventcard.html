@@ -14,16 +14,16 @@
             <a class="user" href="{{pathFor route='profile'}}">by {{display_name}}</a>
           {{/with}}
         </span>
-        <div class="like-container">
-          <a class="like-btn">
-            {{#if isEventLiked}}
-              <i class="tiny material-icons">favorite</i>
-            {{else}}
-              <i class="tiny material-icons">favorite_border</i>
-            {{/if}}
-            {{likeCount}}
-          </a>
-        </div>
+      </div>
+      <div class="like-container">
+        <a class="like-btn">
+          {{#if isEventLiked}}
+            <i class="tiny material-icons">favorite</i>
+          {{else}}
+            <i class="tiny material-icons">favorite_border</i>
+          {{/if}}
+          {{likeCount}}
+        </a>
      	</div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">{{name}} <i class="material-icons right">close</i></span>
