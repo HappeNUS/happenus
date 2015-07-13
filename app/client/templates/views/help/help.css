@@ -6,7 +6,7 @@
 }
 
 .help .side-nav:hover {
-	overflow: auto;
+	overflow: hidden; /* Change to auto if got more menu items */
 }
 
 .help #logo {
@@ -37,6 +37,13 @@
 
 .help .side-nav a {
 	padding-left: 40px;
+}
+
+.help .side-nav a.active {
+	padding-left: 60px;
+	font-size: 130%;
+	background-color: #e57373;
+	color: white;
 }
 
 .help .side-nav a:hover {
