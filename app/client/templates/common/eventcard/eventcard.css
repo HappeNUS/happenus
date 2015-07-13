@@ -62,6 +62,11 @@
 	position: absolute;
 	top: 0;
 	right: 0;
+	background-color: white;
+}
+
+.eventCard .eventDropdown a.dd-btn {
+  padding: 0;
 }
 
 .eventCard .card .card-reveal .event-desc {
