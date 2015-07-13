@@ -14,6 +14,27 @@ Template.event.onCreated(function(){
 Template.event.onRendered(function(){
 	this.$('.materialboxed').materialbox();
 	this.$('.tooltipped').tooltip({delay: 10});
+
+	var cascade;
+	var elements = document.getElementsByClassName("container cascade");
+	this.autorun(function(){
+		var minWidth;
+		if (rwindow.innerWidth() <= 600) {
+			minWidth = rwindow.innerWidth() / 1.5;
+		} else if (rwindow.innerWidth() <= 1280) {
+			minWidth = rwindow.innerWidth() * 0.9 / 2.5
+		} 
+		else if (rwindow.innerWidth() > 2560) {
+			minWidth = 1920 / 2.5;
+		} else {
+			minWidth = rwindow.innerWidth() * 0.75 / 3.2;
+		}
+		cascade = new Cascade(elements[0], {
+			autoResize: false,
+			childrenSelector: '.card',
+			minWidth: minWidth
+		});
+	})
 });
 
 Template.event.helpers({

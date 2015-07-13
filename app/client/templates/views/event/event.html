@@ -2,90 +2,82 @@
 <template name="event">
 	<div class="event">
 		{{#with currentEvent}}
-			<div class="container">
-				<div class="row">
-					<!-- The left column -->
-					<div class="col s12 m6">
-						<!-- The banner image -->
-						<div class="card">
-							<div class="card-image">
-								<img class="materialboxed" data-caption="{{name}}" src="{{eventImage}}">
+			<div class="container cascade">
+				<!-- The banner image -->
+				<div class="card">
+					<div class="card-image">
+						<img class="materialboxed" data-caption="{{name}}" src="{{eventImage}}">
+					</div>
+				</div>
+				<!-- The main details -->
+				<div class="card">
+					<div class="card-content black-text">
+						<span class="card-title black-text">{{name}}</span>
+						{{{desc}}}
+					</div>
+				</div>
+				<!-- More details -->
+				<div class="card">
+					<div class="card-content black-text">
+						<span class="card-title black-text">
+							Created by
+							{{#with userData}}
+								<a href="{{pathFor route='profile'}}">{{display_name}}</a>
+							{{/with}}
+						</span>
+						{{#if tags}}
+							<div class="tags">
+								<p>Tags:</p>
+								{{#each tags}}
+									<a class="red accent-2 waves-effect waves-light btn">{{this}}</a>
+								{{/each}}
 							</div>
-						</div>
-						<!-- The main details -->
-						<div class="card">
-							<div class="card-content black-text">
-								<span class="card-title black-text">{{name}}</span>
-								{{{desc}}}
-							</div>
+						{{/if}}
+						<div class="event-dropdown">
+							{{> eventDropdown}}
 						</div>
 					</div>
-					<!-- The right column -->
-					<div class="col s12 m6">
-						<!-- More details -->
-						<div class="card">
-							<div class="card-content black-text">
-								<span class="card-title black-text">
-									Created by
-									{{#with userData}}
-										<a href="{{pathFor route='profile'}}">{{display_name}}</a>
-									{{/with}}
-								</span>
-								{{#if tags}}
-									<div class="tags">
-										<p>Tags:</p>
-										{{#each tags}}
-											<a class="red accent-2 waves-effect waves-light btn">{{this}}</a>
-										{{/each}}
-									</div>
-								{{/if}}
-								<div class="event-dropdown">
-									{{> eventDropdown}}
-								</div>
-							</div>
-							<div class="card-action">
-					      <a href="" class="like-btn">
-					        {{#if isEventLiked}}
-					          <i class="material-icons">favorite</i>
-					          Liked ({{likeCount}})
-					        {{else}}
-					          <i class="material-icons">favorite_border</i>
-					          Like ({{likeCount}})
-					        {{/if}}
-					      </a>
-					      <a id="fbBtn" href="" onclick="popupwindowFb(700, 400)" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Share via Facebook"><i class="small fa fa-facebook-square"></i></a>
-					      <a id="tweetBtn" href="" onclick="popupwindowTwitter(700, 255)" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Share via Twitter"><i class="small fa fa-twitter"></i></a>
-					      <a id="emailBtn" href="" onclick="popupwindowEmail(20, 20)" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Share via Email"><i class="small fa fa-envelope-o"></i></a>
-					    </div>
-						</div>
-				    <!-- The event's dates -->
-						<div class="card">
-							<div class="card-content black-text">
-								<span class="card-title black-text">Event Dates</span>
-							    <ul class="collection">
-							    	{{#each eventDates}}
-								      {{> date}}
-							      {{/each}}
-							    </ul>
-							</div>
-						</div>
-						<!-- Feedback -->
-						<div class="card">
-							<div class="card-content black-text">
-								<span class="card-title black-text">Comments and Feedback</span>
-							    {{> comments}}
-							</div>
-						</div>
-						<!-- Additional details -->
-						<div class="card">
-							<div class="card-content black-text">
-								<span class="card-title black-text">Additional Details</span>
-								<p>This event was created on {{moFormat dateCreated 'D MMMM[,] YYYY [at] h:mm a'}}.</p>
-							</div>
-						</div>
+					<div class="card-action">
+			      <a href="" class="like-btn">
+			        {{#if isEventLiked}}
+			          <i class="material-icons">favorite</i>
+			          Liked ({{likeCount}})
+			        {{else}}
+			          <i class="material-icons">favorite_border</i>
+			          Like ({{likeCount}})
+			        {{/if}}
+			      </a>
+						<a id="fbBtn" href="" onclick="popupwindowFb(700, 400)" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Share via Facebook"><i class="small fa fa-facebook-square"></i></a>
+						<a id="tweetBtn" href="" onclick="popupwindowTwitter(700, 255)" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Share via Twitter"><i class="small fa fa-twitter"></i></a>
+						<a id="emailBtn" href="" onclick="popupwindowEmail(20, 20)" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Share via Email"><i class="small material-icons">mail</i></a>
+			    </div>
+				</div>
+		    <!-- The event's dates -->
+				<div class="card">
+					<div class="card-content black-text">
+						<span class="card-title black-text">Event Dates</span>
+					    <ul class="collection">
+					    	{{#each eventDates}}
+						      {{> date}}
+					      {{/each}}
+					    </ul>
 					</div>
-		    </div>
-	    </div>
+				</div>
+				<!-- Feedback -->
+				<div class="card">
+					<div class="card-content black-text">
+						<span class="card-title black-text">Comments and Feedback</span>
+					    {{> comments}}
+					</div>
+				</div>
+				<!-- Additional details -->
+				<div class="card">
+					<div class="card-content black-text">
+						<span class="card-title black-text">Additional Details</span>
+						<p>This event was created on {{moFormat dateCreated 'D MMMM[,] YYYY [at] h:mm a'}}.</p>
+					</div>
+				</div>
+			</div>
     {{/with}}
 	</div>
 </template>

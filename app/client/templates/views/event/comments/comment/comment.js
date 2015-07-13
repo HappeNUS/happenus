@@ -24,19 +24,15 @@ Template.comment.onRendered(function () {
 
 	var commentDataDiv = this.$('li.comment#' + _id + ' div.comment-data');
 	var showMoreDiv = commentDataDiv.siblings('div.comment-show-more');
-	if (commentDataDiv[0].scrollWidth > commentDataDiv.innerWidth()) {
-		showMoreDiv.click(function(event){
-			if (commentDataDiv.hasClass('hide-excess')) {
-				commentDataDiv.removeClass('hide-excess');
-				showMoreDiv.html('Show less');
-			} else {
-				commentDataDiv.addClass('hide-excess');
-				showMoreDiv.html('Show more');
-			}
-		});
-	} else {
-		showMoreDiv.css('display', 'none');
-	}
+	showMoreDiv.click(function(event){
+		if (commentDataDiv.hasClass('hide-excess')) {
+			commentDataDiv.removeClass('hide-excess');
+			showMoreDiv.html('Show less');
+		} else {
+			commentDataDiv.addClass('hide-excess');
+			showMoreDiv.html('Show more');
+		}
+	});
 
 	this.$('div.comment-actions #delete-' + _id).click(function (event) {
 		var modalOptions = {
