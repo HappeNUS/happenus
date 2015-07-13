@@ -63,6 +63,10 @@
 	font-size: 1.2em;
 }
 
+.help .mainContent .leftMargin {
+	padding-left: 40px;
+}
+
 @media only screen and (max-width: 992px) {
 	.help .mainContent {
 		margin-left: 10px;
