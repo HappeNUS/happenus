@@ -33,15 +33,17 @@ Template.profile.events({
 	'click .sub': function(event) {
 		// When the subscribe button is clicked
 		if (isSubscribed()) { // Run the unsubscribe method on the server
+			Materialize.toast('You have successfully unsubscribed to this user', 5000);
 			Meteor.call('unsub', Router.current().params._id);
 		} else { // Run the subscribe method on the server
+			Materialize.toast('You have successfully subscribed to this user', 5000);
 			Meteor.call('sub', Router.current().params._id);
 		}
 	},
 	'mouseenter .sub': function(event) {
 		var target = $(event.target);
 		if (isSubscribed()) {
-			target.text('Unsubscribe');
+			target.text('Click to Unsubscribe');
 		}
 	},
 	'mouseleave .sub': function(event) {
