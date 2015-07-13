@@ -85,10 +85,13 @@ Template.eventDropdown.events({
 		MaterializeModal.alert(modalOptions);
 	},
 	'click #sub-user': function() {
+		var username = Meteor.users.findOne({_id: this.userId}).display_name;
 		if (isSubscribed(this.userId)) {
 			Meteor.call('unsub', this.userId);
+			Materialize.toast('You have successfully unsubscribed to ' + username, 5000);
 		} else {
 			Meteor.call('sub', this.userId);
+			Materialize.toast('You have successfully subscribed to ' + username, 5000);
 		}
 	}
 });
