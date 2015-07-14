@@ -8,4 +8,9 @@
 			{{> yield}}
 		</div>
 	</div>
+	{{#if currentUser}}
+		<div class="search-content">
+			{{> search}}
+		</div>
+	{{/if}}
 </template>
