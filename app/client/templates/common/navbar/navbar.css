@@ -12,17 +12,6 @@
 	padding-right: 20px;
 }
 
-.navbar nav div#search {
-	display: none;
-	margin-bottom: 0;
-	max-height: 400px;
-	overflow-y: auto;
-}
-
-.navbar nav div#search::-webkit-scrollbar {  /* Wont work on mozilla */
-	width: 0 !important
-}
-
 .navbar .navbar-fixed input[type=text] {
   height: 2rem;
 }
