@@ -1,0 +1,99 @@
+.search * {
+	transition: all 0.3s ease-in-out;
+}
+
+.search .fade-layer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0;
+	z-index: 999;
+	pointer-events: none;
+}
+
+.search .fade-layer.show {
+	opacity: 0.6;
+	pointer-events: auto;
+}
+
+.search .search-container {
+	position: fixed;
+	top: 45.5px;
+	left: 12.5%;
+	height: 37px;
+	width: 75%;
+	text-align: center;
+	z-index: 1000;
+	pointer-events: none;
+}
+
+.search .search-container.active {
+	height: 100%;
+}
+
+.search .search-container .search-input {
+	height: 100%;
+}
+
+.search .search-container .search-input input {
+	color: black;
+	box-shadow: none;
+	border-bottom: none;
+	margin: 0;
+	height: 100%;
+	width: 90%;
+}
+
+.search .search-container .search-input #search-close {
+	padding: 0;
+}
+
+.search .search-container #search-btn {
+	background-color: #F44336;
+	pointer-events: auto;
+}
+
+.search .search-container ul.search-results {
+	pointer-events: auto;
+	overflow-y: scroll;
+	max-height: 50%;
+}
+
+.search .search-container ul.search-results::-webkit-scrollbar { 
+	display: none; 
+}
+
+.search .search-container #search-btn.active {
+	border-radius: 1px;
+	background-color: white;
+	height: 64px;
+	width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+	.search .search-container {
+		left: 5%;
+		width: 90%;
+	}
+
+	.search .search-container .search-input input {
+		width: 85%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.search .search-container {
+		top: 38.5px;
+	}
+
+	.search .search-container #search-btn.active {
+		height: 56px;
+	}
+
+	.search .search-container .search-input input {
+		width: 80%;
+	}
+}

@@ -1,0 +1,22 @@
+<template name="search">
+	<div class="search">
+		<div class="fade-layer"></div>
+		<div class="search-container">
+			<div id="search-btn" class="btn-floating btn-small waves-effect waves-light">
+				<i class="search-icon material-icons">search</i>
+				<div class="search-input">
+					{{> esInput index="events" placeholder="Search..."}}
+					<a id="search-close" href="#" class="btn-flat"><i class="material-icons black-text">close</i></a>				
+				</div>
+			</div>
+			{{#ifEsIsSearching index="events"}}
+				{{> searchLoading}}
+			{{/ifEsIsSearching}}
+			<ul class="search-results hide">
+				{{#esEach index="events"}}
+					{{> eventSearchItem}}
+				{{/esEach}}
+			</ul>
+		</div>
+	</div>
+</template>
