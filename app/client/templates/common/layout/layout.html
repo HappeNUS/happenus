@@ -1,9 +1,11 @@
 <!-- The main layout displayed -->
 <template name="layout">
-	<!-- Navbar containing both navbar and sidenav -->
-	{{> navbar}}
-	<!-- Yield main content to iron-router -->
-	<div class="main-content">
-		{{> yield}}
+	<div class="layout">
+		<!-- Navbar containing both navbar and sidenav -->
+		{{> navbar}}
+		<!-- Yield main content to iron-router -->
+		<div class="main-content">
+			{{> yield}}
+		</div>
 	</div>
 </template>
