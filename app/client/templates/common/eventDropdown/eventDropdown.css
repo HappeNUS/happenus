@@ -1,3 +1,10 @@
 .eventDropdown a.dd-btn {
 	padding: 0.1em;
 }
+
+.eventDropdown a.dd-btn i {
+	text-shadow: -1px -1px 0 white,
+							 -1px 1px 0 white,
+							 1px -1px 0 white,
+							 1px 1px 0 white;
+}
