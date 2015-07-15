@@ -19,30 +19,23 @@ Template.search.onRendered(function(){
 	})
 })
 
-function openSearch (event, template) {
-	event.stopPropagation();
-	inputDiv.removeClass('hide');
-	searchResults.removeClass('hide');
-	icon.addClass('hide');
-	fadeLayer.addClass('show');
-	searchBtn.addClass('active');
-	searchContainer.addClass('active');
+Template.search.viewmodel({
+	openSearch: function () {
+		inputDiv.removeClass('hide');
+		searchResults.removeClass('hide');
+		icon.addClass('hide');
+		fadeLayer.addClass('show');
+		searchBtn.addClass('active');
+		searchContainer.addClass('active');
 
-	input.focus();
-}
-
-function closeSearch (event, template) {
-	event.stopPropagation();
-	inputDiv.addClass('hide');
-	searchResults.addClass('hide');
-	icon.removeClass('hide');
-	fadeLayer.removeClass('show');
-	searchBtn.removeClass('active');
-	searchContainer.removeClass('active');
-}
-
-Template.search.events({
-	'click #search-btn': openSearch,
-	'click .fade-layer.show': closeSearch,
-	'click #search-close': closeSearch
+		input.focus();
+	},
+	closeSearch: function () {
+		inputDiv.addClass('hide');
+		searchResults.addClass('hide');
+		icon.removeClass('hide');
+		fadeLayer.removeClass('show');
+		searchBtn.removeClass('active');
+		searchContainer.removeClass('active');
+	}
 });
