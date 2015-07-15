@@ -12,6 +12,10 @@
 	padding-right: 20px;
 }
 
+.navbar #searchbtn {
+	cursor: pointer;
+}
+
 .navbar .navbar-fixed input[type=text] {
   height: 2rem;
 }
