@@ -38,7 +38,8 @@ Template.eventSearchItem.helpers({
 });
 
 Template.eventSearchItem.events({
-	'click .link-event': function() {
+	'click .link-event': function(event) {
+		ViewModel.byId('search').closeSearch(event);
 		Router.go('event', {_id: this._id});
 	}
 });
