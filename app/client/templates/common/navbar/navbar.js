@@ -7,3 +7,9 @@ Template.navbar.events({
 		$('.button-collapse').sideNav('hide');
 	}
 });
+
+Template.navbar.viewmodel({
+	openSearch: function(event) {
+		ViewModel.byId('search').openSearch(event);
+	}
+})
