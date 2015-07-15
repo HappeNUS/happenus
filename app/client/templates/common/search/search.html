@@ -2,8 +2,7 @@
 	<div class="search">
 		<div class="fade-layer" data-bind="click: closeSearch"></div>
 		<div class="search-container">
-			<div id="search-btn" class="btn-floating btn-small waves-effect waves-light" data-bind="click: openSearch">
-				<i class="search-icon material-icons">search</i>
+			<div id="search-input-container" class="z-depth-1">
 				<div class="search-input">
 					{{> esInput index="events" placeholder="Search..."}}
 					<a id="search-close" href="#" class="btn-flat" data-bind="click: closeSearch"><i class="material-icons black-text">close</i></a>				

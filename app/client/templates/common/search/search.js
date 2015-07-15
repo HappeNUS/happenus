@@ -1,41 +1,37 @@
-var inputDiv, input, icon, fadeLayer, searchBtn, searchContainer, searchResults;
+var inputDiv, input, fadeLayer, searchInputContainer, searchContainer, searchResults;
 
 Template.search.onRendered(function(){
-	searchBtn = this.$('#search-btn');
-	inputDiv = this.$('#search-btn .search-input');
-	input = this.$('#search-btn .search-input input');
-	icon = this.$('#search-btn i.search-icon');
+	searchInputContainer = this.$('#search-input-container');
+	inputDiv = this.$('#search-input-container .search-input');
+	input = this.$('#search-input-container .search-input input');
 	fadeLayer = this.$('.search .fade-layer');
 	searchContainer = this.$('.search .search-container');
 	searchResults = this.$('.search .search-container ul.search-results');
 
-	inputDiv.addClass('hide');
 	input.focus(function(){input.select()});
-	$(window).click(function(event){
-		console.log('click');
-		if(searchBtn.hasClass('active')) {
-			closeSearch(event);
-		}
-	})
 })
 
-Template.search.viewmodel({
-	openSearch: function () {
-		inputDiv.removeClass('hide');
+Template.search.viewmodel('search', {
+	openSearch: function (event) {
+		if (event) {
+			event.stopPropagation();
+		}
+ 		inputDiv.removeClass('hide');
 		searchResults.removeClass('hide');
-		icon.addClass('hide');
 		fadeLayer.addClass('show');
-		searchBtn.addClass('active');
+		searchInputContainer.addClass('active');
 		searchContainer.addClass('active');
 
 		input.focus();
 	},
-	closeSearch: function () {
+	closeSearch: function (event) {
+		if (event) {
+			event.stopPropagation();
+		}
 		inputDiv.addClass('hide');
 		searchResults.addClass('hide');
-		icon.removeClass('hide');
 		fadeLayer.removeClass('show');
-		searchBtn.removeClass('active');
+		searchInputContainer.removeClass('active');
 		searchContainer.removeClass('active');
 	}
 });
