@@ -26,7 +26,11 @@ Template.eventsListOptions.onRendered(function(){
 
 Template.eventsListOptions.helpers({
 	sortedBy: function () {
-		return Session.get("sort");
+		if (ViewModel.byId('eventList')) {
+			return ViewModel.byId('eventList').getCurrentSort();
+		} else {
+			return "";
+		}
 	},
 	display: function() {
 		return Session.get("display");
@@ -37,7 +41,7 @@ Template.eventsListOptions.helpers({
 });
 
 function setSort(sort) {
-	Session.set("sort", sort);
+	ViewModel.byId('eventList').changeSort(sort);
 }
 
 function setDisplay(display) {
