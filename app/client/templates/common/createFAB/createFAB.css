@@ -1,0 +1,7 @@
+.createFAB * {
+	transition: all 0.3s ease-in-out;
+}
+
+.createFAB #createFAB.hidden {
+	bottom: -60px;
+}

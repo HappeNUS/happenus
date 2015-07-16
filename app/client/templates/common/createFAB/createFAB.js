@@ -1,51 +1,31 @@
-var isFABAnimating = false;
-var lastScrollTop = 0;
-var SHOWN = SHOWN;
-var HIDDEN = "-80px";
+var lastScrollTop = 0, createFAB;
 
 function toggleFAB () {
 	var currentScrollTop = $(this).scrollTop();
-	if (!isFABAnimating) {
-		if (currentScrollTop > lastScrollTop && $('#createFAB').css('bottom') !== HIDDEN) {
-			hideFAB();
-		} else if (currentScrollTop < lastScrollTop && $('#createFAB').css('bottom') !== SHOWN) {
-			showFAB();
-		}
+	if (currentScrollTop > lastScrollTop && !createFAB.hasClass('hidden')) {
+		hideFAB();
+	} else if (currentScrollTop < lastScrollTop && createFAB.hasClass('hidden')) {
+		showFAB();
 	}
 	lastScrollTop = currentScrollTop;
 };
 
 function hideFAB() {
-	$('#createFAB').stop(true, false).animate({
-		bottom: HIDDEN
-	}, {
-		duration: 250,
-		start: function() {
-			isFABAnimating = true;
-		},
-		complete: function() {
-			isFABAnimating = false;
-		}
-	});
+	if (!createFAB.hasClass('hidden')) {
+		createFAB.addClass('hidden');
+	}
 }
 
 function showFAB() {
-	$('#createFAB').stop(true, false).animate({
-		bottom: "23px"
-	}, {
-		duration: 250,
-		start: function() {
-			isFABAnimating = true;
-		},
-		complete: function() {
-			isFABAnimating = false;
-		}
-	});
+	if (createFAB.hasClass('hidden')) {
+		createFAB.removeClass('hidden');
+	}
 }
 
 Template.createFAB.onRendered(function(){
+	createFAB = this.$('.createFAB #createFAB');
 	$(window).scroll(function(event) {
-		if ($('#createFAB').length) {
+		if ($('.createFAB #createFAB').length) {
 			toggleFAB();	
 		}
 	});
