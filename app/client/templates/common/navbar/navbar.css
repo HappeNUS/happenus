@@ -12,12 +12,12 @@
 	padding-right: 20px;
 }
 
-.navbar #searchbtn {
-	cursor: pointer;
+.navbar .nav-wrapper {
+	background-color: #2962ff;
 }
 
-.navbar .navbar-fixed input[type=text] {
-  height: 2rem;
+.navbar #searchbtn {
+	cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
