@@ -5,7 +5,3 @@
 .homeTabs li.tab {
 	cursor: pointer;
 }
-
-.homeTabs .tabs .tab a {
-	color: #263238;
-}
