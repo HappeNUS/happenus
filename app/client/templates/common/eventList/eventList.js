@@ -6,7 +6,9 @@ PAGES = [
 ITEMS_INCREMENT = 20;
 SPINNER_OFFSET = 20;
 
-var eventSub;
+var instance; // this template
+var currentView = {type: null}, currentSort = new ReactiveVar(null), currentLimit = new ReactiveVar(null); 
+var eventSub; // the subscription to eventData
 var isLoading = new ReactiveVar(false);
 var cascade;
 
@@ -15,18 +17,44 @@ function isValidPageRequest (pageType) {
 }
 
 function hasItemsRemaining () {
-	return Events.find().count() >= Session.get('limit');
+	return Events.find().count() >= currentLimit.get();
 }
 
-function showMoreVisible() {
+function showMoreEvents() {
 	var threshold, target = $("#load-spinner");
 	if (!target.length) return;
 	threshold = $(window).scrollTop() + $(window).height() - (target.height() + SPINNER_OFFSET);
 
 	if (target.offset().top < threshold && hasItemsRemaining()) {
-		Session.set("limit",
-		Session.get("limit") + ITEMS_INCREMENT);
+		currentLimit.set(currentLimit.get() + ITEMS_INCREMENT);
+		subscribeToEventData();
 	}
+}
+
+function changeView (view) {
+	if (currentView.type !== view.type) {
+		currentView = view;
+		resetEventDataSubscription();
+	}
+}
+
+function changeSort (sort) {
+	if (currentSort.get() !== sort) {
+		currentSort.set(sort);
+		resetEventDataSubscription();
+	}
+}
+
+function changeBoth (view, sort) {
+	if (currentView.type !== view.type || currentSort.get() !== sort) {
+		currentView = view;
+		currentSort.set(sort);
+		resetEventDataSubscription();
+	}
+}
+
+function getCurrentSort () {
+	return currentSort.get();
 }
 
 function setCascade() {
@@ -39,8 +67,32 @@ function setCascade() {
 	}
 }
 
+function resetEventDataSubscription () {
+	currentLimit.set(ITEMS_INCREMENT);
+	subscribeToEventData();
+}
+
+function subscribeToEventData () {
+	var prevSubscription = eventSub;
+	isLoading.set(true);
+	eventSub = instance.subscribe("eventData", currentView, currentSort.get(), currentLimit.get(), function(){
+		setCascade();
+		isLoading.set(false)
+		if (prevSubscription) {
+			prevSubscription.stop();
+		}
+	});
+}
+
+Template.eventList.viewmodel('eventList', {
+	changeView: changeView,
+	changeSort: changeSort,
+	changeBoth: changeBoth,
+	getCurrentSort: getCurrentSort
+});
+
 Template.eventList.onCreated(function(){
-	var instance = this;
+	instance = this;
 	instance.subscribe("subData");
 
 	var pageType = instance.data.page;
@@ -49,40 +101,21 @@ Template.eventList.onCreated(function(){
 		return;
 	}
 
-	Session.set("limit", ITEMS_INCREMENT);
+	currentLimit.set(ITEMS_INCREMENT);
 	if (pageType === 'home') {
-		Session.set("view", "featured");
-		Session.set("sort", "popularity");
+		currentView.type = "featured";
+		currentSort.set("popularity");
 	} else if (pageType === 'profile') {
-		Session.set("view", "profile");
-		Session.set("sort", "latest");
+		currentView.type = "profile";
+		currentView.userId = Router.current().params._id;
+		currentSort.set("latest");
 	}
-
-	var view = {type: Session.get('view')};
-	var sort = Session.get('sort');
-
-	if (pageType === 'profile') {
-		view.userId = Router.current().params._id;
-	}
-
-	instance.autorun(function(){
-		if (eventSub && (view.type !== Session.get('view') || sort !== Session.get('sort'))) {
-			eventSub.stop();
-			view.type = Session.get('view');
-			sort = Session.get('sort');
-		}
-		var limit = Session.get('limit');
-		isLoading.set(true);
-		eventSub = instance.subscribe("eventData", view, sort, limit, function(){
-			setCascade();
-			isLoading.set(false)
-		});
-	});
+	subscribeToEventData();
 });
 
 Template.eventList.onRendered(function(){
 	var instance = this;
-	$(window).scroll(showMoreVisible);
+	$(window).scroll(showMoreEvents);
 	
 	if (rwindow.innerWidth() > 992) {
 		Session.set("display", "cards");
@@ -113,8 +146,7 @@ Template.eventList.onRendered(function(){
 Template.eventList.helpers({
 	events: function() {
 		// All events to be shown on the page
-		var sort = Session.get("sort");
-		return Events.find({}, EventSorter[sort]);
+		return Events.find({}, EventSorter[currentSort.get()]);
 	},
 	isDisplayList: function() {
 		return Session.get("display") === "list";
