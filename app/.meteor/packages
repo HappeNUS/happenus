@@ -72,5 +72,8 @@ fastclick
 # Communication between templates
 manuel:viewmodel
 
+# ImagesLoaded library to reset cascade when images load
+mrt:jquery-imagesloaded
+
 # TO BE REMOVED ON RELEASE
 msavin:mongol
