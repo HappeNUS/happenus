@@ -1,9 +1,19 @@
+var cascade, minWidth, elements;
+
 function getCurrentEvent() {
 	return Events.findOne({_id: Router.current().params._id});
 }
 
 function isEventLiked (likes) {
 	return likes.indexOf(Meteor.userId()) !== -1;
+}
+
+function setCascade () {
+	cascade = new Cascade(elements[0], {
+		autoResize: false,
+		childrenSelector: '.card',
+		minWidth: minWidth
+	});
 }
 
 Template.event.onCreated(function(){
@@ -15,10 +25,8 @@ Template.event.onRendered(function(){
 	this.$('.materialboxed').materialbox();
 	this.$('.tooltipped').tooltip({delay: 10});
 
-	var cascade;
-	var elements = document.getElementsByClassName("container cascade");
+	elements = document.getElementsByClassName("container cascade");
 	this.autorun(function(){
-		var minWidth;
 		if (rwindow.innerWidth() <= 600) {
 			minWidth = rwindow.innerWidth() / 1.5;
 		} else if (rwindow.innerWidth() <= 1280) {
@@ -29,11 +37,7 @@ Template.event.onRendered(function(){
 		} else {
 			minWidth = rwindow.innerWidth() * 0.75 / 3.2;
 		}
-		cascade = new Cascade(elements[0], {
-			autoResize: false,
-			childrenSelector: '.card',
-			minWidth: minWidth
-		});
+		setCascade();
 	})
 });
 
