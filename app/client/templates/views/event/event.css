@@ -8,12 +8,6 @@
 	margin-bottom: 0.5em;
 }
 
-.event .card .card-content .tags a {
-	display: inline-block;
-	font-size: small;
-	padding: 0 0.7em;
-}
-
 .event .card .card-content > .event-dropdown {
 	position: absolute;
 	top: 0;

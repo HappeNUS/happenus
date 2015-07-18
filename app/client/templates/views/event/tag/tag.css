@@ -1,0 +1,8 @@
+.tag {
+	display: inline-block;
+}
+
+.tag a#tag-btn {
+	font-size: small;
+	padding: 0 0.7em;
+}
