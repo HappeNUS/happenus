@@ -12,7 +12,7 @@ Template.search.onRendered(function(){
 })
 
 Template.search.viewmodel('search', {
-	openSearch: function (event) {
+	openSearch: function (event, value) {
 		if (event) {
 			event.stopPropagation();
 		}
@@ -21,6 +21,10 @@ Template.search.viewmodel('search', {
 		fadeLayer.addClass('show');
 		searchInputContainer.addClass('active');
 		searchContainer.addClass('active');
+
+		if (value) {
+			input.val(value);
+		}
 
 		input.focus();
 	},
