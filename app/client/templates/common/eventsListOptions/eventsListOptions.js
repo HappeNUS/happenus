@@ -26,14 +26,18 @@ Template.eventsListOptions.onRendered(function(){
 
 Template.eventsListOptions.helpers({
 	sortedBy: function () {
-		if (ViewModel.byId('eventList')) {
-			return ViewModel.byId('eventList').getCurrentSort();
-		} else {
-			return "";
+		var eventListViewModel = ViewModel.byId('eventList');
+		if (eventListViewModel) {
+			return eventListViewModel.getCurrentSort();
 		}
+		return "";
 	},
 	display: function() {
-		return Session.get("display");
+		var eventListViewModel = ViewModel.byId('eventList');
+		if (eventListViewModel) {
+			return eventListViewModel.getCurrentDisplay();
+		}
+		return "";
 	},
 	pin: function() {
 		return this.pinned ? 'pinnable' : 'non-pinnable';
@@ -45,7 +49,7 @@ function setSort(sort) {
 }
 
 function setDisplay(display) {
-	Session.set("display", display);
+	ViewModel.byId('eventList').changeDisplay(display);
 }
 
 Template.eventsListOptions.events({

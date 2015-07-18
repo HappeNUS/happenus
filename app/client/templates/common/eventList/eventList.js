@@ -7,7 +7,8 @@ ITEMS_INCREMENT = 20;
 SPINNER_OFFSET = 20;
 
 var instance; // this template
-var currentView = {type: null}, currentSort = new ReactiveVar(null), currentLimit = new ReactiveVar(null); 
+var currentView = {type: null}, currentSort = new ReactiveVar(null), currentLimit = new ReactiveVar(null);
+var currentDisplay = new ReactiveVar(null);
 var eventSub; // the subscription to eventData
 var isLoading = new ReactiveVar(false);
 var cascade;
@@ -29,6 +30,14 @@ function showMoreEvents() {
 		currentLimit.set(currentLimit.get() + ITEMS_INCREMENT);
 		subscribeToEventData();
 	}
+}
+
+function getCurrentDisplay () {
+	return currentDisplay.get();
+}
+
+function changeDisplay (display) {
+	currentDisplay.set(display);
 }
 
 function changeView (view) {
@@ -85,9 +94,11 @@ function subscribeToEventData () {
 }
 
 Template.eventList.viewmodel('eventList', {
+	changeDisplay: changeDisplay,
 	changeView: changeView,
 	changeSort: changeSort,
 	changeBoth: changeBoth,
+	getCurrentDisplay: getCurrentDisplay,
 	getCurrentSort: getCurrentSort
 });
 
@@ -114,20 +125,19 @@ Template.eventList.onCreated(function(){
 });
 
 Template.eventList.onRendered(function(){
-	var instance = this;
 	$(window).scroll(showMoreEvents);
 	
 	if (rwindow.innerWidth() > 992) {
-		Session.set("display", "cards");
+		currentDisplay.set("cards");
 	} else {
-		Session.set("display", "list");
+		currentDisplay.set("list");
 	}
 
 	this.autorun(function(){
 		Events.find().count();
-		if (Session.get("display") === "cards") {
+		if (currentDisplay.get() === "cards") {
 			window.setTimeout(setCascade, 20);
-		} else if (Session.get("display") === "list") {
+		} else if (currentDisplay.get() === "list") {
 			instance.$('.events').css('height', '');
 		}
 	});
@@ -149,10 +159,10 @@ Template.eventList.helpers({
 		return Events.find({}, EventSorter[currentSort.get()]);
 	},
 	isDisplayList: function() {
-		return Session.get("display") === "list";
+		return currentDisplay.get() === "list";
 	},
 	isDisplayCards: function() {
-		return Session.get("display") === "cards";
+		return currentDisplay.get() === "cards";
 	},
 	showLoading: function() {
 		return hasItemsRemaining () || isLoading.get();
