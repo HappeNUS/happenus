@@ -38,7 +38,11 @@ Template.event.onRendered(function(){
 			minWidth = rwindow.innerWidth() * 0.75 / 3.2;
 		}
 		setCascade();
-	})
+	});
+
+	$(elements).imagesLoaded().done(function(){
+		setCascade();
+	});
 });
 
 Template.event.helpers({
