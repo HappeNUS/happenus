@@ -9,9 +9,9 @@
       </div>
    		<div class="card-content activator">
         <span class="card-title grey-text text-darken-4 link-event">
-          {{name}}
+          {{name}} by
           {{#with user}}
-            <a class="user" href="{{pathFor route='profile'}}">by {{display_name}}</a>
+            <a class="user" href="{{pathFor route='profile'}}"> {{display_name}}</a>
           {{/with}}
         </span>
       </div>
