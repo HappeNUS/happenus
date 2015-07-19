@@ -9,5 +9,8 @@ EventFilter = {
 			return curr.subbedId;
 		});
 		return {userId: {$in: subbedIds}};
+	},
+	filterLiked: function(userId) {
+		return {likes: userId};
 	}
 };
