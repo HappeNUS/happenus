@@ -32,5 +32,8 @@ Template.eventCard.events({
 		} else {
 			Meteor.call('likeEvent', this._id);
 		}
+	},
+	'click .activator': function(event, template) {
+		$('.trigger').trigger('click');
 	}
 });
