@@ -5,11 +5,8 @@ Template.navbar.onRendered(function () {
 Template.navbar.events({
 	'click a': function (event, temp) {
 		$('.button-collapse').sideNav('hide');
-	}
-});
-
-Template.navbar.viewmodel({
-	openSearch: function(event) {
+	},
+	'click a#searchbtn': function(event, temp) {
 		ViewModel.byId('search').openSearch(event);
 	}
-})
+});
