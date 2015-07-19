@@ -10,10 +10,15 @@
 	box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.16), 0px 4px 20px 0px rgba(0, 0, 0, 0.12);
 }
 
-.eventCard .card .card-image,
-.eventCard .card .card-content {
+.eventCard .card .card-image {
 	padding: 0;
 	margin: 0.8em;
+	margin-bottom: 0;
+}
+
+.eventCard .card .card-content {
+	padding: 0.8em;
+	margin: 0;
 }
 
 .eventCard .card.custom .card-image {
