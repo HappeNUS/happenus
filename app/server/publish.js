@@ -28,6 +28,8 @@ Meteor.publish("eventData", function(view, sort, limit) {
 
 	if (view.type === "subscriptions") {
 		extendObject(selector, EventFilter.filterSubs(this.userId));
+	} else if (view.type === "liked-events") {
+		extendObject(selector, EventFilter.filterLiked(this.userId));
 	}
 
 	var options = {};
