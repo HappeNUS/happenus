@@ -21,6 +21,11 @@
 	margin: 0;
 }
 
+.eventCard .card .activator {
+	margin-right: 1.5em;
+	cursor: pointer;
+}
+
 .eventCard .card.custom .card-image {
 	height: 14.0rem;
 	overflow: visible;

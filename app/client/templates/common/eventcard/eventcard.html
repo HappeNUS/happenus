@@ -7,13 +7,14 @@
           {{> eventDropdown}}
         </div>
       </div>
-   		<div class="card-content activator">
+   		<div class="card-content">
         <span class="card-title grey-text text-darken-4 link-event">
           {{name}} by
           {{#with user}}
             <a class="user" href="{{pathFor route='profile'}}"> {{display_name}}</a>
           {{/with}}
         </span>
+        <i class="material-icons right activator">info</i>
       </div>
       <div class="like-container">
         <a class="like-btn">
