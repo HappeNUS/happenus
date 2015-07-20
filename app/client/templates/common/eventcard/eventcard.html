@@ -1,38 +1,38 @@
 <!-- The representation of an event in any list, alternative to eventListItem -->
 <template name="eventCard">
-  <div class="eventCard">
-  	<div class="card custom" style="z-index: 0;">
-    	<div class="card-image waves-effect waves-block waves-light link-event">
-        <div class="eventDropdown-container">
-          {{> eventDropdown}}
-        </div>
-      </div>
-   		<div class="card-content">
-        <span class="card-title grey-text text-darken-4 link-event">
-          {{name}} by
-          {{#with user}}
-            <a class="user" href="{{pathFor route='profile'}}"> {{display_name}}</a>
-          {{/with}}
-        </span>
-        <i class="material-icons right activator">info</i>
-      </div>
-      <div class="like-container">
-        <a class="like-btn">
-          {{#if isEventLiked}}
-            <i class="tiny material-icons">favorite</i>
-          {{else}}
-            <i class="tiny material-icons">favorite_border</i>
-          {{/if}}
-          {{likeCount}}
-        </a>
-     	</div>
-      <div class="card-reveal">
-        <span class="trigger card-title grey-text text-darken-4">{{name}} <i class="material-icons right">close</i></span>
-        <div class="event-desc">
-          {{{desc}}}
-        </div>
-        <a class="btn light-blue lighten-2 white-text waves-effect waves-light view-more" href="{{pathFor route='event'}}">View more</a>
-      </div>
-    </div>
-  </div>
+	<div class="eventCard">
+		<div class="card custom" style="z-index: 0;">
+			<div class="card-image waves-effect waves-block waves-light link-event">
+				<div class="eventDropdown-container">
+					{{> eventDropdown}}
+				</div>
+			</div>
+			<div class="card-content">
+				<span class="card-title grey-text text-darken-4 link-event">
+					{{name}} by
+					{{#with user}}
+					  <a class="user" href="{{pathFor route='profile'}}"> {{display_name}}</a>
+					{{/with}}
+				</span>
+				<i class="material-icons right activator">info</i>
+			</div>
+			<div class="like-container">
+				<a class="like-btn">
+					{{#if isEventLiked}}
+					  <i class="tiny material-icons">favorite</i>
+					{{else}}
+					  <i class="tiny material-icons">favorite_border</i>
+					{{/if}}
+					{{likeCount}}
+				</a>
+			</div>
+			<div class="card-reveal">
+				<span class="trigger card-title grey-text text-darken-4">{{name}} <i class="material-icons right">close</i></span>
+				<div class="event-desc">
+					{{{desc}}}
+				</div>
+				<a class="btn light-blue lighten-2 white-text waves-effect waves-light view-more" href="{{pathFor route='event'}}">View more</a>
+			</div>
+		</div>
+	</div>
 </template>
