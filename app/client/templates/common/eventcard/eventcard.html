@@ -2,9 +2,14 @@
 <template name="eventCard">
 	<div class="eventCard">
 		<div class="card custom" style="z-index: 0;">
-			<div class="card-image waves-effect waves-block waves-light link-event">
+			<div class="card-image waves-effect waves-block waves-light">
 				<div class="eventDropdown-container">
+					<div class="info-btn">
+						<a class="btn-flat waves-effect waves-teal"><i class="material-icons activator">info</i></a>
+					</div>
 					{{> eventDropdown}}
+				</div>
+				<div class="image-target link-event">
 				</div>
 			</div>
 			<div class="card-content">
@@ -14,7 +19,6 @@
 					  <a class="user" href="{{pathFor route='profile'}}"> {{display_name}}</a>
 					{{/with}}
 				</span>
-				<i class="material-icons right activator">info</i>
 			</div>
 			<div class="like-container">
 				<a class="like-btn">
