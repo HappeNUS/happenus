@@ -1,6 +1,10 @@
 Template.eventCard.onRendered(function(){
 	var url = 'url('.concat($.cloudinary.url(this.data.img.card)).concat(')');
 	this.$('.card-image').css('background-image', url);
+	var card = this.$('.card');
+	card.imagesLoaded().done(function(){
+		card.find('.card-image.invisible').removeClass('invisible');
+	});
 });
 
 function isEventLiked (likes) {
