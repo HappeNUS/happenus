@@ -5,3 +5,15 @@
 .homeTabs li.tab {
 	cursor: pointer;
 }
+
+.homeTabs li.tab a {
+	color: #3F51B5;
+}
+
+.homeTabs li.tab a:hover {
+	color: #7986cb;
+}
+
+.homeTabs .tabs div.indicator {
+	background-color: #3F51B5;
+}
