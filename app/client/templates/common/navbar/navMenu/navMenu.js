@@ -3,5 +3,13 @@ Template.navMenu.onRendered(function(){
 		constrain_width: false,
 		belowOrigin: true,
 	});
-	$('.modal-trigger').leanModal();
+});
+
+Template.navMenu.events({
+	'click a#openBugModal': function(event, temp) {
+		ViewModel.byId('bugWindow').openModal();
+	},
+	'click a#openAboutModal': function(event, temp) {
+		ViewModel.byId('aboutWindow').openModal();
+	}
 });

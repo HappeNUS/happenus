@@ -8,5 +8,11 @@ Template.navbar.events({
 	},
 	'click a#searchbtn': function(event, temp) {
 		ViewModel.byId('search').openSearch(event);
+	},
+	'click a#openBugModal': function(event, temp) {
+		ViewModel.byId('bugWindow').openModal();
+	},
+	'click a#openAboutModal': function(event, temp) {
+		ViewModel.byId('aboutWindow').openModal();
 	}
 });

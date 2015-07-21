@@ -1,5 +1,11 @@
- /*
- Template.aboutWindow.onRendered(function () {
- 	$('.modal-trigger').leanModal();
+var instance;
+
+Template.aboutWindow.onCreated(function(){
+	instance = this;
 });
-*/
+
+Template.aboutWindow.viewmodel('aboutWindow', {
+	openModal: function () {
+		instance.$('#aboutModal').openModal();
+	}
+})
