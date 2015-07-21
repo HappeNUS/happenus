@@ -13,6 +13,14 @@ html {
 	max-width: 1920px;
 }
 
+html .btn {
+	background-color: #3f51b5;
+}
+
+html .btn:hover {
+	background-color: #7986cb;
+}
+
 /* Only affects screen widths <= 992px */
 @media only screen and (max-width: 992px) {
 	.container {
