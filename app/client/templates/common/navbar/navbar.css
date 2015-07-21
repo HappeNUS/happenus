@@ -16,10 +16,6 @@
 	cursor: pointer;
 }
 
-.navbar .navbar-fixed input[type=text] {
-  height: 2rem;
-}
-
 @media only screen and (max-width: 600px) {
 	.navbar i {
 		height: 56px;
