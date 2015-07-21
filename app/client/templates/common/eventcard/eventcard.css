@@ -39,12 +39,11 @@
 }
 
 .eventCard .card .card-content span.card-title a {
-	color: #ffab40;
-	transition: color 0.3s;
+	transition: opacity 0.3s ease-in-out;
 }
 
 .eventCard .card .card-content span.card-title a:hover {
-	color: #ffd8a6;
+	opacity: 0.6;
 }
 
 .eventCard .card .card-image {
