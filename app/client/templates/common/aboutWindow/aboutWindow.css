@@ -1,13 +1,7 @@
-.aboutWindow .modal-title {
-	background-color: #E57373;
-	color: #ffffff;
-}
-
 .aboutWindow .modal-title h4 {
 	padding: 10px;
 	font-size: 30px;
 	margin-bottom: 0px;
-	font-family: 'Roboto Condensed', sans-serif;
 }
 
 .aboutWindow .modal-body h5 {
