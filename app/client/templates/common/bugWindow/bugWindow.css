@@ -1,13 +1,7 @@
-.bugWindow .modal-title {
-	background-color: #E57373;
-	color: #ffffff;
-}
-
 .bugWindow .modal-title h4 {
 	padding: 10px;
 	font-size: 30px;
 	margin-bottom: 0px;
-	font-family: 'Roboto Condensed', sans-serif;
 }
 
 .bugWindow .modal-body p {
