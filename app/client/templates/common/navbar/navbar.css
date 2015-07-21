@@ -5,11 +5,17 @@
 }
 
 .navbar .nav-wrapper .brand-logo {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: 700;
 	font-size: 1.6rem;
 	padding-left: 20px;
 	padding-right: 20px;
+}
+
+.navbar .nav-wrapper .brand-logo img {
+	height: 36px;
+	margin: 5px;
+	vertical-align: middle;
 }
 
 .navbar #searchbtn {

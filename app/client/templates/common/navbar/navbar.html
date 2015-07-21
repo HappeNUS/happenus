@@ -4,7 +4,12 @@
 	  <div class="navbar-fixed">
 	    <nav class="indigo">
 	      <div class="nav-wrapper">
-	        <a href="{{pathFor route='home'}}" class="brand-logo">HappeNUS</a>
+	        <a href="{{pathFor route='home'}}" class="brand-logo center">
+	        	<img src="/logo-transparentbg.png">
+	        	{{#if rwindow.innerWidth 'gt' 600}}
+		        	HappeNUS
+	        	{{/if}}
+	        </a>
 	        <a href="#" data-activates="sidenav" class="button-collapse"><i class="large material-icons">menu</i></a>
 	        {{#if currentUser}}{{#if rwindow.innerWidth 'gt' 992}}{{> navMenu}}{{/if}}{{/if}}
 	        <ul class="right hide-on-med-and-down">
