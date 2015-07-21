@@ -34,7 +34,6 @@
 .userNotifications .collection .collection-item a.dismiss {
 	font-size: 1.4em;
 	transition: opacity 0.3s;
-	color: red;
 }
 
 .userNotifications .collection .collection-item a.dismiss:hover {
