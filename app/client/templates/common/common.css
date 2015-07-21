@@ -21,6 +21,10 @@ html .btn:hover {
 	background-color: #7986cb;
 }
 
+html .dropdown-content li > a {
+	color: #3f51b5;
+}
+
 /* Only affects screen widths <= 992px */
 @media only screen and (max-width: 992px) {
 	.container {
