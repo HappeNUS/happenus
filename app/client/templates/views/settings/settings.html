@@ -23,10 +23,12 @@
 						<div class="collapsible-header"><i class="material-icons">notifications_active</i>Notifications</div>
 						<div class="collapsible-body">{{> notificationSettings}}</div>
 					</li>
-					<li>
-						<div class="collapsible-header"><i class="material-icons">lock</i>Change password</div>
-						<div class="collapsible-body">{{> passwordChangeSettings}}</div>
-					</li>
+					{{#if currentUser.services.password}}
+						<li>
+							<div class="collapsible-header"><i class="material-icons">lock</i>Change password</div>
+							<div class="collapsible-body">{{> passwordChangeSettings}}</div>
+						</li>
+					{{/if}}
 				</ul>
 			</div>
 		</div>
