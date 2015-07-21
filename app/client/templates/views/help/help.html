@@ -1,36 +1,37 @@
 <!-- Help page when user click nav-menu/help -->
 <template name="help">
 	<div class="help">
-		<ul class="side-nav fixed z-depth-2 hide-on-med-and-down">
-			
-			<!-- This if for the logo and the "help menu" sign -->
-			<div id="sideHeader" class="row">
-				<div class="col s6">
-					<img id="logo" src="http://res.cloudinary.com/adam/image/upload/v1436284467/HappyNUS_k2edy3.png">
+		{{#if rwindow.innerWidth 'gt' 992}}
+			<ul class="side-nav fixed z-depth-2">
+				
+				<!-- This if for the logo and the "help menu" sign -->
+				<div id="sideHeader" class="row">
+					<div class="col s6">
+						<img id="logo" src="http://res.cloudinary.com/adam/image/upload/v1436284467/HappyNUS_k2edy3.png">
+					</div>
+					<div id="title" class="col s6">
+						<span>Help Menu</span>
+					</div>
 				</div>
-				<div id="title" class="col s6">
-					<span>Help Menu</span>
-				</div>
-			</div>
 
-			<!-- This is the side headers -->
-			<li class="divider"></li>
-    	<li><a class="waves-effect waves-grey btn-flat 1" href="#create">Create event</a></li>
-			<li><a class="waves-effect waves-grey btn-flat 2" href="#edit">Edit event</a></li>
-			<li><a class="waves-effect waves-grey btn-flat 3" href="#delete">Delete event</a></li>
-			<li><a class="waves-effect waves-grey btn-flat 4" href="#searchhelp">Search event</a></li>
-			<li><a class="waves-effect waves-grey btn-flat 5" href="#event">Event page</a></li>
-			<li><a class="waves-effect waves-grey btn-flat 6" href="#like">Like event</a></li>
-			<li><a class="waves-effect waves-grey btn-flat 7" href="#subscribe">Subscribe</a></li>
-			<li><a class="waves-effect waves-grey btn-flat 8" href="#userProfile">User Profile</a></li>
-			<li><a class="waves-effect waves-grey btn-flat 9" href="#notifications1">Notifications</a></li>
-			<li><a class="waves-effect waves-grey btn-flat 10" href="#settings1">Settings</a></li>
+				<!-- This is the side headers -->
+				<li class="divider"></li>
+	    	<li><a class="waves-effect waves-grey btn-flat 1" href="#create">Create event</a></li>
+				<li><a class="waves-effect waves-grey btn-flat 2" href="#edit">Edit event</a></li>
+				<li><a class="waves-effect waves-grey btn-flat 3" href="#delete">Delete event</a></li>
+				<li><a class="waves-effect waves-grey btn-flat 4" href="#searchhelp">Search event</a></li>
+				<li><a class="waves-effect waves-grey btn-flat 5" href="#event">Event page</a></li>
+				<li><a class="waves-effect waves-grey btn-flat 6" href="#like">Like event</a></li>
+				<li><a class="waves-effect waves-grey btn-flat 7" href="#subscribe">Subscribe</a></li>
+				<li><a class="waves-effect waves-grey btn-flat 8" href="#userProfile">User Profile</a></li>
+				<li><a class="waves-effect waves-grey btn-flat 9" href="#notifications1">Notifications</a></li>
+				<li><a class="waves-effect waves-grey btn-flat 10" href="#settings1">Settings</a></li>
 
-    	<br><br><br> <!-- This is to allow the last side button header to be seen when there is a need to scroll -->
-  	</ul>
-
+	    	<br><br><br> <!-- This is to allow the last side button header to be seen when there is a need to scroll -->
+	  	</ul>
+  	{{/if}}
 		<div class="row">
-			<div class="col s10 offset-s2">
+			<div class="col s12 l10 offset-l2">
 				<div class="mainContent">
 					<ul>
 
@@ -43,7 +44,7 @@
 						<br id="create"><br>
 						<li>
 							<h3><blockquote>Create event</blockquote></h3>
-							<p>To create an event, simply click on the <a class="btn-floating red"><i class="material-icons">add</i></a> button on the bottom right corner of your screen. If you dont see any button, click on the HappeNUS brand on the navigation bar. This will bring you to the homescreen. Upon clicking on the button, you will be brought to the event creation page like the one shown below.</p>
+							<p>To create an event, simply click on the <a class="btn-floating deep-orange accent-2"><i class="material-icons black-text">add</i></a> button on the bottom right corner of your screen. If you dont see any button, click on the HappeNUS brand on the navigation bar. This will bring you to the homescreen. Upon clicking on the button, you will be brought to the event creation page like the one shown below.</p>
 							<h5 class="pink accent-4">-------------- Use img tag to create an image here -------------</h5>
 							<p>Once in the page, you can fill in all the necessary details of the upcoming event. Make sure to fill in everything with the exception of tags which is optional. HappeNUS allows you to add multiple dates for a single event to save you the trouble from duplicating events with different dates.</p>
 							<p>Once completed, click on the <button class="btn">Submit<i class="material-icons right">send</i></button> to create the event and post it online in HappeNUS. That's it. You're done!</p>
@@ -54,7 +55,7 @@
 							<h3><blockquote>Edit event</blockquote></h3>
 							<p>There are times when unforseen circumstances takes its toll and you have no choice but to change the time, date or even description of the event that you organised. With HappeNUS, editing an event is simple as two clicks!</p>
 							<h5 class="pink accent-4">-------------- Use 2 img tags to create 2 images here -------------</h5>
-							<p>Simply click on<i class="material-icons">more_vert</i>found at the top right corner of the event card as shown in the picture. Then you may click on the <a class="teal-text">Edit event</a> button. From here, you will be brought into the edit event page which is similar with create event page but with all the details intact. You may then choose to modify certain details of the event as you desire.</p>
+							<p>Simply click on<i class="material-icons">more_vert</i>found at the top right corner of the event card as shown in the picture. Then you may click on the <a class="indigo-text">Edit event</a> button. From here, you will be brought into the edit event page which is similar with create event page but with all the details intact. You may then choose to modify certain details of the event as you desire.</p>
 							<p>After doing so, click on the <button class="btn">Submit<i class="material-icons right">send</i></button> to save the changes. If you wish not to overwrite the event with your changes, simply click on the HappeNUS brand on the navigation bar and this will bring you to the homescreen and your changes will not be saved.</p>
 							<p class="red-text"><i class="red-text fa fa-exclamation-triangle"></i> Do note that in order to edit an event, the event must be belong to you. You are not allowed to edit other users' events!</p>
 						</li>
@@ -62,7 +63,7 @@
 						<br id="delete"><br>
 						<li>
 							<h3><blockquote>Delete event</blockquote></h3>
-							<p>For deleting events, the steps are very similar to editing an event. Instead of clicking on the <a class="teal-text">Edit event</a> button, click on the <a class="teal-text">Delete event</a> button. A confirmation pop-up window will appear. Click Yes to delete and click No to cancel.</p>
+							<p>For deleting events, the steps are very similar to editing an event. Instead of clicking on the <a class="indigo-text">Edit event</a> button, click on the <a class="indigo-text">Delete event</a> button. A confirmation pop-up window will appear. Click Yes to delete and click No to cancel.</p>
 							<p class="red-text"><i class="red-text fa fa-exclamation-triangle"></i> Do note that in order to delete an event, the event must be belong to you. Once an event is deleted, there is no way to recover the event. So be careful!</p>
 						</li>
 
@@ -96,7 +97,7 @@
 							<h3><blockquote>Subscribe</blockquote></h3>
 							<p>HappeNUS community gets larger everyday and more often than not, you may come across organisers that have no relation to your interest whatsoever and their events flood your homescreen. This is where the subscription feature comes in handy. In the homescreen, notice that there are two tabs just underneath the navigation bar namely Featured and Subscriptions. All events will be posted in the Featured tab and all events from the organiser you subscribed to will be posted in the Subscriptions tab. This way, you can filter out those unwanted posts by going to the Subscriptions tab</p>
 							<h5 class="pink accent-4">-------------- Use img tag to create an image here -------------</h5>
-							<p>To subscribe, simply click on<i class="material-icons">more_vert</i>found at the top right corner of the event card. Then you may click on the <a class="teal-text">Subscribe</a> button to subscribe to the organiser.</p>
+							<p>To subscribe, simply click on<i class="material-icons">more_vert</i>found at the top right corner of the event card. Then you may click on the <a class="indigo-text">Subscribe</a> button to subscribe to the organiser.</p>
 							<p class="red-text"><i class="red-text fa fa-exclamation-triangle"></i> If you are the owner of the event, clicking<i class="black-text material-icons">more_vert</i>will provide you with other options. You cannot subscribe to yourself!</p>
 						</li>
 
@@ -114,7 +115,7 @@
 							<h3><blockquote>Notifications</blockquote></h3>
 							<p>The notification hub, <i class="material-icons">notifications_none</i> is the command center for all your unread notifications and will remain there until the user click on it.</p>
 							<h5 class="pink accent-4">-------------- Use img tag to create an image here -------------</h5>
-							<p>You can go to your notifications history by clicking <i class="material-icons">notifications_none</i> and click on <span class="blue-grey-text darken-4">View all notifications</span>. You will be brought to your notifications history page. Those whose background is greyish-blue are unread notifications while those in white background have been read. To mark unread notifications as read, simply click on the <i class="red-text material-icons">cancel</i> icon found on the top right corner of the notification panel.</p>
+							<p>You can go to your notifications history by clicking <i class="material-icons">notifications_none</i> and click on <span class="blue-grey-text darken-4">View all notifications</span>. You will be brought to your notifications history page. Those whose background is greyish-blue are unread notifications while those in white background have been read. To mark unread notifications as read, simply click on the <i class="indigo-text material-icons">cancel</i> icon found on the top right corner of the notification panel.</p>
 						</li>
 
 						<br id="settings1"><br>

@@ -42,14 +42,14 @@
 .help .side-nav a.active {
 	padding-left: 60px;
 	font-size: 130%;
-	background-color: #e57373;
+	background-color: #ff8a65;
 	color: white;
 }
 
 .help .side-nav a:hover {
 	padding-left: 60px;
 	font-size: 130%;
-	background-color: #e57373;
+	background-color: #ff8a65;
 	color: white;
 }
 
@@ -77,12 +77,6 @@
 @media only screen and (max-width: 992px) {
 	.help .mainContent {
 		margin-left: 10px;
-	}
-}
-
-/* Only affects screen widths <= 600px */
-@media only screen and (max-width: 600px) {
-	.help .mainContent{
-		margin-left: 10px;
+		margin-right: 10px;
 	}
 }
