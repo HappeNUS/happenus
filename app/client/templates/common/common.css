@@ -33,6 +33,47 @@ html blockquote {
 	border-left: 5px solid #ff6e40;
 }
 
+div.main-content div.col.s12.m8.offset-m2.l4.offset-l4.z-depth-1 {
+	background-color: white;
+	margin-top: 10px;
+}
+
+/* label color */
+.input-field label {
+	color: #757575;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label,
+.input-field input[type=password]:focus + label,
+.input-field textarea:focus:not([readonly]) + label {
+	color: #ff5722;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus,
+.input-field input[type=password]:focus,
+.input-field textarea:focus:not([readonly]) {
+	border-bottom: 1px solid #ff5722;
+	box-shadow: 0 1px 0 0 #ff5722;
+}
+/* valid color */
+.input-field input[type=text].valid,
+.input-field input[type=password].valid,
+.input-field textarea.valid {
+	border-bottom: 1px solid #00c853;
+	box-shadow: 0 1px 0 0 #00c853;
+}
+/* invalid color */
+.input-field input[type=text].invalid,
+.input-field input[type=password].invalid,
+.input-field textarea.invalid {
+	border-bottom: 1px solid #d50000;
+	box-shadow: 0 1px 0 0 #d50000;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+	color: #ff5722;
+}
+
 /* Only affects screen widths <= 992px */
 @media only screen and (max-width: 992px) {
 	.container {
