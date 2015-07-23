@@ -3,6 +3,7 @@
 	top: 64px;
 	overflow: hidden;
 	z-index: -100;
+	background: #202024 url('help-menu-sidebar.png') repeat left top;
 }
 
 .help .side-nav:hover {
@@ -24,6 +25,7 @@
 	padding-top: 10px;
 	padding-left: 20px;
 	padding-right: 0;
+	color: white;
 
 }
 
@@ -37,18 +39,20 @@
 
 .help .side-nav a {
 	padding-left: 40px;
+	text-transform: capitalize;
+	color: white;
 }
 
 .help .side-nav a.active {
 	padding-left: 60px;
-	font-size: 130%;
+	font-size: 140%;
 	background-color: #ff8a65;
 	color: white;
 }
 
 .help .side-nav a:hover {
 	padding-left: 60px;
-	font-size: 130%;
+	font-size: 140%;
 	background-color: #ff8a65;
 	color: white;
 }
