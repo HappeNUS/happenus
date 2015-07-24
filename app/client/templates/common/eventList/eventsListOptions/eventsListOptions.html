@@ -3,22 +3,22 @@
 	<div id="{{pin}}" class="eventsListOptions">
 		<div class="option-buttons">
 			<!-- The sorted by dropdown -->
-			<a class="dropdown-button waves-effect btn-flat" href="#" data-activates="sort-dropdown" style="z-index: 0;">
+			<a class="dropdown-button waves-effect btn-flat 1" href="#" data-activates="sort-dropdown" style="z-index: 0;">
 				Sorted by: {{sortedBy}}
 				<i class="material-icons right">arrow_drop_down</i>
 			</a>
 			<!-- The display dropdown -->
-			<a class="dropdown-button waves-effect btn-flat" href="#" data-activates="display-dropdown" style="z-index: 0;">
+			<a class="dropdown-button waves-effect btn-flat 2" href="#" data-activates="display-dropdown" style="z-index: 0;">
 				Display: {{display}}
 				<i class="material-icons right">arrow_drop_down</i>
 			</a>
 		</div>
-		<ul id="sort-dropdown" class="dropdown-content" style="z-index: 1;">
+		<ul id="sort-dropdown" class="dropdown-content 1" style="z-index: 1;">
 			<li><a id="sort-popu" class="waves-effect waves-light">Popularity</a></li>
 			<li><a id="sort-late" class="waves-effect waves-light">Latest</a></li>
 			<li><a id="sort-soon" class="waves-effect waves-light">Soonest</a></li>
 		</ul>
-		<ul id="display-dropdown" class="dropdown-content" style="z-index: 1;">
+		<ul id="display-dropdown" class="dropdown-content 2" style="z-index: 1;">
 			<li><a id="disp-list" class="waves-effect waves-light"><i class="material-icons">view_list</i> List</a></li>
 			<li><a id="disp-card" class="waves-effect waves-light"><i class="material-icons">view_agenda</i> Cards</a></li>
 		</ul>

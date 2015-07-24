@@ -8,6 +8,12 @@ Template.eventsListOptions.onRendered(function(){
 		belowOrigin: true
 	});
 
+	$(document).mouseup(function(event){
+		if (!$('a.dropdown-button').is(event.target)) {
+			$('a.dropdown-button').removeClass('active');
+		}
+	});
+
 	if (this.data && this.data.pinned) {
 		var options = $('div.eventsListOptions#pinnable');
 		var navHeight = $('div.navbar-fixed nav').height();
@@ -59,4 +65,17 @@ Template.eventsListOptions.events({
 
 	'click #disp-list': function(event, temp) {setDisplay('list')},
 	'click #disp-card': function(event, temp) {setDisplay('cards')},
+	
+	'click .dropdown-button.1': function(event, temp) {
+		$('a.dropdown-button.1').toggleClass('active');
+		if (!$('a.dropdown-button.1').hasClass('active')) {
+			$('.eventsListOptions ul.1').hide();
+		}
+	},
+	'click .dropdown-button.2': function(event, temp) {
+		$('a.dropdown-button.2').toggleClass('active');
+		if (!$('a.dropdown-button.2').hasClass('active')) {
+			$('.eventsListOptions ul.2').hide();
+		}
+	}
 });
