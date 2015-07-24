@@ -4,14 +4,14 @@
 		<div class="menu-dropdown-btn">
 			<ul class="right">
 				<li>
-					<a id="dropdown-btn" href="#" data-activates="dropdown-list">
+					<a id="dropdown-btn" class='dd-btn' href="#">
 						<i class="material-icons">more_vert</i>
 					</a>
 				</li>
 			</ul>
 		</div>
 		<div class="menu-dropdown-list">
-			<ul id="dropdown-list" class="dropdown-content">
+			<ul id="dropdown-list" class="dropdown-content" style="right: 0; top: 64px; z-index: 2;">
 				<li><a href="{{pathFor route='settings'}}" class="view-all">Settings</a></li>
 				<li><a href="{{pathFor route='help'}}" class="view-all">Help</a></li>
 				<li><a id="openBugModal" href="#" class="view-all">Report a bug</a></li>
