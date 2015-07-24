@@ -1,5 +1,6 @@
 .navNotifications #notif-dropdown {
 	width: 25%;
+	top: 64px;
 }
 
 .navNotifications #notif-dropdown a {
@@ -33,6 +34,7 @@
 @media only screen and (max-width: 600px) {
 	.navNotifications #notif-dropdown {
 		width: 60%;
+		top: 56px;
 	}
 
 	.navNotifications #notif-dropdown a {

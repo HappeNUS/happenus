@@ -12,8 +12,6 @@ function showDropdown (dropdown) {
 			duration: 225,
 			start: function(){
 				isDropdownAnimating = true;
-				var ddbtn = dropdown.siblings('a.dd-btn');
-				ddbtn.children('i').html('expand_less');
 			},
 			complete: function(){isDropdownAnimating = false}
 		});
@@ -26,8 +24,6 @@ function hideDropdown (dropdown) {
 			duration: 225,
 			start: function() {
 				isDropdownAnimating = true;
-				var ddbtn = dropdown.siblings('a.dd-btn');
-				ddbtn.children('i').html('more_vert');
 			},
 			complete: function() {
 				dropdown.css('display', 'none');

@@ -4,7 +4,7 @@
 		<div class="navbar-icon">
 			<ul class="right">
 		    <li>
-		    	<a id="notif-dropdown-btn" href="#" data-activates="notif-dropdown">
+		    	<a id="notif-dropdown-btn" href="#" class='dd-btn'>
 		    		{{#if newNotifsCount}}
 		    			<i class="material-icons">notifications</i>
 	    			{{else}}
@@ -15,7 +15,7 @@
 		  </ul>
 		</div>
 		<div class="notif-dropdown">
-			<ul id="notif-dropdown" class="dropdown-content">
+			<ul id="notif-dropdown" class="dropdown-content" style="right: 0; z-index: 2;">
 			  {{#each userNotifs}}
         	{{> notification}}
         	<li class="divider"></li>
