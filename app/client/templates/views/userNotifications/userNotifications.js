@@ -6,8 +6,8 @@ Template.userNotifications.helpers({
 });
 
 Template.userNotifications.events({
-	'click a.dismiss': function (event, template) {
-		// Marks a notification as read
+	'click a': function (event, template) {
+		// Marks a notification as read (both notif click and cancel click)
 		Notifications.read(this._id);
 	}
 });
