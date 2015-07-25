@@ -8,9 +8,17 @@ Template.eventsListOptions.onRendered(function(){
 		belowOrigin: true
 	});
 
-	$(document).mouseup(function(event){
-		if (!$('a.dropdown-button').is(event.target)) {
-			$('a.dropdown-button').removeClass('active');
+	$(document).mouseup(function(event) {
+		var dd1 = $('a.dropdown-button.1');
+		var dd2 = $('a.dropdown-button.2')
+		var target = event.target;
+		if (!(dd1.is(target) || dd2.is(target))) {
+			dd1.removeClass('active');
+			dd2.removeClass('active');
+		} else if (!dd1.is(target)) {
+			dd1.removeClass('active');
+		} else {
+			dd2.removeClass('active');
 		}
 	});
 
