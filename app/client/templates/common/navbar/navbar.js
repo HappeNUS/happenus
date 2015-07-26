@@ -16,3 +16,9 @@ Template.navbar.events({
 		ViewModel.byId('aboutWindow').openModal();
 	}
 });
+
+Template.navbar.helpers ({
+	profile_img_url: function(){
+		return $.cloudinary.url(Meteor.user().profile.img);
+	}
+});

@@ -41,17 +41,21 @@
 	          {{else}}
 	            {{#if currentUser}}
 	              {{#with currentUser}}
-	                <li><a href="{{pathFor route='profile'}}">{{display_name}}</a></li>
+	                <li class="grey darken-4 z-depth-2">
+	                	<img src="{{profile_img_url}}" class="circle responsive-img" style="height: 64px; vertical-align: middle; margin-left: 15px; margin-top: 10px;">
+	                	<a class=" white-text material-icons right" href="" style="padding: 0;">close</a>
+	                	<a class="white-text" href="{{pathFor route='profile'}}">{{display_name}}</a>
+	                </li>
 	              {{/with}}
 	            {{/if}}
 	          {{/if}}
-	          <li>{{> atNavButton}}</li>
 	          {{#if currentUser}}
 		          <li><a href="{{pathFor route='settings'}}">Settings</a></li>
 							<li><a href="{{pathFor route='help'}}">Help</a></li>
 	          {{/if}}
 						<li><a id="openBugModal" href="#">Report a bug</a></li>
 						<li><a id="openAboutModal" href="#">About</a></li>
+						<li>{{> atNavButton}}</li>
 	        </ul>
 	      </div>
 	    </nav>
