@@ -1,6 +1,8 @@
 .aboutWindow .modal-title h4 {
+	font-family: 'Roboto Condensed', sans-serif;
 	padding: 10px;
-	font-size: 30px;
+	font-size: 2rem;
+	font-weight: 500;
 	margin-bottom: 0px;
 }
 
