@@ -37,13 +37,13 @@ Template.profile.events({
 		if (isSubscribed()) { // Run the unsubscribe method on the server
 			Meteor.call('unsub', userId, function(err){
 				if (!err) {
-					Materialize.toast('You have successfully unsubscribed to ' + displayName, 5000);					
+					Materialize.toast('Unsubscribed from ' + displayName, 5000);					
 				}
 			});
 		} else { // Run the subscribe method on the server
 			Meteor.call('sub', userId, function(err){
 				if (!err) {
-					Materialize.toast('You have successfully subscribed to ' + displayName, 5000);									
+					Materialize.toast('Subscribed to ' + displayName, 5000);									
 				}
 			});
 		}
