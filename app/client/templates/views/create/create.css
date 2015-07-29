@@ -54,3 +54,7 @@
 .create div.main-details {
 	overflow: visible;
 }
+
+.create .main-details .desc #editor {
+	min-height: 132px;
+}
