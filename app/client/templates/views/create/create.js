@@ -187,16 +187,16 @@ function editEvent (details, template) {
 
 function showToasts (nameVal, descVal, imgVal, dateLength) {
 	if (!nameVal) {
-		showToast('Please give your event a name');
+		showToast('Please enter the event name');
 	}
 	if (!descVal) {
-		showToast('Please provide a short description for your event');
+		showToast('Please enter the event description');
 	}
 	if (!imgVal) {
-		showToast('Please give your event a banner image');
+		showToast('Please upload an event banner');
 	}
 	if (!dateLength) {
-		showToast('Please add at least one date to your event');
+		showToast('Please include the event date(s)');
 	}
 }
 
@@ -277,27 +277,7 @@ Template.create.events({
 			}
 			
 		} else {
-			var message = 'Please fill the following fields: ';
-			var emptyFields = [];
-			if (!fromDateSelect) {
-				emptyFields.push('From Date');
-			}
-			if (!fromTimeValue) {
-				emptyFields.push('From Time');
-			}
-			if (!toDateSelect) {
-				emptyFields.push('To Date');
-			}
-			if (!toTimeValue) {
-				emptyFields.push('To Time');
-			}
-			for (var i = 0; i < emptyFields.length; i++) {
-				message = message.concat(emptyFields[i]);
-				if (i !== emptyFields.length - 1) {
-					message = message.concat(', ');
-				}
-			}
-			showToast(message);
+			showToast('Missing portion(s) of the event date');
 		}
 	},
 	'click .rem-date-btn': function (event, instance) {
