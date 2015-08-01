@@ -225,8 +225,8 @@ Template.create.events({
 		var descVal = quillEditor.getText().trim();
 		var imgVal = banner.get();
 
-		if (descVal.length > 200) {
-			var shortDescVal = quillEditor.getText(0, 200).trim() + "...";
+		if (descVal.length > 150) {
+			var shortDescVal = quillEditor.getText(0, 150).trim() + "...";
 		} else {
 			var shortDescVal = descVal;
 		}

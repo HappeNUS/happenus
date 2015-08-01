@@ -82,12 +82,22 @@
   padding: 0;
 }
 
+.eventCard .card .card-reveal {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 .eventCard .card .card-reveal .event-desc {
 	display: block;
 }
 
+.eventCard .card .card-reveal .eventdate {
+	color: #ff5722;
+}
+
 .eventCard .card .card-reveal .btn.view-more {
 	margin: 1em 0;
+	margin-bottom: 0;
 }
 
 .eventCard .card .eventDropdown-container a i {
