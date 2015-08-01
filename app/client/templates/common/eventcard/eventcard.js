@@ -1,3 +1,13 @@
+var DATE_FORMAT = 'DD/MM/YYYY';
+
+function formatDate(date) {
+	return moment(date).format(DATE_FORMAT);
+}
+
+function formatDateRange (from, to) {
+	return formatDate(from) + ' - ' + formatDate(to);
+}
+
 Template.eventCard.onRendered(function(){
 	var url = 'url('.concat($.cloudinary.url(this.data.img.card)).concat(')');
 	this.$('.card-image').css('background-image', url);
@@ -23,6 +33,20 @@ Template.eventCard.helpers({
 	},
 	hasTags: function() {
 		return this.tags.length !== 0;
+	},
+	dateTranslation: function () {
+		var dates = this.eventDates;
+		var current = new Date();
+		for (var i = 0; i < dates.length; i++) {
+			var from = dates[i].from, to = dates[i].to;
+			if (from < current && to > current) {
+				return 'Ongoing: ' + formatDateRange(from, to);
+			} else if (from > current) {
+				return 'Upcoming: ' + formatDateRange(from, to);
+			}
+		}
+		var last = dates[dates.length - 1];
+		return 'Last event: ' + formatDateRange(last.from, last.to);
 	}
 });
 
