@@ -26,6 +26,7 @@ Meteor.methods({
 			userId: Meteor.userId(),
 			name: details.name,
 			desc: details.desc,
+			shortDesc: details.shortDesc,
 			img: img_details,
 			eventDates: details.eventDates,
 			dateCreated: new Date(),

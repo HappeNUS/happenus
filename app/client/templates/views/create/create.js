@@ -225,11 +225,18 @@ Template.create.events({
 		var descVal = quillEditor.getText().trim();
 		var imgVal = banner.get();
 
+		if (descVal.length > 200) {
+			var shortDescVal = quillEditor.getText(0, 200).trim() + "...";
+		} else {
+			var shortDescVal = descVal;
+		}
+
 		if (nameVal && descVal && imgVal && getDates().length) {
 			descVal = quillEditor.getHTML().trim();
 			details = {
 				name: nameVal,
 				desc: descVal,
+				shortDesc: shortDescVal,
 				eventDates: getDates(),
 				tags: getTags()
 			};
