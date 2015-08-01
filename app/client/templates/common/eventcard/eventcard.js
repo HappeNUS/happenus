@@ -15,6 +15,12 @@ Template.eventCard.onRendered(function(){
 	card.imagesLoaded().done(function(){
 		card.find('.card-image.invisible').removeClass('invisible');
 	});
+	$(document).mouseup(function(event) {
+		var target = $('.card-reveal');
+		if (!target.is(event.target)) {
+			$('.trigger').trigger('click');
+		}
+	});
 });
 
 function isEventLiked (likes) {
@@ -60,8 +66,5 @@ Template.eventCard.events({
 		} else {
 			Meteor.call('likeEvent', this._id);
 		}
-	},
-	'click .activator': function(event, template) {
-		$('.trigger').trigger('click');
 	}
 });
