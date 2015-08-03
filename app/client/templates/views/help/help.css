@@ -1,13 +1,9 @@
 /* CSS for side nav */
 .help .side-nav {
 	top: 64px;
-	overflow: hidden;
+	overflow: scroll;
 	z-index: -100;
 	background: #202024 url('help-menu-sidebar.png') repeat left top;
-}
-
-.help .side-nav:hover {
-	overflow: hidden; /* Change to auto if got more menu items */
 }
 
 .help #logo {
