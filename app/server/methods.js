@@ -133,5 +133,29 @@ Meteor.methods({
 		if (comment && comment.userId === Meteor.userId() && !comment.deleted) {
 			Comments.update({_id: commentId}, {$set: {deleted: true, data: '', userId: ''}});
 		}
+	},
+	'deleteAccount': function() {
+		var userId = this.userId;
+		if (userId) {
+			// Find events owned by user and delete all comments of that event
+			Events.direct.find({userId: userId}).forEach(function(event){
+				Comments.direct.remove({eventId: event._id});
+			});
+
+			// Delete events owned by user
+			Events.direct.remove({userId: userId});
+
+			// Delete comments by user
+			Comments.direct.find({userId: userId}).forEach(function(comment){
+				Meteor.call('deleteComment', comment._id);
+			});
+
+			// Delete subscriptions involving user
+			Subs.remove({subberId: userId});
+			Subs.remove({subbedId: userId});
+
+			// Delete actual account
+			Meteor.users.direct.remove({_id: userId});
+		}
 	}
 });
