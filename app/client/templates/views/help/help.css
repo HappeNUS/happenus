@@ -1,7 +1,8 @@
 /* CSS for side nav */
 .help .side-nav {
 	top: 64px;
-	overflow: scroll;
+	height: 92.5%;
+	overflow-y: scroll;
 	z-index: -100;
 	background: #202024 url('help-menu-sidebar.png') repeat left top;
 }
