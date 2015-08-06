@@ -7,6 +7,14 @@
 	font-weight: 700;
 }
 
+.userNotifications .collection .collection-header h4 span {
+	font-weight: 400;
+	font-size: 13px;
+	font-family: 'Roboto', sans-serif;
+	color: #303f9f;
+	cursor: pointer;
+}
+
 .userNotifications .collection .collection-item {
 	border-bottom: 1px solid #E0E0E0;
 }

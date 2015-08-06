@@ -9,5 +9,8 @@ Template.userNotifications.events({
 	'click a': function (event, template) {
 		// Marks a notification as read (both notif click and cancel click)
 		Notifications.read(this._id);
+	},
+	'click #markread': function (event, template) {
+		Notifications.readAll();
 	}
 });
